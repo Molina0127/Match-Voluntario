@@ -8,7 +8,6 @@
     @vite(
         [
         'resources/css/app.css', 'resources/js/app.js', 
-        'resources/css/style.css',
         ])
 
 
@@ -23,7 +22,7 @@
         <!-- header start -->
         <header class="header">
             <div class="container">
-                <div class="header-main">
+                <div class="header-main d-flex justify-content-between align-items-center">
                     <div class="header-logo">
                         <a href="{{ route('home')}}"><span>match</span>voluntario</a>
                     </div>
@@ -37,9 +36,9 @@
                         </button>
                         <ul class="menu">
                             <li class="menu-item"><a href="{{ route('home') }}">Home</a></li>
-                            <li class="menu-item"><a href="#"></a>Ongs</li>
-                            <li class="menu-item"><a href="#"></a>Testemunhos</li>
-                            <li class="menu-item"><a href="#"></a>Contato</li>
+                            <li class="menu-item"><a href="#">Ongs</a></li>
+                            <li class="menu-item"><a href="#">Testemunhos</a></li>
+                            <li class="menu-item"><a href="#">Contato</a></li>
                         </ul>
                     </nav>
                 </div>
