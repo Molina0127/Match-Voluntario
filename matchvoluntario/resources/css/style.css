@@ -1,0 +1,105 @@
+/* -------------------------
+Tabela de Conteúdos 
+
+01. = google fonts
+02. = variáveis
+03. = variáveis sobrescritas para modo escuro
+04. = base
+05. = box
+06. = customizar classes bootstrap
+07. = keyframes de animação 
+08. = section - padding, title 
+09. = buttons
+10. = página de carregamento 
+11. = imagem circular
+12. = forms
+13. = vídeo modal
+14. = paginação
+15. = breadcrumb
+16. = tabs
+17. = bubble animação 
+18. = estilo de switcher
+19. = header
+20. = footer
+21. = banner section
+22. = fun facts section 
+23. = cursos section
+24. = testemunhos section
+25. = bai section
+26. = curso detalhes section
+27. = contato section
+---------------------------*/
+
+/* 01. = google fonts */
+
+/* 02. = variáveis */
+:root {
+    --orange: hsl(36, 80%, 50%);
+    --white: hsl(0, 0%, 100%);
+    --WHITE: hsl(0, 0%, 100%);
+    --BLACK: hsl(0, 0%, 0%);
+    --black-90: hsl(0, 0%, 10%);
+    --black-70: hsl(0, 0%, 30%);
+    --black-alpha-40: hsla(0, 0%, 0%, 0.4);
+    --yellow-light: hsl(44, 95%, 83%);
+    --green-light: hsl(158, 68%, 75%);
+    --red-light: hsl(0, 84%, 80%);
+    --orange-light: hsl(22, 85%, 80%);
+    --select-box-bg-color: hsl(0, 0%, 100%);
+    --border-color-1: hsl(0, 0%, 90%);
+}
+
+
+/* 03. = variáveis sobrescritas para modo escuro */
+
+/* 04. = base */
+body {
+    background-color: var(--orange-light);
+}
+
+
+/* 05. = box */
+
+/* 06. = customizar classes bootstrap */
+
+/* 07. = keyframes de animação  */
+
+/* 08. = section - padding, title  */
+
+/* 09. = buttons */
+
+/* 10. = página de carregamento  */
+
+/* 11. = imagem circular */
+
+/* 12. = forms */
+
+/* 13. = vídeo modal */
+
+/* 14. = paginação */
+
+/* 15. = breadcrumb */
+
+/* 16. = tabs */
+
+/* 17. = bubble animação  */
+
+/* 18. = estilo de switcher */
+
+/* 19. = header */
+
+/* 20. = footer */
+
+/* 21. = banner section */
+
+/* 22. = fun facts section  */
+
+/* 23. = cursos section */
+
+/* 24. = testemunhos section */
+
+/* 25. = bai section */
+
+/* 26. = curso detalhes section */
+
+/* 27. = contato section */

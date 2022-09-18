@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/font-awesome.css'])
+    @vite(
+        [
+        'resources/css/app.css', 'resources/js/app.js', 
+        'resources/css/style.css',
+        ])
 
 
     <title>Document</title>
