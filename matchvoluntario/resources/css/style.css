@@ -89,11 +89,17 @@ ul {
     background-color: var(--main-color);
 }
 
-
-
 /* 05. = box */
 
 /* 06. = customizar classes bootstrap */
+.container {
+    --bs-gutter-x: 15px;
+    max-width: 1140px;
+}
+
+.row {
+    --bs-gutter-x: 30px;
+}
 
 /* 07. = keyframes de animação  */
 
@@ -203,12 +209,14 @@ ul {
     display: none;
 }
 
-
-
-
 /* 20. = footer */
 
 /* 21. = banner section */
+.banner-section {
+    padding: 80px 0;
+    min-height: 680px;
+}
+
 
 /* 22. = fun facts section  */
 

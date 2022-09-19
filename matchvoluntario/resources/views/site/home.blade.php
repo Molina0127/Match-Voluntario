@@ -56,10 +56,10 @@
         <!-- header end -->
 
         <!-- banner section start -->
-        <section class="banner-section">
-            <div class="container">
+        <section class="banner-section d-flex align-items-center">
+            <div class="container bg-info">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 bg-primary">
                         <div class="banner-text">
                             <h2>Encontre os melhores projetos e os melhores voluntários em um só lugar</h2>
                             <h1>O melhor Website do Voluntariado!</h1>
@@ -74,7 +74,7 @@
                             <div class="circular-img">
                                 <div class="circular-img-inner">
                                     <div class="circular-img-circle"></div>
-                                    
+                                    <img src="{{ Vite::asset('resources/img/Foto-banner-removebg-preview-reduced-200.png') }}" alt="Banner Image">
                                 </div>
                             </div>
                         </div>
