@@ -57,12 +57,12 @@
 
         <!-- banner section start -->
         <section class="banner-section d-flex align-items-center">
-            <div class="container bg-info">
-                <div class="row">
-                    <div class="col-md-6 bg-primary">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
                         <div class="banner-text">
-                            <h2>Encontre os melhores projetos e os melhores voluntários em um só lugar</h2>
-                            <h1>O melhor Website do Voluntariado!</h1>
+                            <h2 class="mb-3">Encontre os melhores projetos e os melhores voluntários em um só lugar</h2>
+                            <h1 class="mb-3 text-capitalize">O melhor Website do Voluntariado!</h1>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                             Laborum repellat ut qui veniam quibusdam tempora?
                             </p>
@@ -83,6 +83,51 @@
             </div>
         </section>
         <!-- banner section end -->
+
+        <!-- fun facts section start -->
+        <section class="fun-facts-section">
+            <div class="container">
+                <div class="box py-2">
+                    <div class="row text-center">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="fun-facts-item">
+                                <h2 class="style-1">800+</h2>
+                                <p>Números de Voluntários</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="fun-facts-item">
+                                <h2 class="style-2">200+</h2>
+                                <p>Ongs Cadastradas</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="fun-facts-item">
+                                <h2 class="style-3">10+</h2>
+                                <p>Categorias</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="fun-facts-item">
+                                <h2 class="style-4">30+</h2>
+                                <p>Matchs</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- fun facts section end -->
+
+        <!-- ongs section start -->
+
+        <!-- ongs section end -->
+
+        <br><br>
 
     </div>
     <!-- main wrapper end-->
