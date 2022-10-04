@@ -124,8 +124,186 @@
         <!-- fun facts section end -->
 
         <!-- ongs section start -->
+        <section class="courses-section section-padding">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="section-title text-center">
+                            <h2 class="title">Ongs</h2>
+                            <p class="sub-title">Encontre a Ong certa para você</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <!-- courses item start -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="courses-item">
+                            <a href="#" class="link">
+                                <div class="courses-item-inner">
+                                    <div class="img-box">
+                                        <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
+                                    </div>
+                                    <h3 class="title">Ong de ajuda aos indígenas</h3>
+                                    <div class="instructor">
+                                        <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
+                                        <span class="instructor-name">Guilherme</span>
+                                    </div>
+                                    <!-- <div class="rating"></div> -->
+                                    <div class="price">$ 49</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- courses item end -->
+                
+                    <!-- courses item start -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="courses-item">
+                            <a href="#" class="link">
+                                <div class="courses-item-inner">
+                                    <div class="img-box">
+                                        <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
+                                    </div>
+                                    <h3 class="title">Ong de ajuda aos indígenas</h3>
+                                    <div class="instructor">
+                                        <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
+                                        <span class="instructor-name">Luís</span>
+                                    </div>
+                                    <!-- <div class="rating"></div> -->
+                                    <div class="price">$ 49</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- courses item end -->
+
+                    <!-- courses item start -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="courses-item">
+                            <a href="#" class="link">
+                                <div class="courses-item-inner">
+                                    <div class="img-box">
+                                        <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
+                                    </div>
+                                    <h3 class="title">Ong de ajuda aos indígenas</h3>
+                                    <div class="instructor">
+                                        <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
+                                        <span class="instructor-name">Murilo</span>
+                                    </div>
+                                    <!-- <div class="rating"></div> -->
+                                    <div class="price">$ 49</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- courses item end -->
+
+                    <!-- courses item start -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="courses-item">
+                            <a href="#" class="link">
+                                <div class="courses-item-inner">
+                                    <div class="img-box">
+                                        <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
+                                    </div>
+                                    <h3 class="title">Qualificação de Mulheres</h3>
+                                    <div class="instructor">
+                                        <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
+                                        <span class="instructor-name">Katheleen</span>
+                                    </div>
+                                    <!-- <div class="rating"></div> -->
+                                    <div class="price">$ 49</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- courses item end -->
+                
+                    <div class="row">
+                    <div class="col-12 text-center mt-3">
+                        <a href="#" class="btn btn-theme">Veja Todas as Ongs</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
 
         <!-- ongs section end -->
+
+        <!-- testemunhos section start -->
+            <div class="testimonials-section section-padding">
+                <div class="decoration-circles">
+                    <div class="decoration-circles-item"></div>
+                    <div class="decoration-circles-item"></div>
+                    <div class="decoration-circles-item"></div>
+                    <div class="decoration-circles-item"></div>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="section-title text-center">
+                                <h2 class="title">Voluntários Feedback</h2>
+                                <p class="sub-title">Os que os voluntários dizem</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 col-lg-6">
+                            <div class="img-box rounded-circle position-relative">
+                                <img src="{{ Vite::asset('resources/img/Foto-com-fundo-removido-quadrangular2.png') }}" class="w-100 js-testimonial-img-rounded-circle" alt="Imagem de Testemunho">
+                            </div>
+
+                            <div id="carouselOne" class="carousel slide text-center" data-bs-ride="carousel">
+                                <div class="carousel-inner mb-4">
+                                    <div class="carousel-item active" data-js-testimonial-img="{{ Vite::asset('resources/img/Foto-com-fundo-removido-quadrangular.png') }}">
+                                        <div class="testimonials-item">
+                                            <p class="text-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, 
+                                            sed consequuntur maiores deserunt dolores atque minima temporibus numquam. 
+                                            Voluptatibus, neque!</p>
+                                            <h3>Guilherme Molina</h3>
+                                            <p class="text-2">Web Developer</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" data-js-testimonial-img="{{ Vite::asset('resources/img/Foto-com-fundo-removido-quadrangular2.png') }}">
+                                        <div class="testimonials-item">
+                                                <p class="text-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, 
+                                                sed consequuntur maiores deserunt dolores atque minima temporibus numquam. 
+                                                Voluptatibus, neque!</p>
+                                                <h3>Guilherme Molina</h3>
+                                                <p class="text-2">Web Developer</p>
+                                            </div>
+                                        </div>
+                                    <div class="carousel-item" data-js-testimonial-img="{{ Vite::asset('resources/img/Foto-de-perfil-linkedin-recortada.jpeg') }}">
+                                        <div class="testimonials-item">
+                                            <p class="text-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, 
+                                            sed consequuntur maiores deserunt dolores atque minima temporibus numquam. 
+                                            Voluptatibus, neque!</p>
+                                            <h3>Luís Miguel</h3>
+                                            <p class="text-2">Web Developer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselOne" data-bs-slide="prev">
+                                    <i class="fas fa-arrow-left"></i>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselOne" data-bs-slide="next">
+                                    <i class="fas fa-arrow-right"></i>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- testemunhos section end -->
+
+    </div>
+                
+                
 
         <br><br>
 
