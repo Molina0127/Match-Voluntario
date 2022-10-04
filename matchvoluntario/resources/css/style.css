@@ -298,6 +298,70 @@ h3 {
 }
 
 /* 20. = footer */
+.footer-top {
+    padding: 50px 0 20px;
+    border-top: 1px solid var(--border-color-2);
+}
+
+.footer-item {
+    margin: 0 0 30px;
+}
+
+.footer-item h3 {
+    text-transform: capitalize;
+    margin: 0 0 20px;
+}
+
+.footer-item .footer-logo {
+    color: var(--black-70);
+    text-transform: uppercase;
+}
+
+.footer-item .footer-logo span {
+    color: var(--main-color);
+}
+
+.footer-item ul li:not(:last-child){
+    margin-bottom: 8px;
+}
+
+.footer-item ul a {
+    text-transform: capitalize;
+    color: var(--black-70);
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.footer-item ul a:hover {
+    color: var(--main-color);
+}
+
+.footer-item ul a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 1px;
+    background-color: var(--main-color);
+    transition: width 0.3s ease;
+}
+
+.footer-item ul a:hover::before {
+    width: 100%;    
+}
+
+.footer-item ul a .social-icon {
+    margin-right: 5px;
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--border-color-2);
+}
+
+.footer-bottom p {
+    font-size: 14px;
+}
 
 /* 21. = banner section */
 .banner-section {
@@ -462,8 +526,79 @@ h3 {
     margin: 0 4px;
 }
 
+.testimonials-section .decoration-circles-item {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.4;
+}
+
+.testimonials-section .decoration-circles-item:nth-child(1){
+    left: 10%;
+    top: 20%;
+    height: 30px;
+    width: 30px;
+    background-color: var(--yellow-light);
+}
+
+.testimonials-section .decoration-circles-item:nth-child(2){
+    left: 40%;
+    top: 40%;
+    height: 50px;
+    width: 50px;
+    background-color: var(--green-light);
+}
+
+.testimonials-section .decoration-circles-item:nth-child(3){
+    left: 70%;
+    top: 70%;
+    height: 50px;
+    width: 50px;
+    background-color: var(--red-light);
+}
+
+.testimonials-section .decoration-circles-item:nth-child(4){
+    left: 20%;
+    top: 50%;
+    height: 20px;
+    width: 20px;
+    background-color: var(--red-light);
+}
+
+.testimonials-section .decoration-imgs-item {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.4;
+}
+
+.testimonials-section .decoration-imgs-item:nth-child(1) {
+    height: 60px;
+    width: 60px;
+    left: 20%;
+    top: 30%;
+    background-color: var(--yellow-light);
+}
+
+.testimonials-section .decoration-imgs-item:nth-child(2) {
+    height: 80px;
+    width: 80px;
+    left: 90%;
+    top: 40%;
+    background-color: var(--red-light);
+}
+
+.testimonials-section .decoration-imgs-item:nth-child(3) {
+    height: 40px;
+    width: 40px;
+    left: 10%;
+    top: 60%;
+    background-color: var(--green-light);
+}
 
 /* 25. = bai section */
+.bai-section .circular-img-circle {
+    background-color: var(--yellow-light);
+}
+
 
 /* 26. = curso detalhes section */
 
