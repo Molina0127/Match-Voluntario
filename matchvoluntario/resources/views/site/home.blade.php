@@ -8,7 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 
-    <title>Document</title>
+    <title>Home</title>
 </head>
 
 <body>
@@ -36,18 +36,18 @@
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" class="js-toggle-sub-menu">Ongs<i class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">
-                                    <li class="sub-menu-item"><a href="#">Ongs</a></li>
-                                    <li class="sub-menu-item"><a href="#">Detalhes Ongs</a></li>
+                                    <li class="sub-menu-item"><a href="{{ route('ongs') }}">Ongs</a></li>
+                                    <li class="sub-menu-item"><a href="{{ route('ongsDetails') }}">Detalhes Ongs</a></li>
                                 </ul>
                             </li>
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" class="js-toggle-sub-menu">Pages<i class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">
-                                    <li class="sub-menu-item"><a href="#">Login</a></li>
-                                    <li class="sub-menu-item"><a href="#">Cadastre-se</a></li>
+                                    <li class="sub-menu-item"><a href="{{ route('login') }}">Login</a></li>
+                                    <li class="sub-menu-item"><a href="{{ route('signup') }}">Cadastre-se</a></li>
                                 </ul>
                             </li>
-                            <li class="menu-item"><a href="#">Contato</a></li>
+                            <li class="menu-item"><a href="{{ route('contact') }}">Contato</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -395,7 +395,7 @@
             </div>
         </footer>
         <!-- footer end -->
-
+        
 
     </div>
                 
