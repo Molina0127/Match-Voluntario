@@ -19,8 +19,8 @@ Route::get('/', function () {
 })->name('home');
 
 //Ongs Controller
-Route::get('/ongs_details', 'App\Http\Controllers\OngsController@show')->name('ongsDetails');
 Route::get('/ongs', 'App\Http\Controllers\OngsController@index')->name('ongs');
+Route::get('/ongs_details', 'App\Http\Controllers\OngsController@show')->name('ongsDetails');
 
 //Login Controller
 Route::get('/login', 'App\Http\Controllers\LoginController@index')->name('login');
