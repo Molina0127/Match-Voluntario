@@ -173,6 +173,11 @@ h3 {
     width: 100%;
 }
 
+.btn-form {
+    height: 48px;
+
+}
+
 /* 10. = página de carregamento  */
 
 /* 11. = imagem circular */
@@ -204,6 +209,41 @@ h3 {
 }
 
 /* 12. = forms */
+.form-title {
+    font-size: 24px;
+    margin: 0 0 30px;
+    font-weight: 600;
+}
+
+.form-control::placeholder{
+    color: var(--black-70);
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-control {
+    height: 48px;
+    border-color: var(--border-color-1);
+    color: var(--black-90);
+    background-color: transparent;
+}
+
+textarea.form-control {
+    height: 120px;
+    resize: none;
+}
+
+/* signup */
+.form-sub-group {
+    display: flex;
+    column-gap: 20px;
+    margin-bottom: 30px;
+}
+
+
 
 /* 13. = vídeo modal */
 .video-modal .btn-close {
@@ -775,3 +815,22 @@ h3 {
 }
 
 /* 27. = contato section */
+.contact-item {
+    position: relative;
+    padding-left: 55px;
+    margin-bottom: 40px;
+}
+
+.contact-item .icon-box {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background-color: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    color: var(--WHITE);
+}

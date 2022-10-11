@@ -72,7 +72,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-7 col-lg-6 col-xl-5">
                     <div class="login-form box">
-                        <h2 class="form-title">Login</h2>
+                        <h2 class="form-title text-center">Login</h2>
                         <form action="">
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Email">
@@ -82,7 +82,7 @@
                                 <input type="password" class="form-control" placeholder="Senha">
                             </div>
                             <button type="submit" class="btn btn-theme btn-block btn-form">log in</button>
-                            <p>Não possui conta? <a href="{{ route('signup') }}">Cadastre-se</a></p>
+                            <p class="text-center mt-4 mb-0">Não possui conta ? <a href="{{ route('signup') }}">Cadastre-se</a></p>
                         </form>
                         
                     </div>

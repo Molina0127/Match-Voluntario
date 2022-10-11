@@ -53,6 +53,73 @@
         </header>
     <!-- header end -->
 
+    <!-- breadcrumb start -->
+    <div class="breadcrumb-nav">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Contato</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- breadcrumb end -->
+
+    <!-- contact section start -->
+    <div class="contact-section section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="section-title">
+                        <div class="sub-title">
+                            Entre em contato
+                        </div>
+                    </div>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                            <h3>Endereço</h3>
+                            <p>Endereço</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="icon-box"><i class="fas fa-phone"></i></div>
+                            <h3>Telefone</h3>
+                            <p>(XX)90009-0987</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                            <h3>Email</h3>
+                            <p>(XX)90009-0987</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact-form box">
+                        <h2 class="form-title text-center">
+                            Deixe uma mensagem
+                        </h2>
+                        <form action="">
+                            <div class="form-group">
+                               <input type="text" class="form-control" placeholder="Nome">
+                            </div>
+                            <div class="form-group">
+                               <input type="text" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                               <input type="text" class="form-control" placeholder="Telefone">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Mensagem"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-block btn-theme btn-form">Enviar Mensagem</button>                        
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact section end -->
 
     <!-- footer start -->
 

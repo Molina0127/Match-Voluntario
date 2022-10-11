@@ -223,7 +223,7 @@
                 
                     <div class="row">
                     <div class="col-12 text-center mt-3">
-                        <a href="#" class="btn btn-theme">Veja Todas as Ongs</a>
+                        <a href="{{ route('ongs') }}" class="btn btn-theme">Veja Todas as Ongs</a>
                     </div>
                 </div>
 
@@ -329,7 +329,7 @@
                                             <h2 class="title">torne-se um voluntário</h2>
                                             <p class="sub-title">Torne-se Um Voluntário</p>
                                         </div>
-                                        <a href="#" class="btn btn-theme">Inscreva-se</a>
+                                        <a href="{{ route('signup') }}" class="btn btn-theme">Inscreva-se</a>
                                     </div>
                                 </div>
                             </div>

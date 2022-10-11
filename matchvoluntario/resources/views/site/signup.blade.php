@@ -53,6 +53,69 @@
         </header>
     <!-- header end -->
 
+    <!-- breadcrumb start -->
+    <div class="breadcrumb-nav">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Cadastre-se</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- breadcrumb end -->
+
+
+    <!-- signup section start -->
+    <section class="signup-section section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 col-lg-10">
+
+                    <!-- col-md-7 col-lg-6 col-xl-5 -->
+                    <div class="signup-form box">
+                        <h2 class="form-title text-center">Cadastre-se</h2>
+                        <form action="">
+                            <div class="form-group">
+                                
+                                <div class="form-sub-group">
+                                    <input type="text" class="form-control" placeholder="Nome">
+                                    <input type="text" class="form-control" placeholder="Sobrenome">
+                                </div>                                
+
+                                <input type="email" class="form-control" placeholder="Email">
+                
+                            </div>
+
+                            <div class="form-group">    
+                                <!-- <div class="d-flex mb-2 justify-content-end"><a href="#">Esqueceu sua senha?</a></div> -->
+                                <div class="form-sub-group">
+                                    <input type="password" class="form-control" placeholder="Senha">
+                                    <input type="password" class="form-control" placeholder="Confirmar Senha">
+                                </div>
+                            </div>
+
+                            <!-- <div class="form-group">    
+                                <div class="d-flex mb-2 justify-content-end"><a href="#">Esqueceu sua senha?</a></div>
+                                <div class="form-sub-group">
+                                    <input type="text" class="form-control" placeholder="CEP">
+                                    <input type="text" class="form-control" placeholder="Cidade">
+                                    <input type="text" class="form-control" placeholder="UF">
+                                </div>
+                            </div> -->
+
+                            <button type="submit" class="btn btn-theme btn-block btn-form">Avançar</button>
+                            <!-- <p class="text-center mt-4 mb-0">Não possui conta ? <a href="{{ route('signup') }}">Cadastre-se</a></p> -->
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- signup section end -->
+
 
     <!-- footer start -->
 
