@@ -1339,6 +1339,7 @@
             "time": "2022-09-09T18:20:35+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "laravelcollective/html",
             "version": "v6.3.0",
             "source": {
@@ -1462,6 +1463,8 @@
             "time": "2022-09-15T22:23:57+00:00"
         },
         {
+=======
+>>>>>>> 0bca990216d0143e6e24ea5b3bba7b1a12c9e518
             "name": "league/commonmark",
             "version": "2.3.5",
             "source": {
