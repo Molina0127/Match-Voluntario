@@ -21,7 +21,7 @@ class UsuariosController extends Controller
 
     public function create() {
         $categorias = Categoria::orderBy('categoria_name', 'ASC')->pluck('categoria_name', 'id');
-        return view('site.usuarios.signup', compact('categorias'));
+        return view('site.ongs.signupOngs', compact('categorias'));
     }
 
     public function store(Request $request){

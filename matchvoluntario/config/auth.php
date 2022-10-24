@@ -66,15 +66,11 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-<<<<<<< HEAD
             'model' => App\Models\Usuario::class,
         ],
         'ongs' => [
             'driver' => 'eloquent',
             'model' => App\Models\Ong::class,
-=======
-            'model' => App\Models\User::class,
->>>>>>> 0bca990216d0143e6e24ea5b3bba7b1a12c9e518
         ],
 
         // 'users' => [
