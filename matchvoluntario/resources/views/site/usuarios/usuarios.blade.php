@@ -39,12 +39,12 @@
                                 </ul>
                             </li>
                             <li class="menu-item menu-item-has-children">
-                                <a href="#" class="js-toggle-sub-menu">{{Auth::user()->nome}}<i class="fas fa-chevron-down"></i></a>
+                                <a href="#" class="js-toggle-sub-menu">{{auth()->guard('ong')->user()->ong_name}}<i class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">                 
                                        <li class="sub-menu-item">
                                         <div class="" aria-labelledby="navbarDropdown">
                                             <div>
-                                            <a class="" href="{{url('logout')}}"
+                                            <a class="" href="{{url('logoutOng')}}"
                                             onclick="event.preventDefault();
                                                             document.getElementById('logout-form').submit();">
                                                 {{ __('Sair') }}
@@ -52,7 +52,7 @@
                                             </div>
                                             
 
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            <form id="logout-form" action="{{ route('logoutOng') }}" method="POST" class="d-none">
                                                 @csrf
                                             </form>
                                         </div>

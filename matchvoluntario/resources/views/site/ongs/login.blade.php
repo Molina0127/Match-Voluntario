@@ -7,7 +7,7 @@
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <title>Cadastre-se</title>
+    <title>Login</title>
 </head>
 <body>
 
@@ -34,8 +34,8 @@
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" class="js-toggle-sub-menu">Ongs<i class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">
-                                    <li class="sub-menu-item"><a href="{{ route('login') }}">Login</a></li>
-                                    <li class="sub-menu-item"><a href="{{ route('signup') }}">Cadastro</a></li>
+                                    <li class="sub-menu-item"><a href="{{route('loginOng')}}">Login</a></li>
+                                    <li class="sub-menu-item"><a href="{{route('createOng')}}">Cadastro</a></li>
                                 </ul>
                             </li>
                             <li class="menu-item menu-item-has-children">
@@ -59,54 +59,46 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Cadastre-se</li>
+                    <li class="breadcrumb-item active" aria-current="page">Log In</li>
                 </ol>
             </nav>
         </div>
     </div>
     <!-- breadcrumb end -->
 
-
-    <!-- signup section start -->
-    <section class="signup-section section-padding">
+    <!-- login section start -->
+    <section class="login-section section-padding">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-12 col-lg-10">
-
-                    <!-- col-md-7 col-lg-6 col-xl-5 -->
-                    <div class="signup-form box">
-                        <h2 class="form-title text-center">Cadastre-se</h2>
-                        <form action="">
-                            <div class="form-group">
-                                
-                                <div class="form-sub-group">
-                                    <input type="text" class="form-control" placeholder="Nome">
-                                    <input type="text" class="form-control" placeholder="Sobrenome">
-                                </div>                                
-
-                                <input type="email" class="form-control" placeholder="Email">
-                
-                            </div>
-
-                            <div class="form-group">    
-                                <!-- <div class="d-flex mb-2 justify-content-end"><a href="#">Esqueceu sua senha?</a></div> -->
-                                <div class="form-sub-group">
-                                    <input type="password" class="form-control" placeholder="Senha">
-                                    <input type="password" class="form-control" placeholder="Confirmar Senha">
+                <div class="col-md-7 col-lg-6 col-xl-5">
+                    <div class="login-form box">
+                        <h2 class="form-title text-center">Login</h2>
+                        <form action="{{route('authOng')}}" method="post">
+                            @if(Session::get('fail'))
+                                <div class="alert alert-danger">
+                                    {{ Session::get('fail') }}
                                 </div>
-                            </div>
+                            @endif
+                            
+                            @csrf
+                        <div class="form-group">
+                            <label for="ong_email">E-mail</label>
+                            <input type="email" class="form-control" name="ong_email" placeholder="ong@email.com" value="{{ old ('ong_email') }}">
+                            <span class="text-danger">@error ('ong_email') {{$message}} @enderror</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Senha</label>
+                            <input type="password" class="form-control" name="password" placeholder="Digite aqui" value="{{ old ('password') }}">
+                            <span class="text-danger">@error ('password') {{$message}} @enderror</span>
+                        </div>
 
-                            <!-- <div class="form-group">    
-                                <div class="d-flex mb-2 justify-content-end"><a href="#">Esqueceu sua senha?</a></div>
-                                <div class="form-sub-group">
-                                    <input type="text" class="form-control" placeholder="CEP">
-                                    <input type="text" class="form-control" placeholder="Cidade">
-                                    <input type="text" class="form-control" placeholder="UF">
-                                </div>
-                            </div> -->
+                            <button type="submit" class="btn btn-theme btn-block btn-form">log in</button>
 
-                            <button type="submit" class="btn btn-theme btn-block btn-form">Avançar</button>
-                            <!-- <p class="text-center mt-4 mb-0">Não possui conta ? <a href="{{ route('signup') }}">Cadastre-se</a></p> -->
+                            <br>
+                            <br>
+
+                            <a class="d-flex mb-2 justify-content-center" href="{{route('forget-password')}}">Esqueceu a Senha?</a>
+                            <p class="text-center mt-4 mb-0">Não possui conta ? <a href="{{ route('createOng') }}">Cadastre-se</a></p>
                         </form>
                         
                     </div>
@@ -114,8 +106,7 @@
             </div>
         </div>
     </section>
-    <!-- signup section end -->
-
+    <!-- login section end -->
 
     <!-- footer start -->
 
