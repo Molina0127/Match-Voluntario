@@ -34,8 +34,8 @@
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" class="js-toggle-sub-menu">Ongs<i class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">
-                                    <li class="sub-menu-item"><a href="{{ route('ongs') }}">Ongs</a></li>
-                                    <li class="sub-menu-item"><a href="{{ route('ongsDetails')}}">Detalhes Ongs</a></li>
+                                    <li class="sub-menu-item"><a href="{{route('loginOng')}}">Login</a></li>
+                                    <li class="sub-menu-item"><a href="{{route('createOng')}}">Cadastro</a></li>
                                 </ul>
                             </li>
                             <li class="menu-item menu-item-has-children">
@@ -73,16 +73,32 @@
                 <div class="col-md-7 col-lg-6 col-xl-5">
                     <div class="login-form box">
                         <h2 class="form-title text-center">Login</h2>
-                        <form action="">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <div class="d-flex mb-2 justify-content-end"><a href="#">Esqueceu sua senha?</a></div>
-                                <input type="password" class="form-control" placeholder="Senha">
-                            </div>
+                        <form action="{{route('authOng')}}" method="post">
+                            @if(Session::get('fail'))
+                                <div class="alert alert-danger">
+                                    {{ Session::get('fail') }}
+                                </div>
+                            @endif
+                            
+                            @csrf
+                        <div class="form-group">
+                            <label for="ong_email">E-mail</label>
+                            <input type="email" class="form-control" name="ong_email" placeholder="ong@email.com" value="{{ old ('ong_email') }}">
+                            <span class="text-danger">@error ('ong_email') {{$message}} @enderror</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Senha</label>
+                            <input type="password" class="form-control" name="password" placeholder="Digite aqui" value="{{ old ('password') }}">
+                            <span class="text-danger">@error ('password') {{$message}} @enderror</span>
+                        </div>
+
                             <button type="submit" class="btn btn-theme btn-block btn-form">log in</button>
-                            <p class="text-center mt-4 mb-0">Não possui conta ? <a href="{{ route('signup') }}">Cadastre-se</a></p>
+
+                            <br>
+                            <br>
+
+                            <a class="d-flex mb-2 justify-content-center" href="{{route('forget-password')}}">Esqueceu a Senha?</a>
+                            <p class="text-center mt-4 mb-0">Não possui conta ? <a href="{{ route('createOng') }}">Cadastre-se</a></p>
                         </form>
                         
                     </div>

@@ -190,7 +190,7 @@ class UsuariosController extends Controller
     }
     public function logout(){
         Auth::logout();
-        return view('site.usuarios.index');
+        return view('site.home');
     }
     public function ForgetPassword(){
         return view('auth.passwords.email');
