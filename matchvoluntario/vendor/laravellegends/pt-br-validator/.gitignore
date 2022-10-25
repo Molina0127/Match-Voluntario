@@ -1,7 +1,0 @@
-/vendor
-composer.phar
-composer.lock
-.DS_Store
-pt-br-validator.sublime-project
-pt-br-validator.sublime-workspace
-/.phpintel/
