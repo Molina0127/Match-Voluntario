@@ -71,50 +71,195 @@
     <section class="signup-section section-padding">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-12 col-lg-10">
+                
+                    <div class="col-md-12 col-lg-10">
+                    <!-- col-md-7 col-lg-6 col-xl-5 -->
+                        <form class="form" action="">
+                                <div class="signup-form box first">
+                                    <h2 class="form-title text-center">Cadastre-se</h2>
+                                    
+                                        <div class="form-group">
+                                            
+                                            <div class="form-sub-group">
+                                                <input type="text" class="form-control" placeholder="Nome">
+                                                <input type="text" class="form-control" placeholder="Sobrenome">
+                                            </div>                                
+
+                                            <input type="email" class="form-control" placeholder="Email">
+                            
+                                        </div>
+
+                                        <div class="form-group">    
+                                            <!-- <div class="d-flex mb-2 justify-content-end"><a href="#">Esqueceu sua senha?</a></div> -->
+                                            <div class="form-sub-group">
+                                                <input type="password" class="form-control" placeholder="Senha">
+                                                <input type="password" class="form-control" placeholder="Confirmar Senha">
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="form-group">    
+                                            <div class="d-flex mb-2 justify-content-end"><a href="#">Esqueceu sua senha?</a></div>
+                                            <div class="form-sub-group">
+                                                <input type="text" class="form-control" placeholder="CEP">
+                                                <input type="text" class="form-control" placeholder="Cidade">
+                                                <input type="text" class="form-control" placeholder="UF">
+                                            </div>
+                                        </div> -->
+
+                                        <div class="d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-theme btn-form col-lg-4 nextBtn">Avançar</button>
+                                            <!-- <p class="text-center mt-4 mb-0">Não possui conta ? <a href="{{ route('signup') }}">Cadastre-se</a></p> -->
+                                        </div>
+                                </div>
+                                
+                                <div class="signup-form box second">
+                                    <h2 class="form-title text-center">Cadastre-se</h2>
+                        
+                                <div class="form-group">
+                                    
+                                    <div class="form-sub-group">
+                                        <input type="text" class="form-control" placeholder="Cidade">
+                                        <input type="text" class="form-control" placeholder="Estado">
+                                        <input type="text" class="form-control" placeholder="CEP">
+                                    </div>                                
+                    
+                                </div>
+
+                                <div class="form-group">    
+                                    <!-- <div class="d-flex mb-2 justify-content-end"><a href="#">Esqueceu sua senha?</a></div> -->
+                                    <div class="form-sub-group">
+                                        <input type="date" class="form-control" placeholder="dd/mm/aaaa">
+                                        <input type="text" class="form-control" placeholder="CPF">
+                                    </div>
+                                </div>
+
+                                
+                                <div class="form-group">
+                                    <label>Gênero</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Masculino
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            Feminino
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Outro
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            Prefiro não dizer
+                                        </label>
+                                    </div>
+                                </div>
+                                
+
+                                <!-- <div class="form-group">    
+                                    <div class="d-flex mb-2 justify-content-end"><a href="#">Esqueceu sua senha?</a></div>
+                                    <div class="form-sub-group">
+                                        <input type="text" class="form-control" placeholder="CEP">
+                                        <input type="text" class="form-control" placeholder="Cidade">
+                                        <input type="text" class="form-control" placeholder="UF">
+                                    </div>
+                                </div> -->
+
+                                <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-theme btn-form col-lg-4 backBtn">Voltar</button>
+                                <button type="submit" class="btn btn-theme btn-form col-lg-4 nextBtn">Avançar</button>
+                                    <!-- <p class="text-center mt-4 mb-0">Não possui conta ? <a href="{{ route('signup') }}">Cadastre-se</a></p> -->
+                                </div>
+                        </form>  
+                    </div>
+
+
 
                     <!-- col-md-7 col-lg-6 col-xl-5 -->
-                    <div class="signup-form box">
+                    <!-- <div class="signup-form box">
                         <h2 class="form-title text-center">Cadastre-se</h2>
                         <form action="">
                             <div class="form-group">
                                 
                                 <div class="form-sub-group">
-                                    <input type="text" class="form-control" placeholder="Nome">
-                                    <input type="text" class="form-control" placeholder="Sobrenome">
+                                    <input type="text" class="form-control" placeholder="Cidade">
+                                    <input type="text" class="form-control" placeholder="Estado">
+                                    <input type="text" class="form-control" placeholder="CEP">
                                 </div>                                
-
-                                <input type="email" class="form-control" placeholder="Email">
                 
                             </div>
 
                             <div class="form-group">    
-                                <!-- <div class="d-flex mb-2 justify-content-end"><a href="#">Esqueceu sua senha?</a></div> -->
+                                <div class="d-flex mb-2 justify-content-end"><a href="#">Esqueceu sua senha?</a></div>
                                 <div class="form-sub-group">
-                                    <input type="password" class="form-control" placeholder="Senha">
-                                    <input type="password" class="form-control" placeholder="Confirmar Senha">
+                                    <input type="date" class="form-control" placeholder="dd/mm/aaaa">
+                                    <input type="text" class="form-control" placeholder="CPF">
                                 </div>
                             </div>
 
-                            <!-- <div class="form-group">    
+                             
+                            <div class="form-group">
+                                <label>Gênero</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Masculino
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        Feminino
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Outro
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        Prefiro não dizer
+                                    </label>
+                                </div>
+                            </div>
+                            
+
+                            <div class="form-group">    
                                 <div class="d-flex mb-2 justify-content-end"><a href="#">Esqueceu sua senha?</a></div>
                                 <div class="form-sub-group">
                                     <input type="text" class="form-control" placeholder="CEP">
                                     <input type="text" class="form-control" placeholder="Cidade">
                                     <input type="text" class="form-control" placeholder="UF">
                                 </div>
-                            </div> -->
+                            </div>
 
-                            <button type="submit" class="btn btn-theme btn-block btn-form">Avançar</button>
-                            <!-- <p class="text-center mt-4 mb-0">Não possui conta ? <a href="{{ route('signup') }}">Cadastre-se</a></p> -->
+                            <div class="d-flex justify-content-center">
+                               <button type="submit" class="btn btn-theme btn-form col-lg-4 backBtn">Voltar</button>
+                               <button type="submit" class="btn btn-theme btn-form col-lg-4 nextBtn">Avançar</button>
+                                <p class="text-center mt-4 mb-0">Não possui conta ? <a href="{{ route('signup') }}">Cadastre-se</a></p>
+                            </div>
+                            
                         </form>
                         
-                    </div>
+                    </div> -->
+
                 </div>
             </div>
         </div>
     </section>
     <!-- signup section end -->
+
+    
 
 
     <!-- footer start -->
