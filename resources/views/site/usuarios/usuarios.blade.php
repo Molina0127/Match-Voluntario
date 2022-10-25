@@ -108,24 +108,28 @@
                         <div class="row justify-content-center">
 
                             <!-- courses item start -->
+                            @foreach($usuarios as $usuario)
                             <div class="col-md-6 col-lg-3">
                                 <div class="courses-item">
                                     <a href="#" class="link">
                                         <div class="courses-item-inner">
                                             <div class="img-box">
-                                                <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
+                                                @if($usuario->user_image == null)
+                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="{{ $usuario->nome }}">
+                                                @else
+                                                <img src="/img/usuarios/{{$usuario->user_image}}" alt="{{$usuario->user_image}}">
+                                                @endif
                                             </div>
-                                            <h3 class="title">Ong de ajuda aos indígenas</h3>
-                                            <div class="instructor">
-                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
-                                                <span class="instructor-name">Guilherme</span>
+                                            <h3 class="title">{{$usuario->nome }} {{$usuario->sobrenome}}</h3>
+                                            <div class="instructor">                                                
+                                            <p class="user-email">{{$usuario->email}}</p>
+                                                
                                             </div>
-                                            <!-- <div class="rating"></div> -->
-                                            <div class="price">$ 49</div>
                                         </div>
                                     </a>
                                 </div>
                             </div>
+                            @endforeach
                             <!-- courses item end -->
 
                             <!-- courses item start -->
