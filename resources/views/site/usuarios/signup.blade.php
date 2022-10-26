@@ -39,7 +39,7 @@
                                 </ul>
                             </li>
                             <li class="menu-item menu-item-has-children">
-                                <a href="#" class="js-toggle-sub-menu">Pages<i class="fas fa-chevron-down"></i></a>
+                                <a href="#" class="js-toggle-sub-menu">Voluntário<i class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">
                                     <li class="sub-menu-item"><a href="{{ route('login') }}">Login</a></li>
                                     <li class="sub-menu-item"><a href="{{ route('signup') }}">Cadastre-se</a></li>

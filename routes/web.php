@@ -24,7 +24,7 @@ Auth::routes();
 //Ongs Controller
 Route::get('/ong/signup', 'App\Http\Controllers\OngsController@create')->name('createOng');
 Route::post('/ong/create', 'App\Http\Controllers\OngsController@save')->name('saveOng');
-Route::get('/ongs', 'App\Http\Controllers\OngsController@index')->name('ongs');
+Route::get('/ongs', 'App\Http\Controllers\OngsController@show')->name('ongs')->middleware('auth');
 Route::get('/ongs_details', 'App\Http\Controllers\OngsController@show')->name('ongsDetails');
 Route::post('/ong/logout', 'App\Http\Controllers\OngsController@logoutOng')->name('logoutOng');
 
@@ -37,7 +37,9 @@ Route::post('/ong/auth', 'App\Http\Controllers\LoginController@authOng')->name('
 //Usuarios Controller
 Route::get('/usuarios/signup', 'App\Http\Controllers\UsuariosController@create')->name('signup');
 Route::post('/usuarios/create', 'App\Http\Controllers\UsuariosController@save')->name('saveUsuario');
+Route::get('/usuarios', 'App\Http\Controllers\UsuariosController@show')->name('usuarios');//validado
 Route::get('/ong/{id}', 'App\Http\Controllers\OngsController@showOng')->name('listaOng')->middleware('auth');
+Route::get('/usuario/{id}', 'App\Http\Controllers\OngsController@showUsuario')->name('listaUsuario');//validado
 Route::get('/usuario/forget-password', 'App\Http\Controllers\UsuariosController@ForgetPassword')->name('forget-password');
 Route::post('/usuario/logout', 'App\Http\Controllers\UsuariosController@logout')->name('logout');
 

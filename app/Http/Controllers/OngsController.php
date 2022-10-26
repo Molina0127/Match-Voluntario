@@ -147,7 +147,7 @@ class OngsController extends Controller
                 ["ongs.ong_state", "=" , $usuario->estado],
             ])->get();
         }
-        return view('home', ['ongs'=> $ongs, 'search' => $search]);
+        return view('site.ongs.ongs', ['ongs'=> $ongs, 'search' => $search]);
     }
 
     public function showOng($id){
@@ -177,7 +177,7 @@ class OngsController extends Controller
     }
     public function showUsuario($id){
         $ong_logada = Auth::guard('ong')->user();
-        $usuarios = Usuario::findOrFail($id);
+        $usuario = Usuario::findOrFail($id);
 
         if(!$ong_logada){
             return view('site.ongs.login');
@@ -185,7 +185,7 @@ class OngsController extends Controller
         
         $ong = Auth::guard('ong')->user();
 
-        $usuario_categorias = $usuarios->categorias->pluck('categoria_name');        
+        $usuario_categorias = $usuario->categorias->pluck('categoria_name');        
 
         $hasOngJoined = false;
 
@@ -198,7 +198,7 @@ class OngsController extends Controller
                 }
             }
         }
-        return view('site/usuarios/showUsuario', ['usuarios' => $usuarios,'usuario_categorias' => $usuario_categorias, 'hasOngJoined' => $hasOngJoined]);
+        return view('site/usuarios/showUsuario', ['usuario' => $usuario,'usuario_categorias' => $usuario_categorias, 'hasOngJoined' => $hasOngJoined]);
     }
     public function destroy($id){
         $ong_logada = Auth::guard('ong')->user();

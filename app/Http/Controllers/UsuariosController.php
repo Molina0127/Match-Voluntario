@@ -21,7 +21,7 @@ class UsuariosController extends Controller
 
     public function create() {
         $categorias = Categoria::orderBy('categoria_name', 'ASC')->pluck('categoria_name', 'id');
-        return view('site.ongs.signupOngs', compact('categorias'));
+        return view('site.usuarios.signup', compact('categorias'));
     }
 
     public function store(Request $request){
@@ -65,7 +65,7 @@ class UsuariosController extends Controller
                     ["usuarios.estado", "=", $ong->ong_state],
                 ])->get();
             }
-        return view('site.ongs.HomeOng', ['usuarios'=> $usuarios]);
+        return view('site.usuarios.usuarios', ['usuarios'=> $usuarios]);
     }
     public function destroy($id){
         $usuario = Usuario:: findOrFail($id);

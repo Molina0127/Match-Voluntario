@@ -7,7 +7,7 @@
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <title>Login</title>
+    <title>Ongs</title>
 </head>
 <body>
 
@@ -32,17 +32,31 @@
                         <ul class="menu">
                             <li class="menu-item"><a href="{{ route('home') }}">Home</a></li>
                             <li class="menu-item menu-item-has-children">
-                                <a href="#" class="js-toggle-sub-menu">Ongs<i class="fas fa-chevron-down"></i></a>
+                                <a href="#" class="js-toggle-sub-menu">Voluntários<i class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">
-                                    <li class="sub-menu-item"><a href="{{ route('ongs') }}">Ongs</a></li>
-                                    <li class="sub-menu-item"><a href="{{ route('ongsDetails')}}">Detalhes Ongs</a></li>
+                                    <li class="sub-menu-item"><a href="{{ route('usuarios') }}">Voluntários</a></li>
+                                    <li class="sub-menu-item"><a href="{{ route('ongsDetails') }}">Detalhes Ongs</a></li>
                                 </ul>
                             </li>
                             <li class="menu-item menu-item-has-children">
-                                <a href="#" class="js-toggle-sub-menu">Pages<i class="fas fa-chevron-down"></i></a>
-                                <ul class="sub-menu js-sub-menu">
-                                    <li class="sub-menu-item"><a href="{{ route('login') }}">Login</a></li>
-                                    <li class="sub-menu-item"><a href="{{ route('signup') }}">Cadastre-se</a></li>
+                                <a href="#" class="js-toggle-sub-menu">{{auth()->guard('ong')->user()->ong_name}}<i class="fas fa-chevron-down"></i></a>
+                                <ul class="sub-menu js-sub-menu">                 
+                                       <li class="sub-menu-item">
+                                        <div class="" aria-labelledby="navbarDropdown">
+                                            <div>
+                                            <a class="" href="{{url('logout')}}"
+                                            onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+                                                {{ __('Sair') }}
+                                            </a>
+                                            </div>
+                                            
+
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="menu-item"><a href="{{ route('contact') }}">Contato</a></li>
@@ -59,38 +73,76 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Log In</li>
+                    <li class="breadcrumb-item active" aria-current="page">Voluntários</li>
                 </ol>
             </nav>
         </div>
     </div>
     <!-- breadcrumb end -->
 
-    <!-- login section start -->
-    <section class="login-section section-padding">
+    <!-- ongs section start -->
+    <div class="courses-section courses-padding">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-7 col-lg-6 col-xl-5">
-                    <div class="login-form box">
-                        <h2 class="form-title text-center">Login</h2>
-                        <form action="">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <div class="d-flex mb-2 justify-content-end"><a href="#">Esqueceu sua senha?</a></div>
-                                <input type="password" class="form-control" placeholder="Senha">
-                            </div>
-                            <button type="submit" class="btn btn-theme btn-block btn-form">log in</button>
-                            <p class="text-center mt-4 mb-0">Não possui conta ? <a href="{{ route('signup') }}">Cadastre-se</a></p>
-                        </form>
-                        
+                <div class="col-md-8">
+                    <div class="section-title text-center mb-4">
+                        <h2 class="title">Voluntário:</h2>
+                        <p class="sub-title">{{$usuario->nome }} {{$usuario->sobrenome}}</p>
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="unemployment" role="tabpanel" aria-labelledby="unemployment-tab" tabindex="0">
+                        
+                        <div class="row justify-content-center">
+
+                            <!-- courses item start -->
+                            <div class="col-md-6 col-lg-3">
+                                <div class="courses-item">
+                                    <a href="#" class="link">
+                                        <div class="courses-item-inner">
+                                            <div class="img-box">
+                                                @if($usuario->user_image == null)
+                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="{{ $usuario->nome }}">
+                                                @else
+                                                <img src="/img/usuarios/{{$usuario->user_image}}" alt="{{$usuario->user_image}}">
+                                                @endif
+                                            </div>
+                                            <h3 class="title">{{$usuario->nome }} {{$usuario->sobrenome}}</h3>
+                                            <div class="instructor">                                                
+                                            <p class="user-email">{{$usuario->email}}</p>
+                                            <p class="usuario-city">Cidade:{{$usuario->cidade}}</p>
+                                            <p class="usuario-estado">Estado:{{$usuario->estado}}</p>
+                                            <p class="usuario-categoria">Categoria:{{$usuario_categorias}}</p>
+                                            <p class="usuario-datanasc">Data de nascimento:{{Carbon\Carbon::parse($usuario->datanasc)->format('d-m-Y')}}</p>
+                                            <p class="usuario-cpf">CPF:{{$usuario->cpf}}</p>
+                                            <p class="ong-volunteers">{{ count($usuario->ongs) }} Ong(s) que participa</p>
+                                            
+                                                
+                                            </div>  
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- courses item end -->
+
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
         </div>
-    </section>
-    <!-- login section end -->
+    </div>
+    <!-- ongs section end -->
 
     <!-- footer start -->
 
