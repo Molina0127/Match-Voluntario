@@ -74,10 +74,17 @@
                     <div class="login-form box">
                         <h2 class="form-title text-center">Login</h2>
                         <form action="{{route('authUsuario')}}" method="post">
+                            
                             @if(Session::get('fail'))
                                 <div class="alert alert-danger">
                                     {{ Session::get('fail') }}
                                 </div>
+                            @endif
+
+                            @if(session()->has('user_excludemsg'))
+                                <p class="alert alert-danger">
+                                    {{session()->get('user_excludemsg')}}
+                                </p>
                             @endif
                             
                             @csrf

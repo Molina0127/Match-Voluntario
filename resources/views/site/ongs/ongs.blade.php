@@ -40,7 +40,8 @@
                             </li>
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" class="js-toggle-sub-menu">{{Auth::user()->nome}}<i class="fas fa-chevron-down"></i></a>
-                                <ul class="sub-menu js-sub-menu">                 
+                                <ul class="sub-menu js-sub-menu">  
+                                <li class="sub-menu-item"><a href="/usuario/edit/{{Auth::user()->id}}">Configurações</a></li>               
                                        <li class="sub-menu-item">
                                         <div class="" aria-labelledby="navbarDropdown">
                                             <div>

@@ -122,7 +122,7 @@ class LoginController extends Controller
             return view('site.usuarios.usuarios', compact('usuarios'));
         
         } else{
-            return back()->with('fail', 'Nome da Ong ou senha inválida');
+            return back()->with('fail', 'E-mail da Ong ou senha inválida');
         }
         
            

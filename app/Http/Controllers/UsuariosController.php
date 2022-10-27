@@ -71,7 +71,7 @@ class UsuariosController extends Controller
         $usuario = Usuario:: findOrFail($id);
         $usuario->delete();
         Auth::logout();
-        return view('site.usuarios.index');
+        return view('site.usuarios.login');
     }
     public function edit($id){
         $usuario_logado_id = Auth::user()->id;
@@ -121,9 +121,9 @@ class UsuariosController extends Controller
         }*/
         if($request->cep != $usuario->cep ||$request->password != "" && !(Hash::check($request->password, $usuario->password))){
             $usuario->update($data);
-            return view('site.ongs.dashboard')->with('usuario', $usuario )->with('user_updtmsg', 'Usuário atualizado com sucesso');
+            return back()->with('usuario', $usuario )->with('user_updtmsg', 'Usuário atualizado com sucesso');
         }else {
-            return back();
+            return back()->with('user_fail_updtmsg', 'Nenhuma informação alterada');
         }
         
        

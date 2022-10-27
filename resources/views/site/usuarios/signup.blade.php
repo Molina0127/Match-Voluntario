@@ -78,7 +78,7 @@
                         <h2 class="form-title text-center">Cadastre-se</h2>
                         
                     @if(session()->has('user_savemsg'))
-                        <p class="alert alert-sucess">
+                        <p class="alert alert-success">
                             {{session()->get('user_savemsg')}}
                         </p>
                     @endif

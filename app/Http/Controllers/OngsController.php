@@ -206,7 +206,7 @@ class OngsController extends Controller
             $ong = Ong:: findOrFail($id);
             $ong->delete();
             Auth::guard('ong')->logout();
-            return view('site.usuarios.index');
+            return view('site.ongs.login');
         }else{
             return view('site.ongs.login');
         }
@@ -217,7 +217,7 @@ class OngsController extends Controller
 
         if($ong_logada_id == $id){
             $ong = Ong::find($id);
-            return view('site.ongs.edit', ['ong' => $ong]);
+            return view('site\ongs\edit', ['ong' => $ong]);
         }else {
             return back()->with('notfound_ong', 'Erro! id não pertencente a Ong autenticada');
         }
@@ -255,9 +255,9 @@ class OngsController extends Controller
         }*/
         if($request->owner != $ong->owner || $request->description != $ong->description || $request->ong_cep != $ong->ong_cep ||$request->password != "" && !(Hash::check($request->password, $ong->password))){
             $ong->update($data_ong);
-            return view('site.usuarios.dashboard')->with('ong', $ong )->with('ong_updmsg', 'Ong atualizada com sucesso');
+            return back()->with('ong', $ong )->with('ong_updmsg', 'Ong atualizada com sucesso');
         }else {
-            return back();
+            return back()->with('ong_fail_updtmsg', 'Nenhuma informação alterada');
         }
        
     }
