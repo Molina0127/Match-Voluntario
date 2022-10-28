@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Entidade extends Model
+class ConvidaOng extends Model
 {
     use HasFactory;
 }

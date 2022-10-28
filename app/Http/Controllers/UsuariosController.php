@@ -212,17 +212,8 @@ class UsuariosController extends Controller
         $data = ['LoggedUserinfo'=>Usuario::where ('id', '=', session('LoggedUser'))->first()];
         return view('site.usuarios.dashboard', $data);
     }
-    public function joinUsuario($id){
-       $ong = Auth::guard('ong')->user();
-
-       $ong->usuarios()->attach($id);
-
-       $usuario = Usuario::findOrFail($id);
-
-        return back()->with('msg', 'obrigado por fazer parte do nosso time!'.$usuario->title);
-
-    }
-    public function removeVolunteer($id){
+    
+    public function removeParticipation($id){
         $ong = Auth::guard('ong')->user();
  
         $ong->usuarios()->detach($id);

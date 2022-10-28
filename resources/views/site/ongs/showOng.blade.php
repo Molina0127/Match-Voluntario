@@ -35,12 +35,14 @@
                                 <a href="#" class="js-toggle-sub-menu">Ongs<i class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">
                                     <li class="sub-menu-item"><a href="{{ route('ongs') }}">Ongs</a></li>
+                                    <li class="sub-menu-item"><a href="/invitations/ong">Convites de Ongs</a></li>
                                     <li class="sub-menu-item"><a href="{{ route('ongsDetails') }}">Detalhes Ongs</a></li>
                                 </ul>
                             </li>
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" class="js-toggle-sub-menu">{{Auth::user()->nome}}<i class="fas fa-chevron-down"></i></a>
-                                <ul class="sub-menu js-sub-menu">                 
+                                <ul class="sub-menu js-sub-menu">  
+                                <li class="sub-menu-item"><a href="/usuario/edit/{{Auth::user()->id}}">Configurações</a></li>               
                                        <li class="sub-menu-item">
                                         <div class="" aria-labelledby="navbarDropdown">
                                             <div>
@@ -88,6 +90,15 @@
                     <div class="section-title text-center mb-4">
                         <h2 class="title">Ong:</h2>
                         <p class="sub-title">{{$ongs->ong_name}}</p>
+                        
+                        @if(session()->has('send_to_Ong'))
+                                                <p class="alert alert-success">
+                                                    {{session()->get('send_to_Ong')}}
+                                                </p>
+                        @endif
+                        
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -128,7 +139,24 @@
                                                 <p class="category">Categoria:{{$ong_categorias}}</p>
                                                 <p class="ong-volunteers">{{ count($ongs->usuarios) }} Voluntários</p>
                                                 
-                                            </div>  
+                                            </div>
+                                            
+                                             @if(!$hasUserJoined)
+                                                <a href="/invite/ong/{{$ongs->id}}/" 
+                                                class="btn btn-primary">Enviar pedido</a>
+
+                                            @else
+                                                <p>Você já está participando desta Ong</p>
+
+                                                <form action="/ong/leave/{{$ongs->id}}">
+                                                @csrf
+                                                @method("DELETE")
+                                                <button type="submit" class="btn btn-danger delete-btn">
+                                                    <ion-icon name="trash-outline"></ion-icon>Remover participação da Ong
+                                                </button>
+                                            </form>
+
+                                            @endif  
                                         </div>
                                     </a>
                                 </div>

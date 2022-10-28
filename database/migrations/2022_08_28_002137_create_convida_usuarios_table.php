@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('entidades', function (Blueprint $table) {
+        Schema::create('convida_usuarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_requested');
-            $table->boolean('status')->default(null)->nullable();
-            $table->integer('acceptor');
+            $table->integer('ong_requested');
+            $table->boolean('reqstatus')->default(null)->nullable();
+            $table->integer('vol_acceptor');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entidades');
+        Schema::dropIfExists('convida_usuarios');
     }
 };

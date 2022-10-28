@@ -1,0 +1,162 @@
+<?php use Illuminate\Support\Facades\DB; ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <title>Ongs</title>
+</head>
+<body>
+
+<!-- main wrapper start -->
+<div class="main-wrapper">
+
+<!-- header start -->
+    <header class="header">
+        <div class="container">
+            <div class="header-main d-flex justify-content-between align-items-center">
+                <div class="header-logo">
+                    <a href="{{ route('home')}}"><span>match</span>voluntario</a>
+                </div>
+                <button type="button" class="header-hamburguer-btn js-header-menu-toggler">
+                    <span></span>
+                </button>
+                <div class="header-backdrop js-header-backdrop"></div>
+                <nav class="header-menu js-header-menu">
+                    <button type="button" class="header-close-btn js-header-menu-toggler">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <ul class="menu">
+                        <li class="menu-item"><a href="{{ route('home') }}">Home</a></li>
+                        <li class="menu-item menu-item-has-children">
+                            <a href="#" class="js-toggle-sub-menu">Ongs<i class="fas fa-chevron-down"></i></a>
+                            <ul class="sub-menu js-sub-menu">
+                                <li class="sub-menu-item"><a href="{{ route('ongs') }}">Ongs</a></li>
+                                <li class="sub-menu-item"><a href="/invitations/ong">Convites de Ongs</a></li>
+                                <li class="sub-menu-item"><a href="{{ route('ongsDetails') }}">Detalhes Ongs</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-has-children">
+                            <a href="#" class="js-toggle-sub-menu">{{Auth::user()->nome}}<i class="fas fa-chevron-down"></i></a>
+                            <ul class="sub-menu js-sub-menu">  
+                            <li class="sub-menu-item"><a href="/usuario/edit/{{Auth::user()->id}}">Configurações</a></li>               
+                                   <li class="sub-menu-item">
+                                    <div class="" aria-labelledby="navbarDropdown">
+                                        <div>
+                                        <a class="" href="{{url('logout')}}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Sair') }}
+                                        </a>
+                                        </div>
+                                        
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item"><a href="{{ route('contact') }}">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+<!-- header end -->
+
+<!-- breadcrumb start -->
+<div class="breadcrumb-nav">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Ongs</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- breadcrumb end -->
+
+    <!-- ongs section start -->
+    <div class="courses-section courses-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="section-title text-center mb-4">
+                        <h2 class="title">Convites de Ongs</h2>
+                       
+                        @if(session()->has('delVolRequest'))
+                            <p class="alert alert-danger">
+                                {{session()->get('delVolRequest')}}
+                            </p>
+                        @endif
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="unemployment" role="tabpanel" aria-labelledby="unemployment-tab" tabindex="0">
+                        
+                        <div class="row justify-content-center">
+
+                            <!-- courses item start -->
+                            <div class="col-md-6 col-lg-3">
+                                <div class="courses-item">
+                                    <a href="#" class="link">
+                                        <div class="courses-item-inner">
+                                        @if($showVol->count()> 0)    
+                                        @foreach($showVol as $showVol)
+                                                <?php
+                                                
+                                                $check = DB::table('convida_usuarios')
+                                                ->where('reqstatus',1)->get();
+                                                if($check == true){
+                                                    
+                                            ?>
+                                            <div class="img-box">
+                                                @if($showVol->ong_image == null)
+                                                <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="{{ $showVol->ong_name }}">
+                                                @else
+                                                <img src="/img/ongs/{{$showVol->ong_image}}" alt="{{$showVol->ong_image}}">
+                                                @endif
+                                            </div>
+                                            <h3 class="title">{{$showVol->ong_name}}</h3>
+                                            <div class="button">
+                                                    <button class="learnMore">
+                                                    <a href="/ong/{{ $showVol->id }}">
+                                                    Saiba mais    
+                                                    </a>
+                                            
+                                                    </button>
+                                                </div>
+
+                                                <br>
+
+                                                <div class="instructor">                                                
+                                                                                                
+                                                <a href="/confirm/ong{{$showVol->id}}/" 
+                                                class="btn btn-primary">Aceitar pedido</a>
+
+                                                <br>
+                                                <br>
+
+                                                <a href="/invitations/del/ong{{$showVol->id}}/" 
+                                                class="btn btn-danger">Recusar pedido</a>
+                                                <?php } ?>   
+                                            @endforeach
+                                            @else
+                                            <h5>Nenhum pedido pendente!</h5>
+                                            @endif
+
+</body>
+</html>

@@ -35,6 +35,7 @@
                                 <a href="#" class="js-toggle-sub-menu">Voluntários<i class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">
                                     <li class="sub-menu-item"><a href="{{ route('usuarios') }}">Voluntários</a></li>
+                                    <li class="sub-menu-item"><a href="/invitations/vol">Convites de Voluntários</a></li>
                                     <li class="sub-menu-item"><a href="{{ route('ongsDetails') }}">Detalhes Ongs</a></li>
                                 </ul>
                             </li>

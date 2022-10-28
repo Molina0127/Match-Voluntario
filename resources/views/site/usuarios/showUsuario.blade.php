@@ -35,12 +35,14 @@
                                 <a href="#" class="js-toggle-sub-menu">Voluntários<i class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">
                                     <li class="sub-menu-item"><a href="{{ route('usuarios') }}">Voluntários</a></li>
+                                    <li class="sub-menu-item"><a href="/invitations/vol">Convites de Voluntários</a></li>
                                     <li class="sub-menu-item"><a href="{{ route('ongsDetails') }}">Detalhes Ongs</a></li>
                                 </ul>
                             </li>
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" class="js-toggle-sub-menu">{{auth()->guard('ong')->user()->ong_name}}<i class="fas fa-chevron-down"></i></a>
-                                <ul class="sub-menu js-sub-menu">                 
+                                <ul class="sub-menu js-sub-menu">   
+                                <li class="sub-menu-item"><a href="/ong/edit/{{auth()->guard('ong')->user()->id}}">Configurações</a></li>              
                                        <li class="sub-menu-item">
                                         <div class="" aria-labelledby="navbarDropdown">
                                             <div>
@@ -88,6 +90,14 @@
                     <div class="section-title text-center mb-4">
                         <h2 class="title">Voluntário:</h2>
                         <p class="sub-title">{{$usuario->nome }} {{$usuario->sobrenome}}</p>
+                        
+                        @if(session()->has('send_to_user'))
+                                <p class="alert alert-success">
+                                    {{session()->get('send_to_user')}}
+                                 </p>
+                        @endif
+
+                        
                     </div>
                 </div>
             </div>
@@ -124,6 +134,25 @@
                                                 
                                             </div>  
                                         </div>
+
+                            @if(!$hasOngJoined)
+                            
+                                <a href="/invite/usuario/{{$usuario->id}}/"
+                                class="btn btn-primary">Enviar pedido</a>
+
+                                @else
+
+                                <p>Este voluntário já faz parte da sua Ong</p>
+                                
+                                <form action="/usuario/leave/{{$usuario->id}}">
+                                    @csrf
+                                    @method("DELETE")
+                                    <button type="submit" class="btn btn-danger delete-btn">
+                                        <ion-icon name="trash-outline"></ion-icon>Remover Voluntário
+                                    </button>
+                                </form>
+
+                            @endif
                                     </a>
                                 </div>
                             </div>

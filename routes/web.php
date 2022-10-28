@@ -29,7 +29,22 @@ Route::get('/usuario/del/{id}','App\Http\Controllers\UsuariosController@destroy'
 Route::get('/ong/edit/{id}','App\Http\Controllers\OngsController@edit')->name('editarOng');//validado
 Route::patch('/ong/edit/{id}','App\Http\Controllers\OngsController@update')->name('atualizarOng');//validado
 Route::get('/ongs_details', 'App\Http\Controllers\OngsController@show')->name('ongsDetails');
+Route::get('/ong/leave/{id}', [App\Http\Controllers\OngsController::class, 'leaveOng']);
 Route::post('/ong/logout', 'App\Http\Controllers\OngsController@logoutOng')->name('logoutOng');
+
+//Convites(para Ong) Controller
+Route::get('/invite/ong/{id}/', 'App\Http\Controllers\InviteOngs@send')->name('sendInvite');
+//Route::get('/invitations/del/{id}/', 'App\Http\Controllers\InviteOngs@delentidade')->name('delentidade');
+Route::get('/invitations/vol', 'App\Http\Controllers\InviteOngs@showRequests')->name('showInvitations');
+Route::get('/confirm/vol/{id}/', 'App\Http\Controllers\InviteOngs@acceptInvitation')->name('confirm');
+Route::get('/invitations/del/vol{id}/', 'App\Http\Controllers\InviteOngs@deleteInvitation')->name('delInvitation');
+
+//Convites(para usuário) Controller
+Route::get('/invite/usuario/{id}/', 'App\Http\Controllers\InviteUsuarios@send')->name('invite');
+//Route::get('/delentidadeVol/{id}/', 'App\Http\Controllers\InviteUsuarios@delentidadeVol')->name('delentidadeVol');
+Route::get('/invitations/ong', 'App\Http\Controllers\InviteUsuarios@showRequests')->name('showUsuarioInvitations');
+Route::get('/confirm/ong{id}/', 'App\Http\Controllers\InviteUsuarios@acceptInvitation')->name('confirmUsuarioInvitation');
+Route::get('/invitations/del/ong{id}/', 'App\Http\Controllers\InviteUsuarios@deleteInvitation')->name('delUsuarioInvitation');
 
 //Login Controller
 Route::get('/login', 'App\Http\Controllers\LoginController@index')->name('login');
@@ -46,6 +61,7 @@ Route::get('/usuario/{id}', 'App\Http\Controllers\OngsController@showUsuario')->
 Route::get('/ong/del/{id}','App\Http\Controllers\OngsController@destroy')->name('excluirOng');//validado
 Route::get('/usuario/edit/{id}', 'App\Http\Controllers\UsuariosController@edit')->name('editarUsuario')->middleware('auth');
 Route::patch('/usuarios/edit/{id}','App\Http\Controllers\UsuariosController@update')->name('atualizarUsuario')->middleware('auth');
+Route::get('/usuario/leave/{id}', [App\Http\Controllers\UsuariosController::class, 'removeParticipation']);
 Route::get('/usuario/forget-password', 'App\Http\Controllers\UsuariosController@ForgetPassword')->name('forget-password');
 Route::post('/usuario/logout', 'App\Http\Controllers\UsuariosController@logout')->name('logout');
 

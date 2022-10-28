@@ -284,16 +284,6 @@ class OngsController extends Controller
         }
     }
 
-   public function joinOng($id){
-    $usuario = auth()->user();
-
-    $usuario->ongs()->attach($id);
-
-    $ong = Ong:: findOrFail($id);
-
-    return redirect('/dashboard')->with('msg', 'obrigado por fazer parte do nosso time!'.$ong->title);
-
-   }
    public function leaveOng($id){
         $usuario = auth()->user();
 
