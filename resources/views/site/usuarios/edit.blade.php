@@ -34,8 +34,10 @@
                         <li class="menu-item menu-item-has-children">
                             <a href="#" class="js-toggle-sub-menu">Ongs<i class="fas fa-chevron-down"></i></a>
                             <ul class="sub-menu js-sub-menu">
-                                <li class="sub-menu-item"><a href="{{ route('ongs') }}">Ongs</a></li>
-                                <li class="sub-menu-item"><a href="{{ route('ongsDetails') }}">Detalhes Ongs</a></li>
+                                    <li class="sub-menu-item"><a href="{{ route('ongs') }}">Ongs</a></li>
+                                    <li class="sub-menu-item"><a href="/invitations/ong">Convites de Ongs</a></li>
+                                    <li class="sub-menu-item"><a href="/myongs">Ongs que participo</a></li>
+                                    <li class="sub-menu-item"><a href="{{ route('ongsDetails') }}">Detalhes Ongs</a></li>
                             </ul>
                         </li>
                         <li class="menu-item menu-item-has-children">

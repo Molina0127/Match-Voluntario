@@ -1,5 +1,3 @@
-<?php use Illuminate\Support\Facades\DB; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +7,7 @@
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <title>Convites de Voluntários</title>
+    <title>Meus Voluntários</title>
 </head>
 <body>
 
@@ -72,8 +70,8 @@
     </header>
 <!-- header end -->
 
-<!-- breadcrumb start -->
-<div class="breadcrumb-nav">
+ <!-- breadcrumb start -->
+ <div class="breadcrumb-nav">
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -91,13 +89,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="section-title text-center mb-4">
-                        <h2 class="title">Convites de Voluntários</h2>
-                       
-                        @if(session()->has('delRequest'))
-                            <p class="alert alert-danger">
-                                {{session()->get('delRequest')}}
-                            </p>
-                        @endif
+                        <h2 class="title">Meus Voluntários</h2>
                         
                     </div>
                 </div>
@@ -109,86 +101,69 @@
                     <div class="tab-pane fade show active" id="unemployment" role="tabpanel" aria-labelledby="unemployment-tab" tabindex="0">
                         
                         <div class="row justify-content-center">
-
-                            <!-- courses item start -->
+                            
+                        <!-- courses item start -->
                             <div class="col-md-6 col-lg-3">
                                 <div class="courses-item">
                                     <a href="#" class="link">
                                         <div class="courses-item-inner">
-                                        @if($show->count()> 0)    
-                                            @foreach($show as $show)
-                                                    <?php
-                                                    
-                                                    $check = DB::table('convida_ongs')
-                                                    ->where('status',1)->get();
-                                                    if($check == true){
-
+                                        
+                @if($usuarios->count()> 0)                         
+                @foreach($usuarios as $usuario)
+                
+                <div class="img-box">
+                    @if($usuario->user_image == null)
+                        <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="{{ $usuario->nome }}">
+                    @else
+                        <img src="/img/usuarios/{{$usuario->user_image}}" alt="{{$usuario->user_image}}">
+                    @endif
+                </div>
+                
+                        <h3 class="title">{{$usuario->nome }} {{$usuario->sobrenome}}</h3>
+                        <div class="button">
+                            <button class="learnMore">
+                                <a href="/usuario/{{ $usuario->id }}">
+                                    Saiba mais    
+                                </a>
+                                                        
+                            </button>
+                        </div>
                         
+                        <br>
+                
+                <form action="/usuario/leave/{{$usuario->id}}">
+                    @csrf
+                    @method("DELETE")
+                    <button type="submit" class="btn btn-danger delete-btn">
+                        <ion-icon name="trash-outline"></ion-icon>Remover Voluntário
+                    </button>
+                </form>
+           @endforeach 
+           @else
+           <h5>0 Voluntários participantes</h5>
+            @endif
 
-                                            ?>
-                                            <div class="img-box">
-                                                @if($show->user_image == null)
-                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="{{ $show->nome }}">
-                                                @else
-                                                <img src="/img/usuarios/{{$show->user_image}}" alt="{{$show->user_image}}">
-                                                @endif
-                                                </div>
-                                                <h3 class="title">{{$show->nome }} {{$show->sobrenome}}</h3>
-                                                <div class="button">
-                                                    <button class="learnMore">
-                                                    <a href="/usuario/{{ $show->id }}">
-                                                    Saiba mais    
-                                                    </a>
-                                            
-                                                    </button>
-                                                </div>
-
-                                                <br>
-
-                                                <div class="instructor">                                                
-                                                                                                
-                                                <a href="/confirm/vol/{{$show->id}}/" 
-                                                class="btn btn-primary">Aceitar pedido</a>
-
-                                                <br>
-                                                <br>
-
-                                                <a href="/invitations/del/vol{{$show->id}}/" 
-                                                class="btn btn-danger">Recusar pedido</a>
-                                                <?php } ?>   
-                                            @endforeach
-                                            @else
-                                            <h5>Nenhum pedido pendente</h5>
-                                            @endif
-                                            
-                                                
-                                            </div>  
-                                        </div>
-
-                                    </a>
-                                </div>
-                            </div>
+            </div>  
+                </a>
+                  </div>
+                      </div>
+                         </div>
                             
                             <!-- courses item end -->
 
-
-
-
                         </div>
-
                     </div>
-
                 </div>
             </div>
-
-        </div>
+          </div>
       </div>
-    </div>
     <!-- ongs section end -->
 
-     <!-- footer start -->
+           
 
-     <footer class="footer">
+    <!-- footer start -->
+
+    <footer class="footer">
             <div class="footer-top">
                 <div class="container">
                     <div class="row">
@@ -246,6 +221,8 @@
 
     </div>
     <!-- main wrapper end-->
+
+
 
 
 

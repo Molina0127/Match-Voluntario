@@ -36,6 +36,7 @@
                                 <ul class="sub-menu js-sub-menu">
                                     <li class="sub-menu-item"><a href="{{ route('ongs') }}">Ongs</a></li>
                                     <li class="sub-menu-item"><a href="/invitations/ong">Convites de Ongs</a></li>
+                                    <li class="sub-menu-item"><a href="/myongs">Ongs que participo</a></li>
                                     <li class="sub-menu-item"><a href="{{ route('ongsDetails') }}">Detalhes Ongs</a></li>
                                 </ul>
                             </li>

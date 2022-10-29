@@ -7,7 +7,7 @@
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <title>Ongs</title>
+    <title>Voluntários</title>
 </head>
 <body>
 
@@ -36,6 +36,7 @@
                                 <ul class="sub-menu js-sub-menu">
                                     <li class="sub-menu-item"><a href="{{ route('usuarios') }}">Voluntários</a></li>
                                     <li class="sub-menu-item"><a href="/invitations/vol">Convites de Voluntários</a></li>
+                                    <li class="sub-menu-item"><a href="/myVolunteers">Meus Voluntários</a></li>
                                     <li class="sub-menu-item"><a href="{{ route('ongsDetails') }}">Detalhes Ongs</a></li>
                                 </ul>
                             </li>

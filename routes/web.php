@@ -28,6 +28,7 @@ Route::get('/ongs', 'App\Http\Controllers\OngsController@show')->name('ongs')->m
 Route::get('/usuario/del/{id}','App\Http\Controllers\UsuariosController@destroy')->name('excluirUsuario')->middleware('auth');
 Route::get('/ong/edit/{id}','App\Http\Controllers\OngsController@edit')->name('editarOng');//validado
 Route::patch('/ong/edit/{id}','App\Http\Controllers\OngsController@update')->name('atualizarOng');//validado
+Route::get('/myongs', [App\Http\Controllers\OngsController::class, 'ongsasparticipant'])->name('myongs')->middleware('auth');
 Route::get('/ongs_details', 'App\Http\Controllers\OngsController@show')->name('ongsDetails');
 Route::get('/ong/leave/{id}', [App\Http\Controllers\OngsController::class, 'leaveOng']);
 Route::post('/ong/logout', 'App\Http\Controllers\OngsController@logoutOng')->name('logoutOng');
@@ -61,6 +62,7 @@ Route::get('/usuario/{id}', 'App\Http\Controllers\OngsController@showUsuario')->
 Route::get('/ong/del/{id}','App\Http\Controllers\OngsController@destroy')->name('excluirOng');//validado
 Route::get('/usuario/edit/{id}', 'App\Http\Controllers\UsuariosController@edit')->name('editarUsuario')->middleware('auth');
 Route::patch('/usuarios/edit/{id}','App\Http\Controllers\UsuariosController@update')->name('atualizarUsuario')->middleware('auth');
+Route::get('/myVolunteers', [App\Http\Controllers\UsuariosController::class, 'volunteersparticipants'])->name('myVolunteers');
 Route::get('/usuario/leave/{id}', [App\Http\Controllers\UsuariosController::class, 'removeParticipation']);
 Route::get('/usuario/forget-password', 'App\Http\Controllers\UsuariosController@ForgetPassword')->name('forget-password');
 Route::post('/usuario/logout', 'App\Http\Controllers\UsuariosController@logout')->name('logout');

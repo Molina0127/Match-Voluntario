@@ -7,15 +7,15 @@
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <title>Ong</title>
+    <title>Ongs que participo</title>
 </head>
 <body>
 
-    <!-- main wrapper start -->
-    <div class="main-wrapper">
+<!-- main wrapper start -->
+<div class="main-wrapper">
 
-    <!-- header start -->
-        <header class="header">
+ <!-- header start -->
+ <header class="header">
             <div class="container">
                 <div class="header-main d-flex justify-content-between align-items-center">
                     <div class="header-logo">
@@ -70,8 +70,8 @@
         </header>
     <!-- header end -->
 
-    <!-- breadcrumb start -->
-    <div class="breadcrumb-nav">
+<!-- breadcrumb start -->
+<div class="breadcrumb-nav">
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -83,22 +83,13 @@
     </div>
     <!-- breadcrumb end -->
 
-    <!-- ongs section start -->
-    <div class="courses-section courses-padding">
+     <!-- ongs section start -->
+     <div class="courses-section courses-padding">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="section-title text-center mb-4">
-                        <h2 class="title">Ong:</h2>
-                        <p class="sub-title">{{$ongs->ong_name}}</p>
-                        
-                        @if(session()->has('send_to_Ong'))
-                                                <p class="alert alert-success">
-                                                    {{session()->get('send_to_Ong')}}
-                                                </p>
-                        @endif
-                        
-                        
+                        <h2 class="title">Ongs que participo</h2>
                         
                     </div>
                 </div>
@@ -110,73 +101,66 @@
                     <div class="tab-pane fade show active" id="unemployment" role="tabpanel" aria-labelledby="unemployment-tab" tabindex="0">
                         
                         <div class="row justify-content-center">
-
-                            <!-- courses item start -->
+                            
+                        <!-- courses item start -->
                             <div class="col-md-6 col-lg-3">
                                 <div class="courses-item">
                                     <a href="#" class="link">
                                         <div class="courses-item-inner">
-                                            <div class="img-box">
-                                                @if($ongs->ong_image == null)
-                                                <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="{{ $ongs->ong_name }}">
-                                                @else
-                                                <img src="/img/ongs/{{$ongs->ong_image}}" alt="{{$ongs->ong_image}}">
-                                                @endif
-                                            </div>
-                                            <h3 class="title">{{$ongs->ong_name}}</h3>
-                                            <div class="instructor">
-                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
-                                                <span class="instructor-name">{{$ongs->owner}}</span>
-                                                
-                                                <br>
-                                                <br>
-                                                
-                                                <p class="ong-email">{{$ongs->ong_email}}</p>
-                                                <p class="ong-description">
-                                                    {{$ongs->description}}
-                                                </p>
-                                                <p class="ong-city">Cidade:{{$ongs->ong_city}}</p>
-                                                <p class="ong-statue">UF:{{$ongs->ong_state}}</p>
-                                                <p class="category">Categoria:{{$ong_categorias}}</p>
-                                                <p class="ong-volunteers">{{ count($ongs->usuarios) }} Voluntários</p>
-                                                
-                                            </div>
+                                        
+                @if($ongs->count()> 0)                         
+                @foreach($ongs as $ong)
+                
+                <div class="img-box">
+                    @if($ong->ong_image == null)
+                        <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="{{ $ong->ong_name }}">
+                        @else
+                        <img src="/img/ongs/{{$ong->ong_image}}" alt="{{$ong->ong_image}}">
+                    @endif
+                </div>
+                
+                    <h3 class="title">{{$ong->ong_name}}</h3>
+                    <div class="instructor">
+                        <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
+                        <span class="instructor-name">{{$ong->owner}}</span>
+                    </div>
+                    <div class="button">
+                         <button class="learnMore">
+                            <a href="/ong/{{ $ong->id }}">
+                             Saiba mais    
+                            </a>
                                             
-                                             @if(!$hasUserJoined)
-                                                <a href="/invite/ong/{{$ongs->id}}/" 
-                                                class="btn btn-primary">Enviar pedido</a>
+                        </button>
+                    </div>
+                        
+                        <br>
+                
+                    <form action="/ong/leave/{{$ong->id}}">
+                            @csrf
+                            @method("DELETE")
+                         <button type="submit" class="btn btn-danger delete-btn">
+                            <ion-icon name="trash-outline"></ion-icon>Remover participação da Ong
+                        </button>
+                    </form>
+           @endforeach 
+           @else
+           <h5>0 Ongs que participo</h5>
+            @endif
 
-                                            @else
-                                                <p>Você já está participando desta Ong</p>
-
-                                                <form action="/ong/leave/{{$ongs->id}}">
-                                                @csrf
-                                                @method("DELETE")
-                                                <button type="submit" class="btn btn-danger delete-btn">
-                                                    <ion-icon name="trash-outline"></ion-icon>Remover participação da Ong
-                                                </button>
-                                            </form>
-
-                                            @endif  
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+            </div>  
+                </a>
+                  </div>
+                      </div>
+                         </div>
                             
                             <!-- courses item end -->
 
-
-
-
                         </div>
-
                     </div>
-
                 </div>
             </div>
-
-        </div>
-    </div>
+          </div>
+      </div>
     <!-- ongs section end -->
 
     <!-- footer start -->
@@ -235,12 +219,11 @@
             </div>
     </footer>
     <!-- footer end -->
+   
 
 
     </div>
     <!-- main wrapper end-->
 
-
 </body>
-
 </html>
