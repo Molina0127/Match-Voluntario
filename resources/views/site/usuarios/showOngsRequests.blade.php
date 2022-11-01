@@ -64,7 +64,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="menu-item"><a href="{{ route('contact') }}">Contato</a></li>
+                        
                     </ul>
                 </nav>
             </div>
@@ -111,12 +111,12 @@
                         <div class="row justify-content-center">
 
                             <!-- courses item start -->
+                            @if($showVol->count()> 0)    
+                            @foreach($showVol as $showVol)
                             <div class="col-md-6 col-lg-3">
                                 <div class="courses-item">
                                     <a href="#" class="link">
                                         <div class="courses-item-inner">
-                                        @if($showVol->count()> 0)    
-                                        @foreach($showVol as $showVol)
                                                 <?php
                                                 
                                                 $check = DB::table('convida_usuarios')
@@ -154,10 +154,6 @@
                                                 <a href="/invitations/del/ong{{$showVol->id}}/" 
                                                 class="btn btn-danger">Recusar pedido</a>
                                                 <?php } ?>   
-                                            @endforeach
-                                            @else
-                                            <h5>Nenhum pedido pendente</h5>
-                                            @endif
 
                                             </div>  
                                         </div>
@@ -165,6 +161,10 @@
                                     </a>
                                 </div>
                             </div>
+                            @endforeach
+                            @else
+                            <h5>Nenhum pedido pendente</h5>
+                            @endif
                             <!-- courses item end -->
 
                         </div>

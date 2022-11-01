@@ -64,7 +64,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="menu-item"><a href="{{ route('contact') }}">Contato</a></li>
+                        
                     </ul>
                 </nav>
             </div>
@@ -111,12 +111,12 @@
                         <div class="row justify-content-center">
 
                             <!-- courses item start -->
+                            @if($show->count()> 0)    
+                            @foreach($show as $show)
                             <div class="col-md-6 col-lg-3">
                                 <div class="courses-item">
                                     <a href="#" class="link">
                                         <div class="courses-item-inner">
-                                        @if($show->count()> 0)    
-                                            @foreach($show as $show)
                                                     <?php
                                                     
                                                     $check = DB::table('convida_ongs')
@@ -128,7 +128,7 @@
                                             ?>
                                             <div class="img-box">
                                                 @if($show->user_image == null)
-                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="{{ $show->nome }}">
+                                                <img src="{{ Vite::asset('resources/img/img-user.jpg') }}" alt="{{ $show->nome }}">
                                                 @else
                                                 <img src="/img/usuarios/{{$show->user_image}}" alt="{{$show->user_image}}">
                                                 @endif
@@ -156,18 +156,19 @@
                                                 <a href="/invitations/del/vol{{$show->id}}/" 
                                                 class="btn btn-danger">Recusar pedido</a>
                                                 <?php } ?>   
-                                            @endforeach
-                                            @else
-                                            <h5>Nenhum pedido pendente</h5>
-                                            @endif
                                             
                                                 
-                                            </div>  
+                                            </div>
                                         </div>
 
                                     </a>
                                 </div>
                             </div>
+                            @endforeach
+                            @else
+                                <h5>Nenhum pedido pendente</h5>
+                            @endif
+
                             
                             <!-- courses item end -->
 

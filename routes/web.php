@@ -53,6 +53,11 @@ Route::post('/auth', 'App\Http\Controllers\LoginController@auth')->name('authUsu
 Route::get('/ong/login', 'App\Http\Controllers\LoginController@loginOng')->name('loginOng');
 Route::post('/ong/auth', 'App\Http\Controllers\LoginController@authOng')->name('authOng');
 
+
+//Forget Password Controller
+Route::get('/usuario/forget-password', 'App\Http\Controllers\ForgetPasswordController@showForm')->name('forget-password');
+
+
 //Usuarios Controller
 Route::get('/usuarios/signup', 'App\Http\Controllers\UsuariosController@create')->name('signup');
 Route::post('/usuarios/create', 'App\Http\Controllers\UsuariosController@save')->name('saveUsuario');
@@ -64,10 +69,4 @@ Route::get('/usuario/edit/{id}', 'App\Http\Controllers\UsuariosController@edit')
 Route::patch('/usuarios/edit/{id}','App\Http\Controllers\UsuariosController@update')->name('atualizarUsuario')->middleware('auth');
 Route::get('/myVolunteers', [App\Http\Controllers\UsuariosController::class, 'volunteersparticipants'])->name('myVolunteers');
 Route::get('/usuario/leave/{id}', [App\Http\Controllers\UsuariosController::class, 'removeParticipation']);
-Route::get('/usuario/forget-password', 'App\Http\Controllers\UsuariosController@ForgetPassword')->name('forget-password');
 Route::post('/usuario/logout', 'App\Http\Controllers\UsuariosController@logout')->name('logout');
-
-
-
-//Contact Controller
-Route::get('/contact', 'App\Http\Controllers\ContactController@index')->name('contact');

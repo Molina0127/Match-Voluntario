@@ -62,7 +62,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="menu-item"><a href="{{ route('contact') }}">Contato</a></li>
+                            
                         </ul>
                     </nav>
                 </div>
@@ -97,14 +97,6 @@
 
             <div class="row">
                 <div class="col-12">
-                <nav>
-                    <div class="nav nav-tabs border-0 justify-content-center mb-4" id="nav-tab" role="tablist">
-                        <button class="nav-link active" id="unemployment-tab" data-bs-toggle="tab" data-bs-target="#unemployment" type="button" role="tab" aria-controls="unemployment" aria-selected="true">Desemprego</button>
-                        <button class="nav-link" id="environment-tab" data-bs-toggle="tab" data-bs-target="#environment" type="button" role="tab" aria-controls="environment" aria-selected="false">Meio Ambiente</button>
-                        <button class="nav-link" id="animal-tab" data-bs-toggle="tab" data-bs-target="#animal" type="button" role="tab" aria-controls="animal" aria-selected="false">Animais</button>
-                    </div>
-
-                    </nav>
                     <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="unemployment" role="tabpanel" aria-labelledby="unemployment-tab" tabindex="0">
                         
@@ -118,7 +110,7 @@
                                         <div class="courses-item-inner">
                                             <div class="img-box">
                                                 @if($usuario->user_image == null)
-                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="{{ $usuario->nome }}">
+                                                <img src="{{ Vite::asset('resources/img/img-user.jpg') }}" alt="{{ $usuario->nome }}">
                                                 @else
                                                 <img src="/img/usuarios/{{$usuario->user_image}}" alt="{{$usuario->user_image}}">
                                                 @endif
@@ -144,289 +136,14 @@
                             @endforeach
                             <!-- courses item end -->
 
-                            <!-- courses item start -->
-                            <div class="col-md-6 col-lg-3">
-                                <div class="courses-item">
-                                    <a href="#" class="link">
-                                        <div class="courses-item-inner">
-                                            <div class="img-box">
-                                                <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
-                                            </div>
-                                            <h3 class="title">Ong de ajuda aos indígenas</h3>
-                                            <div class="instructor">
-                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
-                                                <span class="instructor-name">Guilherme</span>
-                                            </div>
-                                            <!-- <div class="rating"></div> -->
-                                            <div class="price">$ 49</div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- courses item end -->
-
-                            <!-- courses item start -->
-                            <div class="col-md-6 col-lg-3">
-                                <div class="courses-item">
-                                    <a href="#" class="link">
-                                        <div class="courses-item-inner">
-                                            <div class="img-box">
-                                                <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
-                                            </div>
-                                            <h3 class="title">Ong de ajuda aos indígenas</h3>
-                                            <div class="instructor">
-                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
-                                                <span class="instructor-name">Guilherme</span>
-                                            </div>
-                                            <!-- <div class="rating"></div> -->
-                                            <div class="price">$ 49</div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- courses item end -->
-
-                            <!-- courses item start -->
-                            <div class="col-md-6 col-lg-3">
-                                <div class="courses-item">
-                                    <a href="#" class="link">
-                                        <div class="courses-item-inner">
-                                            <div class="img-box">
-                                                <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
-                                            </div>
-                                            <h3 class="title">Ong de ajuda aos indígenas</h3>
-                                            <div class="instructor">
-                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
-                                                <span class="instructor-name">Guilherme</span>
-                                            </div>
-                                            <!-- <div class="rating"></div> -->
-                                            <div class="price">$ 49</div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- courses item end -->
 
                         </div>
 
                     </div>
 
-                    <div class="tab-pane fade" id="environment" role="tabpanel" aria-labelledby="environment-tab" tabindex="0">
-                        
-                        <div class="row justify-content-center">
-
-                            <!-- courses item start -->
-                            <div class="col-md-6 col-lg-3">
-                                <div class="courses-item">
-                                    <a href="#" class="link">
-                                        <div class="courses-item-inner">
-                                            <div class="img-box">
-                                                <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
-                                            </div>
-                                            <h3 class="title">Ong de ajuda aos indígenas</h3>
-                                            <div class="instructor">
-                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
-                                                <span class="instructor-name">Guilherme</span>
-                                            </div>
-                                            <!-- <div class="rating"></div> -->
-                                            <div class="price">$ 49</div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- courses item end -->
-
-                            <!-- courses item start -->
-                            <div class="col-md-6 col-lg-3">
-                                <div class="courses-item">
-                                    <a href="#" class="link">
-                                        <div class="courses-item-inner">
-                                            <div class="img-box">
-                                                <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
-                                            </div>
-                                            <h3 class="title">Ong de ajuda aos indígenas</h3>
-                                            <div class="instructor">
-                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
-                                                <span class="instructor-name">Guilherme</span>
-                                            </div>
-                                            <!-- <div class="rating"></div> -->
-                                            <div class="price">$ 49</div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- courses item end -->
-
-                            <!-- courses item start -->
-                            <div class="col-md-6 col-lg-3">
-                                <div class="courses-item">
-                                    <a href="#" class="link">
-                                        <div class="courses-item-inner">
-                                            <div class="img-box">
-                                                <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
-                                            </div>
-                                            <h3 class="title">Ong de ajuda aos indígenas</h3>
-                                            <div class="instructor">
-                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
-                                                <span class="instructor-name">Guilherme</span>
-                                            </div>
-                                            <!-- <div class="rating"></div> -->
-                                            <div class="price">$ 49</div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- courses item end -->
-
-                            <!-- courses item start -->
-                            <div class="col-md-6 col-lg-3">
-                                <div class="courses-item">
-                                    <a href="#" class="link">
-                                        <div class="courses-item-inner">
-                                            <div class="img-box">
-                                                <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
-                                            </div>
-                                            <h3 class="title">Ong de ajuda aos indígenas</h3>
-                                            <div class="instructor">
-                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
-                                                <span class="instructor-name">Guilherme</span>
-                                            </div>
-                                            <!-- <div class="rating"></div> -->
-                                            <div class="price">$ 49</div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- courses item end -->
-
-                        </div>
-
-                    </div>
-
-                    <div class="tab-pane fade" id="animal" role="tabpanel" aria-labelledby="animal-tab" tabindex="0">
-                        
-                        <div class="row justify-content-center">
-
-                            <!-- courses item start -->
-                            <div class="col-md-6 col-lg-3">
-                                <div class="courses-item">
-                                    <a href="#" class="link">
-                                        <div class="courses-item-inner">
-                                            <div class="img-box">
-                                                <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
-                                            </div>
-                                            <h3 class="title">Ong de ajuda aos indígenas</h3>
-                                            <div class="instructor">
-                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
-                                                <span class="instructor-name">Guilherme</span>
-                                            </div>
-                                            <!-- <div class="rating"></div> -->
-                                            <div class="price">$ 49</div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- courses item end -->
-
-                            <!-- courses item start -->
-                            <div class="col-md-6 col-lg-3">
-                                <div class="courses-item">
-                                    <a href="#" class="link">
-                                        <div class="courses-item-inner">
-                                            <div class="img-box">
-                                                <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
-                                            </div>
-                                            <h3 class="title">Ong de ajuda aos indígenas</h3>
-                                            <div class="instructor">
-                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
-                                                <span class="instructor-name">Guilherme</span>
-                                            </div>
-                                            <!-- <div class="rating"></div> -->
-                                            <div class="price">$ 49</div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- courses item end -->
-
-                            <!-- courses item start -->
-                            <div class="col-md-6 col-lg-3">
-                                <div class="courses-item">
-                                    <a href="#" class="link">
-                                        <div class="courses-item-inner">
-                                            <div class="img-box">
-                                                <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
-                                            </div>
-                                            <h3 class="title">Ong de ajuda aos indígenas</h3>
-                                            <div class="instructor">
-                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
-                                                <span class="instructor-name">Guilherme</span>
-                                            </div>
-                                            <!-- <div class="rating"></div> -->
-                                            <div class="price">$ 49</div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- courses item end -->
-
-                            <!-- courses item start -->
-                            <div class="col-md-6 col-lg-3">
-                                <div class="courses-item">
-                                    <a href="#" class="link">
-                                        <div class="courses-item-inner">
-                                            <div class="img-box">
-                                                <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
-                                            </div>
-                                            <h3 class="title">Ong de ajuda aos indígenas</h3>
-                                            <div class="instructor">
-                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
-                                                <span class="instructor-name">Guilherme</span>
-                                            </div>
-                                            <!-- <div class="rating"></div> -->
-                                            <div class="price">$ 49</div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- courses item end -->
-
-                        </div>
-
-
-                    </div>
 
                     <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">...</div>
                     </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 mt-3">
-                    <!-- pagination start -->
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <i class="fas fa-chevron-left"></i>
-
-                            </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#">10</a></li>
-                            <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-
-                                <i class="fas fa-chevron-right"></i>
-                            </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <!-- pagination end -->
                 </div>
             </div>
         </div>

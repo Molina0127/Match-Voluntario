@@ -62,7 +62,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="menu-item"><a href="{{ route('contact') }}">Contato</a></li>
+                            
                         </ul>
                     </nav>
                 </div>
@@ -117,7 +117,7 @@
                                         <div class="courses-item-inner">
                                             <div class="img-box">
                                                 @if($usuario->user_image == null)
-                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="{{ $usuario->nome }}">
+                                                <img src="{{ Vite::asset('resources/img/img-user.jpg') }}" alt="{{ $usuario->nome }}">
                                                 @else
                                                 <img src="/img/usuarios/{{$usuario->user_image}}" alt="{{$usuario->user_image}}">
                                                 @endif

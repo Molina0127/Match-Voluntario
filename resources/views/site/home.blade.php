@@ -47,7 +47,7 @@
                                     <li class="sub-menu-item"><a href="{{ route('signup') }}">Cadastre-se</a></li>
                                 </ul>
                             </li>
-                            <li class="menu-item"><a href="{{ route('contact') }}">Contato</a></li>
+                            
                         </ul>
                     </nav>
                 </div>
@@ -61,10 +61,10 @@
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="banner-text">
-                            <h2 class="mb-3">Encontre os melhores projetos e os melhores voluntários em um só lugar</h2>
+                            <h2 class="mb-3">Encontre as melhores Ongs e os melhores voluntários em um só lugar</h2>
                             <h1 class="mb-3 text-capitalize">O melhor Website do Voluntariado!</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Laborum repellat ut qui veniam quibusdam tempora?
+                            <p>Envie pedidos para Ong ou voluntários de seu interesse e ao fazer parte de uma dessas entidades
+                               você terá acesso as suas informações de contato
                             </p>
                             <a href="#" class="btn btn-theme">Faça parte dessa ação</a> 
                         </div>
@@ -91,14 +91,14 @@
                     <div class="row text-center">
                         <div class="col-md-6 col-lg-3">
                             <div class="fun-facts-item">
-                                <h2 class="style-1">800+</h2>
+                                <h2 class="style-1">20+</h2>
                                 <p>Números de Voluntários</p>
                             </div>
                         </div>
 
                         <div class="col-md-6 col-lg-3">
                             <div class="fun-facts-item">
-                                <h2 class="style-2">200+</h2>
+                                <h2 class="style-2">20+</h2>
                                 <p>Ongs Cadastradas</p>
                             </div>
                         </div>
@@ -231,83 +231,6 @@
         </section>
 
         <!-- ongs section end -->
-
-        <!-- testemunhos section start -->
-            <div class="testimonials-section section-padding position-relative">
-                <div class="decoration-circles">
-                    <div class="decoration-circles-item"></div>
-                    <div class="decoration-circles-item"></div>
-                    <div class="decoration-circles-item"></div>
-                    <div class="decoration-circles-item"></div>
-                </div>
-
-                <div class="decoration-imgs">
-                    <!-- Deve ser colocado uma imagem de decoração -->
-                    <img src="{{ Vite::asset('resources/img/Foto-com-fundo-removido-quadrangular2.png') }}" alt="" class="decoration-imgs-item">
-                    <img src="{{ Vite::asset('resources/img/Foto-com-fundo-removido-quadrangular2.png') }}" alt="" class="decoration-imgs-item">
-                    <img src="{{ Vite::asset('resources/img/Foto-com-fundo-removido-quadrangular2.png') }}" alt="" class="decoration-imgs-item">
-                </div>
-
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8">
-                            <div class="section-title text-center">
-                                <h2 class="title">Voluntários Feedback</h2>
-                                <p class="sub-title">Os que os voluntários dizem</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-md-8 col-lg-6">
-                            <div class="img-box rounded-circle position-relative">
-                                <img src="{{ Vite::asset('resources/img/Foto-com-fundo-removido-quadrangular2.png') }}" class="w-100 js-testimonial-img-rounded-circle" alt="Imagem de Testemunho">
-                            </div>
-
-                            <div id="carouselOne" class="carousel slide text-center" data-bs-ride="carousel">
-                                <div class="carousel-inner mb-4">
-                                    <div class="carousel-item active" data-js-testimonial-img="{{ Vite::asset('resources/img/Foto-com-fundo-removido-quadrangular.png') }}">
-                                        <div class="testimonials-item">
-                                            <p class="text-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, 
-                                            sed consequuntur maiores deserunt dolores atque minima temporibus numquam. 
-                                            Voluptatibus, neque!</p>
-                                            <h3>Guilherme Molina</h3>
-                                            <p class="text-2">Web Developer</p>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item" data-js-testimonial-img="{{ Vite::asset('resources/img/Foto-com-fundo-removido-quadrangular2.png') }}">
-                                        <div class="testimonials-item">
-                                                <p class="text-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, 
-                                                sed consequuntur maiores deserunt dolores atque minima temporibus numquam. 
-                                                Voluptatibus, neque!</p>
-                                                <h3>Guilherme Molina</h3>
-                                                <p class="text-2">Web Developer</p>
-                                            </div>
-                                        </div>
-                                    <div class="carousel-item" data-js-testimonial-img="{{ Vite::asset('resources/img/Foto-de-perfil-linkedin-recortada.jpeg') }}">
-                                        <div class="testimonials-item">
-                                            <p class="text-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, 
-                                            sed consequuntur maiores deserunt dolores atque minima temporibus numquam. 
-                                            Voluptatibus, neque!</p>
-                                            <h3>Luís Miguel</h3>
-                                            <p class="text-2">Web Developer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselOne" data-bs-slide="prev">
-                                    <i class="fas fa-arrow-left"></i>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselOne" data-bs-slide="next">
-                                    <i class="fas fa-arrow-right"></i>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <!-- testemunhos section end -->
 
         <!-- torne-se um volunário section start -->
             <div class="bai-section section-padding">
