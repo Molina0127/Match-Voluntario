@@ -119,9 +119,9 @@
                 
                 <div class="img-box">
                     @if($ong->ong_image == null)
-                        <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="{{ $ong->ong_name }}">
+                        <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="{{ $ong->ong_name }}" style="width: 200px; height: 200px;">
                         @else
-                        <img src="/img/ongs/{{$ong->ong_image}}" alt="{{$ong->ong_image}}">
+                        <img src="/img/ongs/{{$ong->ong_image}}" alt="{{$ong->ong_image}}" style="width: 200px; height: 200px;">
                     @endif
                 </div>
                 

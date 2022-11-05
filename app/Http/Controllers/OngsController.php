@@ -148,7 +148,7 @@ class OngsController extends Controller
                 ["ongs.ong_state", "=" , $usuario->estado],
             ])->get();
         }
-        return view('site.ongs.ongs', ['ongs'=> $ongs, 'search' => $search]);
+        return view('site.ongs.ongs', ['ongs'=> $ongs, 'search' => $search, 'usuario' => $usuario]);
     }
 
     public function showOng($id){

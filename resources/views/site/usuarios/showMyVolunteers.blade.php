@@ -113,9 +113,9 @@
                 
                 <div class="img-box">
                     @if($usuario->user_image == null)
-                        <img src="{{ Vite::asset('resources/img/user-profile.png') }}" alt="{{ $usuario->nome }}">
+                        <img src="{{ Vite::asset('resources/img/user-profile.png') }}" alt="{{ $usuario->nome }}" style="width: 200px; height: 200px;">
                     @else
-                        <img src="/img/usuarios/{{$usuario->user_image}}" alt="{{$usuario->user_image}}">
+                        <img src="/img/usuarios/{{$usuario->user_image}}" alt="{{$usuario->user_image}}" style="width: 200px; height: 200px;">
                     @endif
                 </div>
                 
