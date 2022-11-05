@@ -62,7 +62,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="menu-item"><a href="{{ route('contact') }}">Contato</a></li>
+                           
                         </ul>
                     </nav>
                 </div>
@@ -103,13 +103,12 @@
                         <div class="row justify-content-center">
                             
                         <!-- courses item start -->
+                            @if($ongs->count()> 0)                         
+                            @foreach($ongs as $ong)
                             <div class="col-md-6 col-lg-3">
                                 <div class="courses-item">
                                     <a href="#" class="link">
                                         <div class="courses-item-inner">
-                                        
-                @if($ongs->count()> 0)                         
-                @foreach($ongs as $ong)
                 
                 <div class="img-box">
                     @if($ong->ong_image == null)
@@ -142,15 +141,15 @@
                             <ion-icon name="trash-outline"></ion-icon>Remover participação da Ong
                         </button>
                     </form>
-           @endforeach 
-           @else
-           <h5>0 Ongs que participo</h5>
-            @endif
-
             </div>  
                 </a>
                   </div>
                       </div>
+                      @endforeach 
+                      @else
+                      <h5>0 Ongs que participo</h5>
+                      @endif
+
                          </div>
                             
                             <!-- courses item end -->

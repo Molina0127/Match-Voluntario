@@ -62,7 +62,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="menu-item"><a href="{{ route('contact') }}">Contato</a></li>
+                        
                     </ul>
                 </nav>
             </div>
@@ -103,17 +103,17 @@
                         <div class="row justify-content-center">
                             
                         <!-- courses item start -->
+                        
+                            @if($usuarios->count()> 0)                         
+                            @foreach($usuarios as $usuario)
                             <div class="col-md-6 col-lg-3">
                                 <div class="courses-item">
                                     <a href="#" class="link">
                                         <div class="courses-item-inner">
-                                        
-                @if($usuarios->count()> 0)                         
-                @foreach($usuarios as $usuario)
                 
                 <div class="img-box">
                     @if($usuario->user_image == null)
-                        <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="{{ $usuario->nome }}">
+                        <img src="{{ Vite::asset('resources/img/img-user.jpg') }}" alt="{{ $usuario->nome }}">
                     @else
                         <img src="/img/usuarios/{{$usuario->user_image}}" alt="{{$usuario->user_image}}">
                     @endif
@@ -138,15 +138,17 @@
                         <ion-icon name="trash-outline"></ion-icon>Remover Voluntário
                     </button>
                 </form>
-           @endforeach 
-           @else
-           <h5>0 Voluntários participantes</h5>
-            @endif
 
             </div>  
                 </a>
                   </div>
                       </div>
+                        
+                        @endforeach 
+                        @else
+                        <h5>0 Voluntários participantes</h5>
+                        @endif
+
                          </div>
                             
                             <!-- courses item end -->

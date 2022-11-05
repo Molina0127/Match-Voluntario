@@ -188,12 +188,10 @@ class UsuariosController extends Controller
         }
 
     }
+
     public function logout(){
         Auth::logout();
         return view('site.home');
-    }
-    public function ForgetPassword(){
-        return view('auth.passwords.email');
     }
     public function volunteersparticipants(){
         $ong = Auth::guard('ong')->user();

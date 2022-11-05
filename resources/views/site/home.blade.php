@@ -47,7 +47,7 @@
                                     <li class="sub-menu-item"><a href="{{ route('signup') }}">Cadastre-se</a></li>
                                 </ul>
                             </li>
-                            <li class="menu-item"><a href="{{ route('contact') }}">Contato</a></li>
+                            
                         </ul>
                     </nav>
                 </div>
@@ -61,10 +61,10 @@
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="banner-text">
-                            <h2 class="mb-3">Encontre os melhores projetos e os melhores voluntários em um só lugar</h2>
+                            <h2 class="mb-3">Encontre as melhores Ongs e os melhores voluntários em um só lugar</h2>
                             <h1 class="mb-3 text-capitalize">O melhor Website do Voluntariado!</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Laborum repellat ut qui veniam quibusdam tempora?
+                            <p>Envie pedidos para Ong ou voluntários de seu interesse e ao fazer parte de uma dessas entidades
+                               você terá acesso as suas informações de contato
                             </p>
                             <a href="#" class="btn btn-theme">Faça parte dessa ação</a> 
                         </div>
@@ -91,14 +91,14 @@
                     <div class="row text-center">
                         <div class="col-md-6 col-lg-3">
                             <div class="fun-facts-item">
-                                <h2 class="style-1">800+</h2>
+                                <h2 class="style-1">20+</h2>
                                 <p>Números de Voluntários</p>
                             </div>
                         </div>
 
                         <div class="col-md-6 col-lg-3">
                             <div class="fun-facts-item">
-                                <h2 class="style-2">200+</h2>
+                                <h2 class="style-2">20+</h2>
                                 <p>Ongs Cadastradas</p>
                             </div>
                         </div>

@@ -45,7 +45,7 @@
                                     <li class="sub-menu-item"><a href="{{ route('signup') }}">Cadastre-se</a></li>
                                 </ul>
                             </li>
-                            <li class="menu-item"><a href="{{ route('contact') }}">Contato</a></li>
+                            
                         </ul>
                     </nav>
                 </div>
@@ -97,7 +97,7 @@
                             <br>
                             <br>
 
-                            <a class="d-flex mb-2 justify-content-center" href="{{route('forget-password')}}">Esqueceu a Senha?</a>
+                            <a class="d-flex mb-2 justify-content-center" href="">Esqueceu a Senha?</a>
                             <p class="text-center mt-4 mb-0">Não possui conta ? <a href="{{ route('createOng') }}">Cadastre-se</a></p>
                         </form>
                         

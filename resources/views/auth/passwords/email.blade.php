@@ -21,18 +21,18 @@
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" class="js-toggle-sub-menu">Ongs<i class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">
-                                    <li class="sub-menu-item"><a href="{{ route('ongs') }}">Ongs</a></li>
-                                    <li class="sub-menu-item"><a href="{{ route('ongsDetails')}}">Detalhes Ongs</a></li>
+                                <li class="sub-menu-item"><a href="{{route('loginOng')}}">Login</a></li>
+                                    <li class="sub-menu-item"><a href="{{route('createOng')}}">Cadastro</a></li>
                                 </ul>
                             </li>
                             <li class="menu-item menu-item-has-children">
-                                <a href="#" class="js-toggle-sub-menu">Pages<i class="fas fa-chevron-down"></i></a>
+                                <a href="#" class="js-toggle-sub-menu">Voluntário<i class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">
                                     <li class="sub-menu-item"><a href="{{ route('login') }}">Login</a></li>
                                     <li class="sub-menu-item"><a href="{{ route('signup') }}">Cadastre-se</a></li>
                                 </ul>
                             </li>
-                            <li class="menu-item"><a href="{{ route('contact') }}">Contato</a></li>
+                            
                         </ul>
                     </nav>
                 </div>

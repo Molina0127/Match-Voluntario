@@ -45,7 +45,7 @@
                                     <li class="sub-menu-item"><a href="{{ route('signup') }}">Cadastre-se</a></li>
                                 </ul>
                             </li>
-                            <li class="menu-item"><a href="{{ route('contact') }}">Contato</a></li>
+                           
                         </ul>
                     </nav>
                 </div>
