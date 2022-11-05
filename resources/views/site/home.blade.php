@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
+    @vite('resources/js/main.js')
 
     <title>Home</title>
 </head>
@@ -69,7 +69,7 @@
                             <a href="#" class="btn btn-theme">Faça parte dessa ação</a> 
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 order-first order-md-last mb-5 mb-md-0">
                         <div class="banner-img">
                             <div class="circular-img">
                                 <div class="circular-img-inner">
@@ -234,14 +234,14 @@
 
         <!-- testemunhos section start -->
             <div class="testimonials-section section-padding position-relative">
-                <div class="decoration-circles">
+                <div class="decoration-circles d-none d-lg-block">
                     <div class="decoration-circles-item"></div>
                     <div class="decoration-circles-item"></div>
                     <div class="decoration-circles-item"></div>
                     <div class="decoration-circles-item"></div>
                 </div>
 
-                <div class="decoration-imgs">
+                <div class="decoration-imgs d-none d-lg-block">
                     <!-- Deve ser colocado uma imagem de decoração -->
                     <img src="{{ Vite::asset('resources/img/Foto-com-fundo-removido-quadrangular2.png') }}" alt="" class="decoration-imgs-item">
                     <img src="{{ Vite::asset('resources/img/Foto-com-fundo-removido-quadrangular2.png') }}" alt="" class="decoration-imgs-item">
@@ -316,7 +316,7 @@
                         <div class="col-xl-10">
                             <div class="box">
                                 <div class="row align-items-center">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 mb-4 m-md-0">
                                         <div class="circular-img">
                                             <div class="circular-img-inner">
                                                 <div class="circular-img-circle"></div>

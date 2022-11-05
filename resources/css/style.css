@@ -258,11 +258,6 @@ form {
     position: relative;
 }
 
-.signup-form.box.first {
-    
-}
-
-
 /* .signup-form.box.second {
     position: absolute;
     top: 1px;
@@ -401,6 +396,7 @@ form div.form-group label {
     font-size: 13px;
     margin-left: 3px;
     pointer-events: none;
+    transition: transform 0.3s ease;
 }
 
 .header .sub-menu {
