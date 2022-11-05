@@ -137,95 +137,29 @@
                 
                 <div class="row">
                     <!-- courses item start -->
-                    <div class="col-md-6 col-lg-3">
-                        <div class="courses-item">
-                            <a href="#" class="link">
-                                <div class="courses-item-inner">
-                                    <div class="img-box">
-                                        <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
-                                    </div>
-                                    <h3 class="title">Ong de ajuda aos indígenas</h3>
-                                    <div class="instructor">
-                                        <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
-                                        <span class="instructor-name">Guilherme</span>
-                                    </div>
-                                    <!-- <div class="rating"></div> -->
-                                    <div class="price">$ 49</div>
+                    @foreach($ongs as $ong)
+                            <div class="col-md-6 col-lg-3">
+                                <div class="courses-item">
+                                    <a href="#" class="link">
+                                        <div class="courses-item-inner">
+                                            <div class="img-box">
+                                                @if($ong->ong_image == null)
+                                                <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="{{ $ong->ong_name }}">
+                                                @else
+                                                <img src="/img/ongs/{{$ong->ong_image}}" alt="{{$ong->ong_image}}">
+                                                @endif
+                                            </div>
+                                            <h3 class="title">{{$ong->ong_name}}</h3>
+                                            <div class="instructor">
+                                                <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
+                                                <span class="instructor-name">{{$ong->owner}}</span>
+                                            </div>  
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
-                        </div>
-                    </div>
+                            </div>
+                            @endforeach
                     <!-- courses item end -->
-                
-                    <!-- courses item start -->
-                    <div class="col-md-6 col-lg-3">
-                        <div class="courses-item">
-                            <a href="#" class="link">
-                                <div class="courses-item-inner">
-                                    <div class="img-box">
-                                        <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
-                                    </div>
-                                    <h3 class="title">Ong de ajuda aos indígenas</h3>
-                                    <div class="instructor">
-                                        <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
-                                        <span class="instructor-name">Luís</span>
-                                    </div>
-                                    <!-- <div class="rating"></div> -->
-                                    <div class="price">$ 49</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- courses item end -->
-
-                    <!-- courses item start -->
-                    <div class="col-md-6 col-lg-3">
-                        <div class="courses-item">
-                            <a href="#" class="link">
-                                <div class="courses-item-inner">
-                                    <div class="img-box">
-                                        <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
-                                    </div>
-                                    <h3 class="title">Ong de ajuda aos indígenas</h3>
-                                    <div class="instructor">
-                                        <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
-                                        <span class="instructor-name">Murilo</span>
-                                    </div>
-                                    <!-- <div class="rating"></div> -->
-                                    <div class="price">$ 49</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- courses item end -->
-
-                    <!-- courses item start -->
-                    <div class="col-md-6 col-lg-3">
-                        <div class="courses-item">
-                            <a href="#" class="link">
-                                <div class="courses-item-inner">
-                                    <div class="img-box">
-                                        <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="ong imagem">
-                                    </div>
-                                    <h3 class="title">Qualificação de Mulheres</h3>
-                                    <div class="instructor">
-                                        <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
-                                        <span class="instructor-name">Katheleen</span>
-                                    </div>
-                                    <!-- <div class="rating"></div> -->
-                                    <div class="price">$ 49</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- courses item end -->
-                
-                    <div class="row">
-                    <div class="col-12 text-center mt-3">
-                        <a href="{{ route('ongs') }}" class="btn btn-theme">Veja Todas as Ongs</a>
-                    </div>
-                </div>
 
             </div>
         </section>

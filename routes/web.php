@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Models\Ong;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 //Root
 Route::get('/', function () {
-    return view('site.home');
+    $ongs = Ong::all();
+    return view('site.home', compact('ongs'));
 })->name('home');
 
 Auth::routes();

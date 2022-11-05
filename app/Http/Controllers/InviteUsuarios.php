@@ -23,11 +23,12 @@ public function send($id){
         return back()->with('delVol', 'Você nao enviou nenhum pedido');
     }*/
     public function showRequests(){
+        $usuario = Auth::user();
         $showVolRequests = DB::table('convida_usuarios')
         ->leftJoin('ongs', 'ongs.id', 'convida_usuarios.ong_requested')
         ->where('reqstatus',null)->get();
 
-        return view('site.usuarios.showOngsRequests')->with('showVol', $showVolRequests);
+        return view('site.usuarios.showOngsRequests', compact('usuario'))->with('showVol', $showVolRequests);
 
 
     }

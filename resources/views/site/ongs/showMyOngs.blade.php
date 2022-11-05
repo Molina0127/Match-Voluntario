@@ -41,7 +41,14 @@
                                 </ul>
                             </li>
                             <li class="menu-item menu-item-has-children">
-                                <a href="#" class="js-toggle-sub-menu">{{Auth::user()->nome}}<i class="fas fa-chevron-down"></i></a>
+                            <a href="#" class="js-toggle-sub-menu" style="position:relative; padding-left: 50px;">
+                                    @if($usuario->user_image == null)
+                                            <img src="{{ Vite::asset('resources/img/user-profile.png') }}" alt="{{ $usuario->nome }}" style="width: 32px; height: 32px; position:absolute; top: 20px; left: 10px; border-radius: 50%">
+                                    @else
+                                            <img src="/img/usuarios/{{$usuario->user_image}}" alt="{{$usuario->user_image}}" style="width: 32px; height: 32px; position:absolute; top: 20px; left: 10px; border-radius: 50%">
+                                    @endif
+                                    {{Auth::user()->nome}}<i class="fas fa-chevron-down"></i>
+                        </a>
                                 <ul class="sub-menu js-sub-menu">  
                                 <li class="sub-menu-item"><a href="/usuario/edit/{{Auth::user()->id}}">Configurações</a></li>               
                                        <li class="sub-menu-item">

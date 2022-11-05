@@ -117,9 +117,9 @@
                                         <div class="courses-item-inner">
                                             <div class="img-box">
                                                 @if($usuario->user_image == null)
-                                                <img src="{{ Vite::asset('resources/img/img-user.jpg') }}" alt="{{ $usuario->nome }}">
+                                                    <img src="{{ Vite::asset('resources/img/user-profile.png') }}" alt="{{ $usuario->nome }}">
                                                 @else
-                                                <img src="/img/usuarios/{{$usuario->user_image}}" alt="{{$usuario->user_image}}">
+                                                    <img src="/img/usuarios/{{$usuario->user_image}}" alt="{{$usuario->user_image}}">
                                                 @endif
                                             </div>
                                             <h3 class="title">{{$usuario->nome }} {{$usuario->sobrenome}}</h3>

@@ -190,8 +190,9 @@ class UsuariosController extends Controller
     }
 
     public function logout(){
+        $ongs = Ong::all();
         Auth::logout();
-        return view('site.home');
+        return view('site.home', compact('ongs'));
     }
     public function volunteersparticipants(){
         $ong = Auth::guard('ong')->user();

@@ -15,6 +15,7 @@ class LoginController extends Controller
 
     public function index() {
         if(Auth::user()){
+            $usuario = Auth::user();
             $user_id = Auth::user()->id;
             $ongs = Ong::select(
 
@@ -26,12 +27,13 @@ class LoginController extends Controller
             ->join("categoria_usuario", "categoria_usuario.categoria_id", "=", "categoria_ong.categoria_id")
             ->where("categoria_usuario.usuario_id","=", $user_id)
             ->get();
-            return view('site.ongs.ongs', compact('ongs'));
+            return view('site.ongs.ongs', compact('ongs', 'usuario'));
         }else {
             return view ('site.usuarios.login');
         }
     }
     public function auth(Request $request){
+        $usuario = Auth::user();
         $credentials = $request->validate([
             'email'=>'required',
             'password' => [
@@ -63,7 +65,7 @@ class LoginController extends Controller
                 ["ongs.ong_state", "=" , $usuario->estado],
             ])->get();
 
-            return view('site.ongs.ongs', compact('ongs'));
+            return view('site.ongs.ongs', compact('ongs', 'usuario'));
         
         } else{
             return back()->with('fail', 'E-mail ou senha inválida');
@@ -71,6 +73,7 @@ class LoginController extends Controller
     }
      public function loginOng(){
         if(Auth::guard('ong')->check()){
+            $ong = Auth::guard('ong')->user();
             $ong_id = Auth::guard('ong')->user()->id;
             $usuarios = Usuario::select(
 
@@ -83,7 +86,7 @@ class LoginController extends Controller
             ->join("categoria_ong", "categoria_ong.categoria_id", "=", "categoria_usuario.categoria_id")
             ->where("categoria_ong.ong_id","=", $ong_id)
             ->get();
-            return view('site.usuarios.usuarios', compact('usuarios'));
+            return view('site.usuarios.usuarios', compact('usuarios', 'ong'));
         } else {
             return view ('site.ongs.login');
         }
@@ -119,7 +122,7 @@ class LoginController extends Controller
                 ["categoria_ong.ong_id","=", $ong_id],
                 ["usuarios.estado", "=", $ong->ong_state],
             ])->get();
-            return view('site.usuarios.usuarios', compact('usuarios'));
+            return view('site.usuarios.usuarios', compact('usuarios', 'ong'));
         
         } else{
             return back()->with('fail', 'E-mail da Ong ou senha inválida');
