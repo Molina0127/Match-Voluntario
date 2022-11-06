@@ -37,7 +37,7 @@
                                     <li class="sub-menu-item"><a href="{{ route('ongs') }}">Ongs</a></li>
                                     <li class="sub-menu-item"><a href="/invitations/ong">Convites de Ongs</a></li>
                                     <li class="sub-menu-item"><a href="/myongs">Ongs que participo</a></li>
-                                    <li class="sub-menu-item"><a href="{{ route('ongsDetails') }}">Detalhes Ongs</a></li>
+                                    
                                 </ul>
                             </li>
                             <li class="menu-item menu-item-has-children">
@@ -97,7 +97,7 @@
                 <div class="col-md-8">
                     <div class="section-title text-center mb-4">
                         <h2 class="title">Ong:</h2>
-                        <p class="sub-title">{{$ongs->ong_name}}</p>
+                        <p class="sub-title">{{$ong->ong_name}}</p>
                         
                         @if(session()->has('send_to_Ong'))
                                                 <p class="alert alert-success">
@@ -124,39 +124,39 @@
                                     <a href="#" class="link">
                                         <div class="courses-item-inner">
                                             <div class="img-box">
-                                                @if($ongs->ong_image == null)
-                                                <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="{{ $ongs->ong_name }}">
+                                                @if($ong->ong_image == null)
+                                                <img src="{{ Vite::asset('resources/img/img-ong.png') }}" alt="{{ $ong->ong_name }}" style="width: 205px; height: 205px;">
                                                 @else
-                                                <img src="/img/ongs/{{$ongs->ong_image}}" alt="{{$ongs->ong_image}}">
+                                                <img src="/img/ongs/{{$ong->ong_image}}" alt="{{$ong->ong_image}}" style="width: 205px; height: 205px;">
                                                 @endif
                                             </div>
-                                            <h3 class="title">{{$ongs->ong_name}}</h3>
+                                            <h3 class="title">{{$ong->ong_name}}</h3>
                                             <div class="instructor">
                                                 <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
-                                                <span class="instructor-name">{{$ongs->owner}}</span>
+                                                <span class="instructor-name">{{$ong->owner}}</span>
                                                 
                                                 <br>
                                                 <br>
                                                 
-                                                <p class="ong-email">{{$ongs->ong_email}}</p>
+                                                <p class="ong-email">{{$ong->ong_email}}</p>
                                                 <p class="ong-description">
-                                                    {{$ongs->description}}
+                                                    {{$ong->description}}
                                                 </p>
-                                                <p class="ong-city">Cidade:{{$ongs->ong_city}}</p>
-                                                <p class="ong-statue">UF:{{$ongs->ong_state}}</p>
+                                                <p class="ong-city">Cidade:{{$ong->ong_city}}</p>
+                                                <p class="ong-statue">UF:{{$ong->ong_state}}</p>
                                                 <p class="category">Categoria:{{$ong_categorias}}</p>
-                                                <p class="ong-volunteers">{{ count($ongs->usuarios) }} Voluntários</p>
+                                                <p class="ong-volunteers">{{ count($ong->usuarios) }} Voluntários</p>
                                                 
                                             </div>
                                             
                                              @if(!$hasUserJoined)
-                                                <a href="/invite/ong/{{$ongs->id}}/" 
+                                                <a href="/invite/ong/{{$ong->id}}/" 
                                                 class="btn btn-primary">Enviar pedido</a>
 
                                             @else
                                                 <p>Você já está participando desta Ong</p>
 
-                                                <form action="/ong/leave/{{$ongs->id}}">
+                                                <form action="/ong/leave/{{$ong->id}}">
                                                 @csrf
                                                 @method("DELETE")
                                                 <button type="submit" class="btn btn-danger delete-btn">

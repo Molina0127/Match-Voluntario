@@ -23,6 +23,7 @@ class InviteOngs extends Controller
         return back()->with('delent', 'Você não enviou nenhum pedido');
     }*/
     public function showRequests(){
+        $ong = Auth::guard('ong')->user();
         $ong_logada = Auth::guard('ong')->user();
         if(!$ong_logada){
             return view('site.ongs.login');
@@ -31,7 +32,7 @@ class InviteOngs extends Controller
             ->leftJoin('usuarios', 'usuarios.id', 'convida_ongs.user_requested')
             ->where('status',null)->get();
 
-                return view('site.ongs.showUsuariosRequests')->with('show', $showRequests);
+                return view('site.ongs.showUsuariosRequests', compact('ong'))->with('show', $showRequests);
         }
         
     }

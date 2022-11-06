@@ -65,7 +65,7 @@ class UsuariosController extends Controller
                     ["usuarios.estado", "=", $ong->ong_state],
                 ])->get();
             }
-        return view('site.usuarios.usuarios', ['usuarios'=> $usuarios]);
+        return view('site.usuarios.usuarios', ['usuarios'=> $usuarios, 'ong' => $ong]);
     }
     public function destroy($id){
         $usuario = Usuario:: findOrFail($id);

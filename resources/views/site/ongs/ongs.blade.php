@@ -37,7 +37,7 @@
                                     <li class="sub-menu-item"><a href="{{ route('ongs') }}">Ongs</a></li>
                                     <li class="sub-menu-item"><a href="/invitations/ong">Convites de Ongs</a></li>
                                     <li class="sub-menu-item"><a href="/myongs">Ongs que participo</a></li>
-                                    <li class="sub-menu-item"><a href="{{ route('ongsDetails') }}">Detalhes Ongs</a></li>
+                                    
                                 </ul>
                             </li>
                             <li class="menu-item menu-item-has-children">
@@ -117,7 +117,7 @@
                                         <div class="courses-item-inner">
                                             <div class="img-box">
                                                 @if($ong->ong_image == null)
-                                                <img src="{{ Vite::asset('resources/img/img-ong.jpg') }}" alt="{{ $ong->ong_name }}" style="width: 205px; height: 205px;">
+                                                <img src="{{ Vite::asset('resources/img/img-ong.png') }}" alt="{{ $ong->ong_name }}" style="width: 205px; height: 205px;">
                                                 @else
                                                 <img src="/img/ongs/{{$ong->ong_image}}" alt="{{$ong->ong_image}}" style="width: 205px; height: 205px;">
                                                 @endif

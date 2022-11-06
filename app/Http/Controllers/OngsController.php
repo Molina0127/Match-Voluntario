@@ -152,9 +152,9 @@ class OngsController extends Controller
     }
 
     public function showOng($id){
-        $ongs = Ong::findOrFail($id);
+        $ong = Ong::findOrFail($id);
         $usuario = Auth::user();
-        $ong_categorias = $ongs->categorias->pluck('categoria_name');
+        $ong_categorias = $ong->categorias->pluck('categoria_name');
 
 
         $usuario = auth()->user();
@@ -174,7 +174,7 @@ class OngsController extends Controller
 
 
 
-        return view('site/ongs/showOng', ['ongs' => $ongs, 'ong_categorias' => $ong_categorias, 'hasUserJoined' => $hasUserJoined, 'usuario' => $usuario]);
+        return view('site/ongs/showOng', ['ong' => $ong, 'ong_categorias' => $ong_categorias, 'hasUserJoined' => $hasUserJoined, 'usuario' => $usuario]);
     }
     public function showUsuario($id){
         $ong_logada = Auth::guard('ong')->user();

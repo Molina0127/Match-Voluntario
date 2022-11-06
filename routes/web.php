@@ -31,7 +31,6 @@ Route::get('/usuario/del/{id}','App\Http\Controllers\UsuariosController@destroy'
 Route::get('/ong/edit/{id}','App\Http\Controllers\OngsController@edit')->name('editarOng');//validado
 Route::patch('/ong/edit/{id}','App\Http\Controllers\OngsController@update')->name('atualizarOng');//validado
 Route::get('/myongs', [App\Http\Controllers\OngsController::class, 'ongsasparticipant'])->name('myongs')->middleware('auth');
-Route::get('/ongs_details', 'App\Http\Controllers\OngsController@show')->name('ongsDetails');
 Route::get('/ong/leave/{id}', [App\Http\Controllers\OngsController::class, 'leaveOng']);
 Route::post('/ong/logout', 'App\Http\Controllers\OngsController@logoutOng')->name('logoutOng');
 

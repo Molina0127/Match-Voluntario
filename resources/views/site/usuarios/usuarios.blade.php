@@ -37,11 +37,19 @@
                                     <li class="sub-menu-item"><a href="{{ route('usuarios') }}">Voluntários</a></li>
                                     <li class="sub-menu-item"><a href="/invitations/vol">Convites de Voluntários</a></li>
                                     <li class="sub-menu-item"><a href="/myVolunteers">Meus Voluntários</a></li>
-                                    <li class="sub-menu-item"><a href="{{ route('ongsDetails') }}">Detalhes Ongs</a></li>
+                                    
                                 </ul>
                             </li>
                             <li class="menu-item menu-item-has-children">
-                                <a href="#" class="js-toggle-sub-menu">{{auth()->guard('ong')->user()->ong_name}}<i class="fas fa-chevron-down"></i></a>
+                                <a href="#" class="js-toggle-sub-menu" style="position:relative; padding-left: 50px;">
+                                @if($ong->ong_image == null)
+                                <img src="{{ Vite::asset('resources/img/img-ong.png') }}" alt="{{ $ong->ong_name }}" style="width: 32px; height: 32px; position:absolute; top: 20px; left: 10px; border-radius: 50%">
+                                @else
+                                <img src="/img/ongs/{{$ong->ong_image}}" alt="{{$ong->ong_image}}" style="width: 32px; height: 32px; position:absolute; top: 20px; left: 10px; border-radius: 50%">
+                                @endif    
+                                {{auth()->guard('ong')->user()->ong_name}}<i class="fas fa-chevron-down"></i>
+                            
+                                </a>
                                 <ul class="sub-menu js-sub-menu">
                                 <li class="sub-menu-item"><a href="/ong/edit/{{auth()->guard('ong')->user()->id}}">Configurações</a></li>                  
                                        <li class="sub-menu-item">
