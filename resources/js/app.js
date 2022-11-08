@@ -10,4 +10,4 @@ import './main.js';
 
 import '../css/app.css';
 
-import '../img/*';
+import '../img/Foto-banner-removebg-preview-reduced-200.png';
