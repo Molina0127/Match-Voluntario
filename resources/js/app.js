@@ -11,3 +11,5 @@ import './main.js';
 import '../css/app.css';
 
 import '../img/Foto-banner-removebg-preview-reduced-200.png';
+
+import '../img/**';
