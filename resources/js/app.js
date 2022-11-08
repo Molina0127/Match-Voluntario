@@ -9,3 +9,5 @@ import '../css/root.css';
 import './main.js';
 
 import '../css/app.css';
+
+import '../img/*';
