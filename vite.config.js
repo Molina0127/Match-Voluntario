@@ -11,10 +11,15 @@ export default defineConfig({
                 'resources/css/style.css',
                 'resources/css/responsive.css',
                 'resources/js/main.js',
+                'resources/css/app.css',
             ],
             refresh: true,
         }),
     ],
+
+    build: {
+        manifest: true,
+    },
 
     resolve: {
         alias: {
