@@ -130,6 +130,9 @@
                         <img src="{{ Vite::asset('resources/img/user-pequeno.svg') }}" alt="instrutor imagem">
                         <span class="instructor-name">{{$ong->owner}}</span>
                     </div>
+
+                    <br>
+                    
                     <div class="button">
                          <button class="learnMore">
                             <a href="/ong/{{ $ong->id }}">

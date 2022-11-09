@@ -166,7 +166,7 @@
 
             <div class="row">
                 <div class="col-12 mt-3">
-                    <form action="{{route('atualizarUsuario', ['id'=>$usuario->id])}}" method="post">
+                    <form enctype="multipart/form-data" action="{{route('atualizarUsuario', ['id'=>$usuario->id])}}" method="post">
         @csrf
         @method('PATCH')
 
@@ -189,6 +189,24 @@
                         {{session()->get('notfound_user')}}
                     </p>
         @endif
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                    @if($usuario->user_image == null)
+                        <img src="{{ Vite::asset('resources/img/user-profile.png') }}" alt="{{ $usuario->nome }}" style="width: 150px; height: 150px; float:left; border-radius: 50%; margin-right: 25px;">
+                        <h3 class="title">{{$usuario->nome }} {{$usuario->sobrenome}}</h3>
+                            <label for="user_image">Buscar Foto</label>
+                            <input type="file" id="user_image" name="user_image" class="form-control-file">
+                    @else
+                        <img src="/img/usuarios/{{$usuario->user_image}}" alt="{{$usuario->user_image}}" style="width: 150px; height: 150px; float:left; border-radius: 50%; margin-right: 25px;">
+                        <h3 class="title">{{$usuario->nome }} {{$usuario->sobrenome}}</h3>
+                            <label for="user_image">Buscar Foto</label>
+                            <input type="file" id="user_image" name="user_image" class="form-control-file">
+                    @endif
+            </div>
+        </div>
+
+        <br>
         
         
 
@@ -232,19 +250,17 @@
 
                         <br>
 
-            <button type="submit">Atualizar</button>
-
-            <br>
-            <br>
             
             <div class="button">
-                        <button class="learnMore">
+                
+                        <button type="submit">Atualizar</button>
+                        <button class="delete" style="position: absolute; right: 0;">
                             <a href="/usuario/del/{{$usuario->id}}">
                                 Excluir Perfil    
                             </a>
                                             
                         </button>
-                    </div>
+            </div>
             
         </form>
 

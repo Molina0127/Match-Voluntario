@@ -142,31 +142,32 @@
                                                 @endif
                                                 </div>
                                                 <h3 class="title">{{$show->nome }} {{$show->sobrenome}}</h3>
-                                                <div class="button">
+                                                
+                                                <br>
+
+                                                <div class="instructor" style="width: 960px; margin:auto">                                                
+                                                                                                
+                                                    <a href="/confirm/vol/{{$show->id}}/" 
+                                                    class="btn btn-primary">Aceitar pedido</a>
+
+                                                    <a href="/invitations/del/vol{{$show->id}}/" 
+                                                    class="btn btn-danger">Recusar pedido</a>
+                                                    <?php } ?>   
+                                            
+                                                
+                                                </div>
+
+                                            <br>
+                                            
+                                            <div class="button">
                                                     <button class="learnMore">
                                                     <a href="/usuario/{{ $show->id }}">
                                                     Saiba mais    
                                                     </a>
                                             
                                                     </button>
-                                                </div>
-
-                                                <br>
-
-                                                <div class="instructor">                                                
-                                                                                                
-                                                <a href="/confirm/vol/{{$show->id}}/" 
-                                                class="btn btn-primary">Aceitar pedido</a>
-
-                                                <br>
-                                                <br>
-
-                                                <a href="/invitations/del/vol{{$show->id}}/" 
-                                                class="btn btn-danger">Recusar pedido</a>
-                                                <?php } ?>   
-                                            
-                                                
                                             </div>
+
                                         </div>
 
                                     </a>

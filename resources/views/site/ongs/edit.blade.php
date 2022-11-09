@@ -189,6 +189,24 @@
                         {{session()->get('notfound_ong')}}
                     </p>
         @endif
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                @if($ong->ong_image == null)
+                <img src="{{ Vite::asset('resources/img/img-ong.png') }}" alt="{{ $ong->ong_name }}" style="width: 150px; height: 150px; float:left; border-radius: 50%; margin-right: 25px;">
+                <h3 class="title">{{$ong->ong_name}}</h3>
+                    <label for="ong_image">Buscar Foto</label>
+                    <input type="file" id="ong_image" name="ong_image" class="form-control-file">
+                @else
+                <img src="/img/ongs/{{$ong->ong_image}}" alt="{{$ong->ong_image}}" style="width: 150px; height: 150px; float:left; border-radius: 50%; margin-right: 25px;">
+                <h3 class="title">{{$ong->ong_name}}</h3>
+                    <label for="ong_image">Buscar Foto</label>
+                    <input type="file" id="ong_image" name="ong_image" class="form-control-file">
+                @endif
+            </div>
+        </div>
+        
+        <br>
                 
     
                         <div class="textfield">
@@ -277,18 +295,15 @@
                         </div>
 
                         <br>
-
-            <button type="submit">Atualizar</button>
-
-            <br>
-            <br>
+            
                     <div class="button">
-                        <button class="learnMore">
-                            <a href="/ong/del/{{$ong->id}}">
-                                Excluir Perfil    
-                            </a>
-                                            
-                        </button>
+                        <button type="submit">Atualizar</button>
+                            <button class="delete" style="position: absolute; right: 0;">
+                                <a href="/ong/del/{{$ong->id}}">
+                                    Excluir Perfil    
+                                </a>
+                                                
+                            </button>
                     </div>
             
         </form>

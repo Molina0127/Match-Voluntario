@@ -126,6 +126,8 @@
                                             <h3 class="title">{{$usuario->nome }} {{$usuario->sobrenome}}</h3>
                                             <div class="instructor">                                                
                                             <p class="user-email">{{$usuario->email}}</p>
+                                            <p class="user-city">Cidade:{{$usuario->cidade}}</p>
+                                            <p class="user-state">Estado:{{$usuario->estado}}</p>
                                                 
                                             </div>
                                         </div>

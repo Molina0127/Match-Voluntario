@@ -88,7 +88,29 @@
                         </div>
                         <div class="form-group">
                             <label for="password">Senha</label>
-                            <input type="password" class="form-control" name="password" placeholder="Digite aqui" value="{{ old ('password') }}">
+                            <input type="password" class="form-control" id="ong-password" name="password" placeholder="Digite aqui" value="{{ old ('password') }}">
+                            <i class="fa-solid fa-eye" aria-hidden="true" id="eye" onclick="toggle()"></i>
+                                <script>
+                                 var state= false;
+                                 function toggle(){
+                                    if(state){
+                                        document.getElementById(
+                                            "ong-password"
+                                        ).setAttribute("type", "password");
+                                        document.getElementById(
+                                            "eye").style.color="#7a797e";
+                                        state = false; 
+                                    }
+                                    else {
+                                        document.getElementById(
+                                            "ong-password"
+                                        ).setAttribute("type", "text");
+                                        document.getElementById(
+                                            "eye").style.color="#5887ef";
+                                        state = true;
+                                    }
+                                 }
+                                </script>
                             <span class="text-danger">@error ('password') {{$message}} @enderror</span>
                         </div>
 

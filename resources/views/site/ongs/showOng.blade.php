@@ -143,7 +143,7 @@
                                                     {{$ong->description}}
                                                 </p>
                                                 <p class="ong-city">Cidade:{{$ong->ong_city}}</p>
-                                                <p class="ong-statue">UF:{{$ong->ong_state}}</p>
+                                                <p class="ong-state">UF:{{$ong->ong_state}}</p>
                                                 <p class="category">Categoria:{{$ong_categorias}}</p>
                                                 <p class="ong-volunteers">{{ count($ong->usuarios) }} Voluntários</p>
                                                 

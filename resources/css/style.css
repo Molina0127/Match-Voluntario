@@ -231,6 +231,13 @@ h3 {
     position: relative;
 }
 
+#eye{
+    position: absolute;
+    right: 15px;
+    top: 60%;
+    cursor: pointer;
+}
+
 .form-control {
     height: 48px;
     border-color: var(--border-color-1);

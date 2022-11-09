@@ -139,30 +139,30 @@
                                                 @endif
                                             </div>
                                             <h3 class="title">{{$showVol->ong_name}}</h3>
-                                            <div class="button">
-                                                    <button class="learnMore">
-                                                    <a href="/ong/{{ $showVol->id }}">
-                                                    Saiba mais    
-                                                    </a>
-                                            
-                                                    </button>
-                                                </div>
 
-                                                <br>
+                                            <br>
 
-                                                <div class="instructor">                                                
+                                                <div class="instructor" style="width: 960px; margin:auto">                                                
                                                                                                 
                                                 <a href="/confirm/ong{{$showVol->id}}/" 
                                                 class="btn btn-primary">Aceitar pedido</a>
-
-                                                <br>
-                                                <br>
 
                                                 <a href="/invitations/del/ong{{$showVol->id}}/" 
                                                 class="btn btn-danger">Recusar pedido</a>
                                                 <?php } ?>   
 
-                                            </div>  
+                                            </div> 
+                                            
+                                            <br>
+                                            
+                                                <div class="button">
+                                                        <button class="learnMore">
+                                                        <a href="/ong/{{ $showVol->id }}">
+                                                        Saiba mais    
+                                                        </a>
+                                                
+                                                        </button>
+                                                </div>
                                         </div>
 
                                     </a>

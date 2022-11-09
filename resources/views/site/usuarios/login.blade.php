@@ -16,6 +16,7 @@
 
     <!-- header start -->
         <header class="header">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <div class="container">
                 <div class="header-main d-flex justify-content-between align-items-center">
                     <div class="header-logo">
@@ -95,7 +96,29 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">Senha</label>
-                                <input type="password" class="form-control" name="password" placeholder="Digite aqui" value="{{ old ('password') }}">
+                                <input type="password" id="password" class="form-control" name="password" placeholder="Digite aqui" value="{{ old ('password') }}">
+                                <i class="fa-solid fa-eye" aria-hidden="true" id="eye" onclick="toggle()"></i>
+                                <script>
+                                 var state= false;
+                                 function toggle(){
+                                    if(state){
+                                        document.getElementById(
+                                            "password"
+                                        ).setAttribute("type", "password");
+                                        document.getElementById(
+                                            "eye").style.color="#7a797e";
+                                        state = false; 
+                                    }
+                                    else {
+                                        document.getElementById(
+                                            "password"
+                                        ).setAttribute("type", "text");
+                                        document.getElementById(
+                                            "eye").style.color="#5887ef";
+                                        state = true;
+                                    }
+                                 }
+                                </script>
                                 <span class="text-danger">@error ('password') {{$message}} @enderror</span>
                             </div>
                             

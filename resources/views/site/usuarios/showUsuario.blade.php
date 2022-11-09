@@ -125,12 +125,12 @@
                                             <h3 class="title">{{$usuario->nome }} {{$usuario->sobrenome}}</h3>
                                             <div class="instructor">                                                
                                             <p class="user-email">{{$usuario->email}}</p>
-                                            <p class="usuario-city">Cidade:{{$usuario->cidade}}</p>
-                                            <p class="usuario-estado">Estado:{{$usuario->estado}}</p>
-                                            <p class="usuario-categoria">Categoria:{{$usuario_categorias}}</p>
-                                            <p class="usuario-datanasc">Data de nascimento:{{Carbon\Carbon::parse($usuario->datanasc)->format('d-m-Y')}}</p>
-                                            <p class="usuario-cpf">CPF:{{$usuario->cpf}}</p>
-                                            <p class="ong-volunteers">{{ count($usuario->ongs) }} Ong(s) que participa</p>
+                                            <p class="user-city">Cidade:{{$usuario->cidade}}</p>
+                                            <p class="user-state">Estado:{{$usuario->estado}}</p>
+                                            <p class="user-category">Categoria:{{$usuario_categorias}}</p>
+                                            <p class="user-birth">Data de nascimento:{{Carbon\Carbon::parse($usuario->datanasc)->format('d-m-Y')}}</p>
+                                            <p class="identifier">CPF:{{$usuario->cpf}}</p>
+                                            <p class="ong-participations">{{ count($usuario->ongs) }} Ong(s) que participa</p>
                                             
                                                 
                                             </div>  
