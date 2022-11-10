@@ -233,8 +233,23 @@ h3 {
 
 #eye{
     position: absolute;
-    right: 15px;
-    top: 60%;
+    right: 20px;
+    bottom: 4px;
+    top: 43px;
+    cursor: pointer;
+}
+#eye-user-signup{
+    position: absolute;
+    right: 37px;
+    bottom: 4px;
+    top: 43px;
+    cursor: pointer;
+}
+#eye-ong-signup{
+    position: absolute;
+    right: 37px;
+    bottom: 4px;
+    top: 43px;
     cursor: pointer;
 }
 

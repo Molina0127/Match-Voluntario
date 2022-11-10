@@ -94,7 +94,7 @@
                                 <input type="email" class="form-control" name="email" placeholder="Digite aqui" value="{{ old ('email') }}">
                                 <span class="text-danger">@error ('email') {{$message}} @enderror</span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="position:relative">
                                 <label for="password">Senha</label>
                                 <input type="password" id="password" class="form-control" name="password" placeholder="Digite aqui" value="{{ old ('password') }}">
                                 <i class="fa-solid fa-eye" aria-hidden="true" id="eye" onclick="toggle()"></i>

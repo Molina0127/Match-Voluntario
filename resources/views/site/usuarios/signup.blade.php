@@ -210,12 +210,33 @@
 
                             <br>
 
-                            <div class="textfield">
+                            <div class="textfield" style="position:relative">
                                 <label for="password">{{ __('Senha') }}</label>
 
                                 <div class="textfield">
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
+                                    <i class="fa-solid fa-eye" aria-hidden="true" id="eye-user-signup" onclick="toggle()"></i>
+                                    <script>
+                                    var state= false;
+                                    function toggle(){
+                                        if(state){
+                                            document.getElementById(
+                                                "password"
+                                            ).setAttribute("type", "password");
+                                            document.getElementById(
+                                                "eye-user-signup").style.color="#7a797e";
+                                            state = false; 
+                                        }
+                                        else {
+                                            document.getElementById(
+                                                "password"
+                                            ).setAttribute("type", "text");
+                                            document.getElementById(
+                                                "eye-user-signup").style.color="#5887ef";
+                                            state = true;
+                                        }
+                                    }
+                                    </script>
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -223,6 +244,9 @@
                                     @enderror
                                 </div>
                             </div>
+                            
+                            <br>
+
                           <button type="submit" class="btn btn-theme btn-block btn-form">Cadastrar</button>
                         </form>
                         
