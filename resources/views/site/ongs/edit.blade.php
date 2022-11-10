@@ -166,7 +166,7 @@
 
             <div class="row">
                 <div class="col-12 mt-3">
-                <form action="{{route('atualizarOng', ['id'=>$ong->id])}}" method="post">
+                <form enctype="multipart/form-data" action="{{route('atualizarOng', ['id'=>$ong->id])}}" method="post">
         @csrf
         @method('PATCH')
 
@@ -314,6 +314,8 @@
             </div>
         </div>
         <!-- ongs section end -->
+
+        <br>
 
         <!-- footer start -->
 

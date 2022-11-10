@@ -174,7 +174,7 @@ class OngsController extends Controller
 
 
 
-        return view('site/ongs/showOng', ['ong' => $ong, 'ong_categorias' => $ong_categorias, 'hasUserJoined' => $hasUserJoined, 'usuario' => $usuario]);
+        return view('site.ongs.showOng', ['ong' => $ong, 'ong_categorias' => $ong_categorias, 'hasUserJoined' => $hasUserJoined, 'usuario' => $usuario]);
     }
     public function showUsuario($id){
         $ong_logada = Auth::guard('ong')->user();
@@ -199,7 +199,7 @@ class OngsController extends Controller
                 }
             }
         }
-        return view('site/usuarios/showUsuario', ['usuario' => $usuario,'usuario_categorias' => $usuario_categorias, 'hasOngJoined' => $hasOngJoined]);
+        return view('site.usuarios.showUsuario', ['usuario' => $usuario,'usuario_categorias' => $usuario_categorias, 'hasOngJoined' => $hasOngJoined]);
     }
     public function destroy($id){
         $ong_logada = Auth::guard('ong')->user();
@@ -218,7 +218,7 @@ class OngsController extends Controller
 
         if($ong_logada_id == $id){
             $ong = Ong::find($id);
-            return view('site\ongs\edit', ['ong' => $ong]);
+            return view('site.ongs.edit', ['ong' => $ong]);
         }else {
             return back()->with('notfound_ong', 'Erro! id não pertencente a Ong autenticada');
         }
@@ -238,6 +238,22 @@ class OngsController extends Controller
             
         ],
     ]);
+    /*if($request->hasFile('user_image')){
+        $file = $request->file('user_image');
+        $extension = $file->getClientOriginalExtension();
+        $filename = time() .'.' .$extension;
+        $file->move(public_path('img/usuarios'), $filename);
+        $usuario->user_image = $filename;
+        $data['user_image'] = $filename;*
+    }*/
+    if($request->hasFile('ong_image')){
+        $file = $request->file('ong_image');
+        $extension = $file->getClientOriginalExtension();
+        $filename = time() . '.' .$extension;
+        $file->move(public_path('img/ongs'), $filename);
+        $ong->ong_image = $filename;
+        $data_ong['ong_image'] = $filename;
+    }
     if($request->password)
         $data_ong['password'] = bcrypt($request->password);
     if($request->owner)
@@ -254,7 +270,7 @@ class OngsController extends Controller
         /*if($request->password == ""){
             return back();
         }*/
-        if($request->owner != $ong->owner || $request->description != $ong->description || $request->ong_cep != $ong->ong_cep ||$request->password != "" && !(Hash::check($request->password, $ong->password))){
+        if($request->hasFile('ong_image') || $request->owner != $ong->owner || $request->description != $ong->description || $request->ong_cep != $ong->ong_cep ||$request->password != "" && !(Hash::check($request->password, $ong->password))){
             $ong->update($data_ong);
             return back()->with('ong', $ong )->with('ong_updmsg', 'Ong atualizada com sucesso');
         }else {

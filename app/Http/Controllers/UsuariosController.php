@@ -78,7 +78,7 @@ class UsuariosController extends Controller
         
         if($usuario_logado_id == $id){
             $usuario = Usuario::find($id);
-            return view('site\usuarios\edit', ['usuario'=> $usuario]);
+            return view('site.usuarios.edit', ['usuario'=> $usuario]);
         }else{
             return back()->with('notfound_user', 'Erro! id não pertencente ao usuário autenticado');
         }
@@ -107,6 +107,14 @@ class UsuariosController extends Controller
 
         //$data = $request->only('email');
 
+        if($request->hasFile('user_image')){
+            $file = $request->file('user_image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() .'.' .$extension;
+            $file->move(public_path('img/usuarios'), $filename);
+            $usuario->user_image = $filename;
+            $data['user_image'] = $filename;
+        }
         if($request->password)
             $data['password'] = bcrypt($request->password);
         if($request->cep)
@@ -119,7 +127,7 @@ class UsuariosController extends Controller
         /*if($request->password == ""){
             return back();
         }*/
-        if($request->cep != $usuario->cep ||$request->password != "" && !(Hash::check($request->password, $usuario->password))){
+        if($request->hasFile('user_image') || $request->cep != $usuario->cep ||$request->password != "" && !(Hash::check($request->password, $usuario->password))){
             $usuario->update($data);
             return back()->with('usuario', $usuario )->with('user_updtmsg', 'Usuário atualizado com sucesso');
         }else {
