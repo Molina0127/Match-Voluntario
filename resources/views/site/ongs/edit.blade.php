@@ -92,6 +92,14 @@
 
     <script>
 
+$('#delModal').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget);
+    var recipientId = button.data('id');
+    console.log(recipientId);
+
+    var modal = $(this);
+    modal.find('#ong_id').val(recipientId);
+    })
             function limpa_formulário_cep() {
                     //Limpa valores do formulário de cep.
                     document.getElementById('ong_city').value=("");
@@ -299,9 +307,9 @@
                     <div class="button">
                         <button type="submit">Atualizar</button>
                             <button class="delete" style="position: absolute; right: 0;">
-                                <a href="/ong/del/{{$ong->id}}">
-                                    Excluir Perfil    
-                                </a>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#delModal" data-id="{{$ong->id}}">
+                                Excluir Perfil    
+                            </a>
                                                 
                             </button>
                     </div>
@@ -376,3 +384,27 @@
 
 </body>
 </html>
+
+<!-- Modal -->
+<form id="deleteform" method="get" action="{{ route('excluirOng', $ong->id) }}">
+    <input type="hidden" name="method" value="DELETE">
+      <input type="hidden" name="token" value="{{csrf_token()}}">
+       <div class="modal fade" id="delModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmação</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">Você tem certeza que deseja excluir o perfil ?</p>
+            </div>
+            <input type="hidden" name="ong_id" id="ong_id" value="{{$ong->id}}">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-danger">Deletar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</form>

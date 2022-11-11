@@ -67,7 +67,8 @@ class UsuariosController extends Controller
             }
         return view('site.usuarios.usuarios', ['usuarios'=> $usuarios, 'ong' => $ong]);
     }
-    public function destroy($id){
+    public function destroy(Request $request, $id){
+        $id = $request['usuario_id'];
         $usuario = Usuario:: findOrFail($id);
         $usuario->delete();
         Auth::logout();

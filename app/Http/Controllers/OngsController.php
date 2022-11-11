@@ -201,9 +201,10 @@ class OngsController extends Controller
         }
         return view('site.usuarios.showUsuario', ['usuario' => $usuario,'usuario_categorias' => $usuario_categorias, 'hasOngJoined' => $hasOngJoined]);
     }
-    public function destroy($id){
+    public function destroy(Request $request, $id){
         $ong_logada = Auth::guard('ong')->user();
         if($ong_logada){
+            $id = $request['ong_id'];
             $ong = Ong:: findOrFail($id);
             $ong->delete();
             Auth::guard('ong')->logout();
