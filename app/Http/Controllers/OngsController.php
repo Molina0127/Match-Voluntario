@@ -207,7 +207,7 @@ class OngsController extends Controller
                 }
             }
         }
-        return view('site.usuarios.showUsuario', ['usuario' => $usuario,'usuario_categorias' => $usuario_categorias, 'hasOngJoined' => $hasOngJoined]);
+        return view('site.usuarios.showUsuario', ['usuario' => $usuario,'usuario_categorias' => $usuario_categorias, 'hasOngJoined' => $hasOngJoined, 'ong' => $ong_logada]);
     }
     public function destroy(Request $request, $id){
         $ong_logada = Auth::guard('ong')->user();

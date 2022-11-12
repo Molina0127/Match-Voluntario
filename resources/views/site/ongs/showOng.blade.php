@@ -48,7 +48,7 @@
                                             <img src="{{ asset($usuario->user_image) }}" alt="{{$usuario->user_image}}" style="width: 32px; height: 32px; position:absolute; top: 20px; left: 10px; border-radius: 50%">
                                     @endif
                                     {{Auth::user()->nome}}<i class="fas fa-chevron-down"></i>
-                        </a>
+                            </a>
                                 <ul class="sub-menu js-sub-menu">  
                                 <li class="sub-menu-item"><a href="/usuario/edit/{{Auth::user()->id}}">Configurações</a></li>               
                                        <li class="sub-menu-item">
@@ -138,10 +138,15 @@
                                                 <br>
                                                 <br>
                                                 
-                                                <p class="ong-email">{{$ong->ong_email}}</p>
-                                                <p class="ong-description">
-                                                    {{$ong->description}}
-                                                </p>
+                                                @if($hasUserJoined)
+                                                    <p class="ong-email">{{$ong->ong_email}}</p>
+                                                @else 
+                                                <div class="fun-facts-item text-left">
+                                                    <h6 class="style-3">Ao fazer parte de uma Ong, esta poderá ver seu e-mail e você terá acesso ao dela</h6>
+                                                </div>
+                                                
+                                                @endif
+                                                <p class="ong-description">Descrição:{{$ong->description}}</p>
                                                 <p class="ong-city">Cidade:{{$ong->ong_city}}</p>
                                                 <p class="ong-state">UF:{{$ong->ong_state}}</p>
                                                 <p class="category">Categoria:{{$ong_categorias}}</p>

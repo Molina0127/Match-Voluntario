@@ -41,7 +41,15 @@
                                 </ul>
                             </li>
                             <li class="menu-item menu-item-has-children">
-                                <a href="#" class="js-toggle-sub-menu">{{auth()->guard('ong')->user()->ong_name}}<i class="fas fa-chevron-down"></i></a>
+                            <a href="#" class="js-toggle-sub-menu" style="position:relative; padding-left: 50px;">
+                                @if($ong->ong_image == null)
+                                <img src="{{ Vite::asset('resources/img/img-ong.png') }}" alt="{{ $ong->ong_name }}" style="width: 32px; height: 32px; position:absolute; top: 20px; left: 10px; border-radius: 50%">
+                                @else
+                                <img src="{{ asset($ong->ong_image) }}" alt="{{$ong->ong_image}}" style="width: 32px; height: 32px; position:absolute; top: 20px; left: 10px; border-radius: 50%">
+                                @endif    
+                                {{auth()->guard('ong')->user()->ong_name}}<i class="fas fa-chevron-down"></i>
+                            
+                        </a>
                                 <ul class="sub-menu js-sub-menu">   
                                 <li class="sub-menu-item"><a href="/ong/edit/{{auth()->guard('ong')->user()->id}}">Configurações</a></li>              
                                        <li class="sub-menu-item">
@@ -123,8 +131,14 @@
                                                 @endif
                                             </div>
                                             <h3 class="title">{{$usuario->nome }} {{$usuario->sobrenome}}</h3>
-                                            <div class="instructor">                                                
-                                            <p class="user-email">{{$usuario->email}}</p>
+                                            <div class="instructor">
+                                            @if($hasOngJoined)                                                
+                                                <p class="user-email">{{$usuario->email}}</p>
+                                            @else
+                                                <div class="fun-facts-item text-left">
+                                                        <h6 class="style-3">Ao selecionar um voluntário ele poderá ver seu e-mail e você o dele</h6>
+                                                </div>
+                                            @endif
                                             <p class="user-city">Cidade:{{$usuario->cidade}}</p>
                                             <p class="user-state">Estado:{{$usuario->estado}}</p>
                                             <p class="user-category">Categoria:{{$usuario_categorias}}</p>

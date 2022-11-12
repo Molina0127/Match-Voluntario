@@ -129,8 +129,7 @@
                                                 
                                                 <br>
                                                 <br>
-                                                
-                                                <p class="ong-email">{{$ong->ong_email}}</p>
+    
                                                 <p class="ong-description">
                                                     {{$ong->description}}
                                                 </p>
