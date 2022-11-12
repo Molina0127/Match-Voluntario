@@ -45,7 +45,7 @@
                                     @if($usuario->user_image == null)
                                             <img src="{{ Vite::asset('resources/img/user-profile.png') }}" alt="{{ $usuario->nome }}" style="width: 32px; height: 32px; position:absolute; top: 20px; left: 10px; border-radius: 50%">
                                     @else
-                                            <img src="/img/usuarios/{{$usuario->user_image}}" alt="{{$usuario->user_image}}" style="width: 32px; height: 32px; position:absolute; top: 20px; left: 10px; border-radius: 50%">
+                                            <img src="{{ asset($usuario->user_image) }}" alt="{{$usuario->user_image}}" style="width: 32px; height: 32px; position:absolute; top: 20px; left: 10px; border-radius: 50%">
                                     @endif
                                     {{Auth::user()->nome}}<i class="fas fa-chevron-down"></i>
                         </a>
@@ -207,7 +207,7 @@
                             <label for="user_image">Buscar Foto</label>
                             <input type="file" id="user_image" name="user_image" class="form-control-file">
                     @else
-                        <img src="/img/usuarios/{{$usuario->user_image}}" alt="{{$usuario->user_image}}" style="width: 150px; height: 150px; float:left; border-radius: 50%; margin-right: 25px;">
+                        <img src="{{ asset($usuario->user_image) }}" alt="{{$usuario->user_image}}" style="width: 150px; height: 150px; float:left; border-radius: 50%; margin-right: 25px;">
                         <h3 class="title">{{$usuario->nome }} {{$usuario->sobrenome}}</h3>
                             <label for="user_image">Buscar Foto</label>
                             <input type="file" id="user_image" name="user_image" class="form-control-file">

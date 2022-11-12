@@ -47,7 +47,7 @@
                                 @if($ong->ong_image == null)
                                 <img src="{{ Vite::asset('resources/img/img-ong.png') }}" alt="{{ $ong->ong_name }}" style="width: 32px; height: 32px; position:absolute; top: 20px; left: 10px; border-radius: 50%">
                                 @else
-                                <img src="/img/ongs/{{$ong->ong_image}}" alt="{{$ong->ong_image}}" style="width: 32px; height: 32px; position:absolute; top: 20px; left: 10px; border-radius: 50%">
+                                <img src="{{ asset($ong->ong_image) }}" alt="{{$ong->ong_image}}" style="width: 32px; height: 32px; position:absolute; top: 20px; left: 10px; border-radius: 50%">
                                 @endif    
                                 {{auth()->guard('ong')->user()->ong_name}}<i class="fas fa-chevron-down"></i>
                             
@@ -138,7 +138,7 @@
                                                @if($show->user_image == null)
                                                     <img src="{{ Vite::asset('resources/img/user-profile.png') }}" alt="{{ $show->nome }}" style="width: 200px; height: 200px;">
                                                 @else
-                                                    <img src="/img/usuarios/{{$show->user_image}}" alt="{{$show->user_image}}" style="width: 200px; height: 200px;">
+                                                    <img src="{{ asset($usuario->user_image) }}" alt="{{$show->user_image}}" style="width: 200px; height: 200px;">
                                                 @endif
                                                 </div>
                                                 <h3 class="title">{{$show->nome }} {{$show->sobrenome}}</h3>

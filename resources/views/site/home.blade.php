@@ -146,7 +146,7 @@
                                                 @if($ong->ong_image == null)
                                                 <img src="{{ Vite::asset('resources/img/img-ong.png') }}" alt="{{ $ong->ong_name }}" style="width: 205px; height: 205px;">
                                                 @else
-                                                <img src="/img/ongs/{{$ong->ong_image}}" alt="{{$ong->ong_image}}" style="width: 205px; height: 205px;">
+                                                <img src="{{ asset($ong->ong_image) }}" alt="{{$ong->ong_image}}" style="width: 205px; height: 205px;">
                                                 @endif
                                             </div>
                                             <h3 class="title">{{$ong->ong_name}}</h3>

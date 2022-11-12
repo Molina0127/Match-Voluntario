@@ -95,7 +95,7 @@ class OngsController extends Controller
             $ong->ong_cep = $request->ong_cep;
             $ong->password = Hash:: make ($request->password);
             
-            if($request->hasFile('ong_image') && $request->file('ong_image')->isValid()){
+            /*if($request->hasFile('ong_image') && $request->file('ong_image')->isValid()){
                 $requestImage = $request->ong_image;
 
                 $extension = $requestImage->extension();
@@ -105,6 +105,14 @@ class OngsController extends Controller
                 $request->ong_image->move(public_path('img/ongs'), $imageName);
 
                 $ong->ong_image = $imageName;
+            }*/
+            $file = $request->hasFile('ong_image');
+            if($file){
+                $file = $request->file('ong_image');                 
+                $extension = $file->getClientOriginalExtension();
+                $filename = time() .'.' .$extension;
+                $path = $request->file('ong_image')->storeAs('ongs', $filename, 'public'); 
+                $ong['ong_image'] = '/storage/' .$path;
             }
             
             $save = $ong->save();
@@ -247,13 +255,13 @@ class OngsController extends Controller
         $usuario->user_image = $filename;
         $data['user_image'] = $filename;*
     }*/
-    if($request->hasFile('ong_image')){
-        $file = $request->file('ong_image');
-        $extension = $file->getClientOriginalExtension();
-        $filename = time() . '.' .$extension;
-        $file->move(public_path('img/ongs'), $filename);
-        $ong->ong_image = $filename;
-        $data_ong['ong_image'] = $filename;
+    $file = $request->hasFile('ong_image');
+    if($file){
+            $file = $request->file('ong_image');                 
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() .'.' .$extension;
+            $path = $request->file('ong_image')->storeAs('ongs', $filename, 'public'); 
+            $data_ong['ong_image'] = '/storage/' .$path;
     }
     if($request->password)
         $data_ong['password'] = bcrypt($request->password);

@@ -44,7 +44,7 @@
                                 @if($ong->ong_image == null)
                                 <img src="{{ Vite::asset('resources/img/img-ong.png') }}" alt="{{ $ong->ong_name }}" style="width: 32px; height: 32px; position:absolute; top: 20px; left: 10px; border-radius: 50%">
                                 @else
-                                <img src="/img/ongs/{{$ong->ong_image}}" alt="{{$ong->ong_image}}" style="width: 32px; height: 32px; position:absolute; top: 20px; left: 10px; border-radius: 50%">
+                                <img src="{{ asset($ong->ong_image) }}" alt="{{$ong->ong_image}}" style="width: 32px; height: 32px; position:absolute; top: 20px; left: 10px; border-radius: 50%">
                                 @endif    
                                 {{auth()->guard('ong')->user()->ong_name}}<i class="fas fa-chevron-down"></i>
                             
@@ -206,7 +206,7 @@ $('#delModal').on('show.bs.modal', function(event) {
                     <label for="ong_image">Buscar Foto</label>
                     <input type="file" id="ong_image" name="ong_image" class="form-control-file">
                 @else
-                <img src="/img/ongs/{{$ong->ong_image}}" alt="{{$ong->ong_image}}" style="width: 150px; height: 150px; float:left; border-radius: 50%; margin-right: 25px;">
+                <img src="{{ asset($ong->ong_image) }}" alt="{{$ong->ong_image}}" style="width: 150px; height: 150px; float:left; border-radius: 50%; margin-right: 25px;">
                 <h3 class="title">{{$ong->ong_name}}</h3>
                     <label for="ong_image">Buscar Foto</label>
                     <input type="file" id="ong_image" name="ong_image" class="form-control-file">
