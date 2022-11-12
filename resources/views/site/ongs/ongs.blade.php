@@ -134,6 +134,8 @@
                                                 <p class="ong-description">
                                                     {{$ong->description}}
                                                 </p>
+                                                <p class="ong-city">Cidade:{{$ong->ong_city}}</p>
+                                                <p class="ong-state">UF:{{$ong->ong_state}}</p>
                                                 
                                             </div>  
                                             

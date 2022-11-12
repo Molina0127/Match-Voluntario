@@ -108,13 +108,13 @@ class UsuariosController extends Controller
 
         //$data = $request->only('email');
 
-        if($request->hasFile('user_image')){
-            $file = $request->file('user_image');
+        $file = $request->hasFile('user_image');
+        if($file){
+            $file = $request->file('user_image');                 
             $extension = $file->getClientOriginalExtension();
             $filename = time() .'.' .$extension;
-            $file->move(public_path('img/usuarios'), $filename);
-            $usuario->user_image = $filename;
-            $data['user_image'] = $filename;
+            $path = $request->file('user_image')->storeAs('usuarios', $filename, 'public'); 
+            $data['user_image'] = '/storage/' .$path;
         }
         if($request->password)
             $data['password'] = bcrypt($request->password);
@@ -175,7 +175,7 @@ class UsuariosController extends Controller
         $usuario->cpf = $request->cpf;
         $usuario->password = Hash:: make ($request->password);
         
-        if($request->hasFile('user_image') && $request->file('user_image')->isValid()){
+        /*if($request->hasFile('user_image') && $request->file('user_image')->isValid()){
             $requestImage = $request->user_image;
 
             $extension = $requestImage->extension();
@@ -185,7 +185,17 @@ class UsuariosController extends Controller
             $request->user_image->move(public_path('img/usuarios'), $imageName);
 
             $usuario->user_image = $imageName;
+        }*/
+        $file = $request->hasFile('user_image');
+        if($file){
+            $file = $request->file('user_image');                 
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() .'.' .$extension;
+            $path = $request->file('user_image')->storeAs('usuarios', $filename, 'public'); 
+            $usuario['user_image'] = '/storage/' .$path;
         }
+            
+        
         
         $save = $usuario->save();
         $usuario->categorias()->sync($request->categoria_id, false);
