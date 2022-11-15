@@ -30,6 +30,13 @@
                         <i class="fas fa-times"></i>
                     </button>
                     <ul class="menu">
+                    <li class="menu-item">
+                                <a href="{{route('showUsuarioInvitations')}}">
+                                    <img src="{{Vite::asset('resources/img/Icone-mensagem.png')}}">
+                                    {{App\Models\AdicionaUsuario::all()->where('status', null)->where('usuario_id', Auth::user(
+                                    )->id)->count()}}
+                                </a>
+                        </li>
                         <li class="menu-item"><a href="{{ route('home') }}">Home</a></li>
                         <li class="menu-item menu-item-has-children">
                             <a href="#" class="js-toggle-sub-menu">Ongs<i class="fas fa-chevron-down"></i></a>

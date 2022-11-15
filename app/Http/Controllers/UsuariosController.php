@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Models\Ong;
 use App\Models\Categoria;
+use App\Models\ConvidaUsuario;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
@@ -71,6 +72,8 @@ class UsuariosController extends Controller
         $id = $request['usuario_id'];
         $usuario = Usuario:: findOrFail($id);
         $usuario->delete();
+        /*ConvidaUsuario::where(['reqstatus'=>null],['vol_acceptor',Auth::user(
+            )->id])->delete();*/
         Auth::logout();
         return view('site.usuarios.login');
     }

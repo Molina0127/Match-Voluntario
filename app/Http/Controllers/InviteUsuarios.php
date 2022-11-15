@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AdicionaUsuario;
+use App\Models\ConvidaOng;
 use App\Models\ConvidaUsuario;
 use App\Models\Ong;
 use Illuminate\Support\Facades\DB;
@@ -10,12 +12,12 @@ Use Illuminate\Support\Facades\Auth;
 class InviteUsuarios extends Controller
 {
 public function send($id){
-        $ong_requested = Auth::guard('ong')->user()->id;
-        $vol_acceptor = $id;
-        $entidadeVol = new ConvidaUsuario();
-        $entidadeVol->ong_requested = $ong_requested;
-        $entidadeVol->vol_acceptor = $vol_acceptor;
-        $entidadeVol->save();
+        $ong_id = Auth::guard('ong')->user()->id;
+        $usuario_id = $id;
+        $addUsuario = new AdicionaUsuario();
+        $addUsuario->ong_id = $ong_id;
+        $addUsuario->usuario_id = $usuario_id;
+        $addUsuario->save();
         return back()->with('send_to_user', 'Pedido enviado');
     }
     /*public function delentidadeVol($id){
@@ -24,18 +26,25 @@ public function send($id){
     }*/
     public function showRequests(){
         $usuario = Auth::user();
-        $showVolRequests = DB::table('convida_usuarios')
-        ->leftJoin('ongs', 'ongs.id', 'convida_usuarios.ong_requested')
-        ->where('reqstatus',null)->get();
+        $idUsuario = Auth::user()->id;
+        
+        $showVolRequests = DB::table('adiciona_usuarios')
+        ->join("ongs", "ongs.id", "adiciona_usuarios.ong_id")
+        ->where("adiciona_usuarios.status", "=", null)
+        ->where("adiciona_usuarios.usuario_id", "=", $idUsuario)
+        ->get();
 
         return view('site.usuarios.showOngsRequests', compact('usuario'))->with('showVol', $showVolRequests);
 
 
     }
     public function acceptInvitation($id){
-        $update = DB::table('convida_usuarios')
-        ->where('ong_requested',$id)
-        ->update(array('reqstatus'=> 1));
+        $idUsuario = Auth::user()->id;
+        
+        $update = DB::table('adiciona_usuarios')
+        ->where('ong_id',$id)
+        ->where('adiciona_usuarios.usuario_id', $idUsuario)
+        ->update(array('status'=> 1));
 
         $usuario = Auth::user();
 
@@ -46,8 +55,11 @@ public function send($id){
         return back();
     }
     public function deleteInvitation($id){
-        $delete = DB::table('convida_usuarios')
-        ->where('ong_requested',$id)
+        $idUsuario = Auth::user()->id;
+
+        $delete = DB::table('adiciona_usuarios')
+        ->where('ong_id',$id)
+        ->where('adiciona_usuarios.usuario_id', $idUsuario)
         ->delete();
         return back()->with('delVolRequest', 'Pedido removido');
     }

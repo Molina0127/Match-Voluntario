@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Categoria;
 use App\Models\Ong;
 use App\Models\Usuario;
+use App\Models\ConvidaOng;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
@@ -215,6 +216,8 @@ class OngsController extends Controller
             $id = $request['ong_id'];
             $ong = Ong:: findOrFail($id);
             $ong->delete();
+            /*ConvidaOng::where(['status'=>null],['acceptor',Auth::guard('ong')->user(
+                )->id])->delete();*/
             Auth::guard('ong')->logout();
             return view('site.ongs.login');
         }else{

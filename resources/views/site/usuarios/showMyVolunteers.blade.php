@@ -30,6 +30,13 @@
                         <i class="fas fa-times"></i>
                     </button>
                     <ul class="menu">
+                        <li class="menu-item">
+                                <a href="{{route('showInvitations')}}">
+                                    <img src="{{Vite::asset('resources/img/Icone-mensagem.png')}}">
+                                    {{App\Models\AdicionaOng::all()->where('status', null)->where('ong_id', Auth::guard('ong')->user(
+                                    )->id)->count()}}
+                                </a>
+                            </li>
                         <li class="menu-item"><a href="{{ route('home') }}">Home</a></li>
                         <li class="menu-item menu-item-has-children">
                             <a href="#" class="js-toggle-sub-menu">Voluntários<i class="fas fa-chevron-down"></i></a>
@@ -154,7 +161,9 @@
                         
                         @endforeach 
                         @else
-                        <h5>0 Voluntários participantes</h5>
+                        <div class="section-title text-center">
+                            <p class="sub-title">0 voluntários participantes</p>
+                        </div>
                         @endif
 
                          </div>

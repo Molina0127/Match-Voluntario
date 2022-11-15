@@ -36,6 +36,8 @@ Route::post('/ong/logout', 'App\Http\Controllers\OngsController@logoutOng')->nam
 
 //Convites(para Ong) Controller
 Route::get('/invite/ong/{id}/', 'App\Http\Controllers\InviteOngs@send')->name('sendInvite');
+//Route::get('/addong{id}/', 'App\Http\Controllers\InviteOngs@add');
+//Route::get('/requests/vol', 'App\Http\Controllers\InviteOngs@showInvitations' )->name('showRequests');
 //Route::get('/invitations/del/{id}/', 'App\Http\Controllers\InviteOngs@delentidade')->name('delentidade');
 Route::get('/invitations/vol', 'App\Http\Controllers\InviteOngs@showRequests')->name('showInvitations');
 Route::get('/confirm/vol/{id}/', 'App\Http\Controllers\InviteOngs@acceptInvitation')->name('confirm');

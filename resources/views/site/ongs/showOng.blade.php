@@ -30,6 +30,13 @@
                             <i class="fas fa-times"></i>
                         </button>
                         <ul class="menu">
+                        <li class="menu-item">
+                                <a href="{{route('showUsuarioInvitations')}}">
+                                    <img src="{{Vite::asset('resources/img/Icone-mensagem.png')}}">
+                                    {{App\Models\AdicionaUsuario::all()->where('status', null)->where('usuario_id', Auth::user(
+                                    )->id)->count()}}
+                                </a>
+                            </li>
                             <li class="menu-item"><a href="{{ route('home') }}">Home</a></li>
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" class="js-toggle-sub-menu">Ongs<i class="fas fa-chevron-down"></i></a>
@@ -89,6 +96,19 @@
         </div>
     </div>
     <!-- breadcrumb end -->
+
+    <script>
+
+        $('#inviteToOngModal').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget);
+    var recipientId = button.data('id');
+    console.log(recipientId);
+
+    var modal = $(this);
+    modal.find('#inviteOngId').val(recipientId);
+    })
+
+    </script>
 
     <!-- ongs section start -->
     <div class="courses-section courses-padding">
@@ -155,8 +175,11 @@
                                             </div>
                                             
                                              @if(!$hasUserJoined)
-                                                <a href="/invite/ong/{{$ong->id}}/" 
-                                                class="btn btn-primary">Enviar pedido</a>
+                                                <!--<a href="/invite/ong/{{$ong->id}}/" 
+                                                class="btn btn-primary">Enviar pedido</a>-->
+                                                <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inviteToOngModal" data-id="{{$ong->id}}">
+                                                   Enviar Pedido    
+                                                </a>
 
                                             @else
                                                 <p>Você já está participando desta Ong</p>
@@ -256,3 +279,26 @@
 </body>
 
 </html>
+
+<!-- Modal -->
+<form id="inviteform" method="get" action="{{ route('sendInvite', $ong->id) }}">
+      <input type="hidden" name="token" value="{{csrf_token()}}">
+       <div class="modal fade" id="inviteToOngModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmação</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">Você tem certeza que deseja enviar o pedido ?</p>
+            </div>
+            <input type="hidden" name="inviteOngId" id="inviteOngId" value="{{$ong->id}}">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-danger">Enviar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</form>
