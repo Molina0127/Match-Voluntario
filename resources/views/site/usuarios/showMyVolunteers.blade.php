@@ -134,6 +134,8 @@
                     @endif
                 </div>
                 
+                <br>
+                
                         <h3 class="title">{{$usuario->nome }} {{$usuario->sobrenome}}</h3>
                         <div class="button">
                             <button class="learnMore">
@@ -143,16 +145,6 @@
                                                         
                             </button>
                         </div>
-                        
-                        <br>
-                
-                <form action="/usuario/leave/{{$usuario->id}}">
-                    @csrf
-                    @method("DELETE")
-                    <button type="submit" class="btn btn-danger delete-btn">
-                        <ion-icon name="trash-outline"></ion-icon>Remover Voluntário
-                    </button>
-                </form>
 
             </div>  
                 </a>

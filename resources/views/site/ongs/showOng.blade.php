@@ -108,6 +108,15 @@
     modal.find('#inviteOngId').val(recipientId);
     })
 
+    $('#leaveOngModal').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget);
+    var recipientId = button.data('id');
+    console.log(recipientId);
+
+    var modal = $(this);
+    modal.find('#leaveOngId').val(recipientId);
+    })
+
     </script>
 
     <!-- ongs section start -->
@@ -182,15 +191,20 @@
                                                 </a>
 
                                             @else
-                                                <p>Você já está participando desta Ong</p>
 
-                                                <form action="/ong/leave/{{$ong->id}}">
+                                                <!--<form action="/ong/leave/{{$ong->id}}">
                                                 @csrf
                                                 @method("DELETE")
                                                 <button type="submit" class="btn btn-danger delete-btn">
                                                     <ion-icon name="trash-outline"></ion-icon>Remover participação da Ong
                                                 </button>
-                                            </form>
+                                            </form>-->
+
+                                        <button class="btn btn-danger delete-btn">
+                                            <a href="" data-bs-toggle="modal" data-bs-target="#leaveOngModal" data-id="{{$ong->id}}" style="color:white">
+                                            Remover participação   
+                                            </a>
+                                        </button>
 
                                             @endif  
                                         </div>
@@ -297,6 +311,29 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 <button type="submit" class="btn btn-danger">Enviar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Modal -->
+<form id="leaveOngform" method="get" action="{{ route('leaveOngParticipation', $ong->id) }}">
+      <input type="hidden" name="token" value="{{csrf_token()}}">
+       <div class="modal fade" id="leaveOngModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmação</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">Você tem certeza que deseja sair desta Ong ?</p>
+            </div>
+            <input type="hidden" name="leaveOngId" id="leaveOngId" value="{{$ong->id}}">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-danger">Sim, remover</button>
             </div>
             </div>
         </div>

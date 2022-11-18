@@ -43,7 +43,7 @@ class InviteOngs extends Controller
     }
     public function acceptInvitation($id){
         $idOng = Auth::guard('ong')->user()->id;
-
+        
         $update = DB::table('adiciona_ongs')
         ->where('usuario_id',$id)
         ->where('adiciona_ongs.ong_id', $idOng)

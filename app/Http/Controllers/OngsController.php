@@ -127,9 +127,12 @@ class OngsController extends Controller
 
     }
     public function logoutOng(){
-        $ongs = Ong::all();
-       Auth::guard('ong')->logout();
-       return view('site.home', compact('ongs'));
+       $ongs = Ong::all();
+       
+       if(Auth::guard('ong')->check()){
+        Auth::guard('ong')->logout();
+        return view('site.home', compact('ongs'));
+       }
     }
     
     

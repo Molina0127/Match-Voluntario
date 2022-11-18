@@ -134,7 +134,7 @@
                                         <div class="courses-item-inner">
                                                     <?php
                                                     
-                                                    $check = DB::table('convida_ongs')
+                                                    $check = DB::table('adiciona_ongs')
                                                     ->where('status',1)->get();
                                                     if($check == true){
 
@@ -147,18 +147,30 @@
                                                 @else
                                                     <img src="{{ asset($show->user_image) }}" alt="{{$show->user_image}}" style="width: 200px; height: 200px;">
                                                 @endif
-                                                </div>
+                                                </div>                                                
                                                 <h3 class="title">{{$show->nome }} {{$show->sobrenome}}</h3>
                                                 
                                                 <br>
 
                                                 <div class="instructor" style="width: 960px; margin:auto">                                                
                                                                                                 
-                                                    <a href="/confirm/vol/{{$show->id}}/" 
-                                                    class="btn btn-primary">Aceitar pedido</a>
+                                                    <!--<a href="/confirm/vol/{{$show->id}}/" 
+                                                    class="btn btn-primary">Aceitar pedido</a>-->
 
-                                                    <a href="/invitations/del/vol{{$show->id}}/" 
-                                                    class="btn btn-danger">Recusar pedido</a>
+                                                    <a href="#confirmVol{{$show->id}}" data-bs-toggle="modal" class="btn btn-primary" style="color:white;">
+                                                    Aceitar pedido   
+                                                    </a>
+                                                    @include('site.ongs.action')
+                                                    
+                                                    <br>
+
+                                                    <!--<a href="/invitations/del/vol{{$show->id}}/" 
+                                                    class="btn btn-danger">Recusar pedido</a>-->
+
+                                                    <a href="#delcineVol{{$show->id}}" data-bs-toggle="modal" class="btn btn-danger" style="color:white;">
+                                                    Recusar pedido   
+                                                    </a>
+                                                    @include('site.ongs.decline')
                                                     <?php } ?>   
                                             
                                                 

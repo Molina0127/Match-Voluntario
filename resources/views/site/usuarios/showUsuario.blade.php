@@ -33,8 +33,8 @@
                         <li class="menu-item">
                                 <a href="{{route('showInvitations')}}">
                                     <img src="{{Vite::asset('resources/img/Icone-mensagem.png')}}">
-                                    {{App\Models\ConvidaOng::where(['status'=>null],['acceptor',Auth::guard('ong')->user(
-                                    )->id])->count()}}
+                                    {{App\Models\AdicionaOng::all()->where('status', null)->where('ong_id', Auth::guard('ong')->user(
+                                    )->id)->count()}}
                                 </a>
                             </li>
                             <li class="menu-item"><a href="{{ route('home') }}">Home</a></li>
@@ -107,6 +107,17 @@
 
     var modal = $(this);
     modal.find('#inviteUsuarioId').val(recipientId);
+    
+    })
+
+    $('#removeVolModal').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget);
+    var recipientId = button.data('id');
+    console.log(recipientId);
+
+    var modal = $(this);
+    modal.find('#removeVolId').val(recipientId);
+    
     })
 
     </script>
@@ -180,16 +191,20 @@
                                 </a>
 
                                 @else
-
-                                <p>Este voluntário já faz parte da sua Ong</p>
                                 
-                                <form action="/usuario/leave/{{$usuario->id}}">
+                                <!--<form action="/usuario/leave/{{$usuario->id}}">
                                     @csrf
                                     @method("DELETE")
                                     <button type="submit" class="btn btn-danger delete-btn">
                                         <ion-icon name="trash-outline"></ion-icon>Remover Voluntário
                                     </button>
-                                </form>
+                                </form>-->
+
+                                <button class="btn btn-danger delete-btn">
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#removeVolModal" data-id="{{$usuario->id}}" style="color:white">
+                                    Remover Voluntário   
+                                    </a>
+                                </button>
 
                             @endif
                                     </a>
@@ -295,6 +310,29 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 <button type="submit" class="btn btn-danger">Enviar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Modal -->
+<form id="removeVolform" method="get" action="{{ route('removeVolunteer', $usuario->id) }}">
+      <input type="hidden" name="token" value="{{csrf_token()}}">
+       <div class="modal fade" id="removeVolModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmação</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">Você tem certeza que deseja remover este voluntário ?</p>
+            </div>
+            <input type="hidden" name="removeVolId" id="removeVolId" value="{{$usuario->id}}">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-danger">Sim, remover</button>
             </div>
             </div>
         </div>

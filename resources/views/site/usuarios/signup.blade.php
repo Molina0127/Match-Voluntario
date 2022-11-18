@@ -4,11 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <title>Cadastre-se</title>
 </head>
+
+<style>
+
+    .error{
+        color:red;
+        font-weight: 700;
+        display: block;
+        padding: 6px 0;
+        font-size:14px;
+    }
+    .form-control.error{
+        border-color:red;
+        padding: .375rem .75rem;
+
+    }
+
+</style>
+
 <body>
 
     <!-- main wrapper start -->
@@ -83,7 +103,7 @@
                         </p>
                     @endif
 
-                    <form action="{{route('saveUsuario')}}" method="post" enctype="multipart/form-data">
+                    <form id="signupvalidation" action="{{route('saveUsuario')}}" method="post" enctype="multipart/form-data">
                         @csrf
                                 
                             <div class="textfield">
@@ -153,7 +173,7 @@
                                 <label for="cidade">{{ __('Cidade') }}</label>
 
                                 <div class="textfield">
-                                    <input id="cidade" type="text" class="form-control @error('cidade') is-invalid @enderror" name="cidade" value="{{ old('cidade') }}" readonly required autocomplete="cidade" autofocus>
+                                    <input id="cidade" type="text" class="form-control @error('cidade') is-invalid @enderror" name="cidade" value="{{ old('cidade') }}" readonly autocomplete="cidade" autofocus>
                                 </div>
                             </div>
 
@@ -163,7 +183,7 @@
                                 <label for="estado">{{ __('Estado') }}</label>
 
                                 <div class="textfield">
-                                    <input id="estado" type="text" class="form-control @error('estado') is-invalid @enderror" name="estado" value="{{ old('estado') }}" readonly required autocomplete="estado" autofocus>
+                                    <input id="estado" type="text" class="form-control @error('estado') is-invalid @enderror" name="estado" value="{{ old('estado') }}" readonly autocomplete="estado" autofocus>
                                 </div>
                             </div>  
 
@@ -386,3 +406,118 @@
 </body>
 
 </html>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+
+    <script type="text/javascript">
+
+    $(document).ready(function(){
+            $('#cep').mask('00000-000');
+            $('#cpf').mask('000.000.000-00', {reverse: true});
+
+            });
+
+            jQuery.validator.addMethod("cpf", function(value, element) {
+            value = jQuery.trim(value);
+
+                value = value.replace('.','');
+                value = value.replace('.','');
+                cpf = value.replace('-','');
+                while(cpf.length < 11) cpf = "0"+ cpf;
+                var expReg = /^0+$|^1+$|^2+$|^3+$|^4+$|^5+$|^6+$|^7+$|^8+$|^9+$/;
+                var a = [];
+                var b = new Number;
+                var c = 11;
+                for (i=0; i<11; i++){
+                    a[i] = cpf.charAt(i);
+                    if (i < 9) b += (a[i] * --c);
+                }
+                if ((x = b % 11) < 2) { a[9] = 0 } else { a[9] = 11-x }
+                b = 0;
+                c = 11;
+                for (y=0; y<10; y++) b += (a[y] * c--);
+                if ((x = b % 11) < 2) { a[10] = 0; } else { a[10] = 11-x; }
+
+                var retorno = true;
+                if ((cpf.charAt(9) != a[9]) || (cpf.charAt(10) != a[10]) || cpf.match(expReg)) retorno = false;
+
+                return this.optional(element) || retorno;
+
+            }, );
+
+
+    </script>
+
+    <script>
+
+        jQuery.validator.addMethod("lettersonly", function(value, element) {
+            return this.optional(element) || /^[a-z\s]+$/i.test(value);
+        }, ); 
+        
+        $(document).ready(function() {
+            $.validator.addMethod("pwcheck", function(value, element, args) {
+            return /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])/.test(value);
+        }, 
+    );
+});
+        $("#signupvalidation").validate({
+                rules:{
+                    nome:{
+                        required:true,
+                        lettersonly:true,
+                    },
+                    sobrenome:{
+                        required:true,
+                        lettersonly:true,
+                    },
+                    email:{
+                        required:true,
+                        email:true,
+                    },
+                    cep:{
+                        required:true,
+                    },
+                    datanasc:{
+                        required:true,
+                    },
+                    cpf:{
+                        required:true,
+                        cpf:true,
+                    },
+                    password:{
+                        required:true,
+                        minlength:8,
+                        pwcheck:true,
+                    }
+                },
+                messages:{
+                    nome:{
+                        required: "Este campo é obrigatório",
+                        lettersonly: "Informe apenas caracteres alfabéticos",
+                    },
+                    sobrenome:{
+                        required: "Este campo é obrigatório",
+                        lettersonly: "Informe apenas caracteres alfabéticos",
+                    },
+                    email:{
+                        required: "Este campo é obrigatório",
+                        email: "Informe um e-mail válido",
+                    },
+                    cep: "Este campo é obrigatório",
+                    datanasc: "Este campo é obrigatório",
+                    cpf: {
+                        required: "Este campo é obrigatório",
+                        cpf: "CPF Inválido",
+                    },
+                    password:{
+                        required: "Este campo é obrigatório",
+                        minlength: "A senha deve conter ao mínimo 8 caracteres",
+                        pwcheck:"A senha deve conter ao menos 1 letra maiúscula, 1 minúscula, 1 número e 1 caracter especial",
+                    },
+                },
+                
+            });
+    </script>

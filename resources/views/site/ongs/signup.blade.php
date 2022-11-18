@@ -4,11 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <title>Cadastre-se</title>
 </head>
+
+<style>
+
+    .error{
+        color:red;
+        font-weight: 700;
+        display: block;
+        padding: 6px 0;
+        font-size:14px;
+    }
+    .form-control.error{
+        border-color:red;
+        padding: .375rem .75rem;
+
+    }
+
+</style>
+
 <body>
 
     <!-- main wrapper start -->
@@ -89,7 +109,7 @@
                         </p>
                     @endif
 
-                    <form action="{{route('saveOng')}}" method="post" enctype="multipart/form-data">
+                    <form id="singupOngValidation" action="{{route('saveOng')}}" method="post" enctype="multipart/form-data">
                         @csrf
                                 
                         <div class="textfield">
@@ -183,7 +203,7 @@
                             <label for="ong_city">{{ __('Cidade') }}</label>
 
                             <div class="textfield">
-                                <input id="ong_city" type="text" class="form-control @error('ong_city') is-invalid @enderror" name="ong_city" value="{{ old('ong_city') }}" readonly required autocomplete="ong_city" autofocus>
+                                <input id="ong_city" type="text" class="form-control @error('ong_city') is-invalid @enderror" name="ong_city" value="{{ old('ong_city') }}" readonly autocomplete="ong_city" autofocus>
                             </div>
                         </div>
 
@@ -191,7 +211,7 @@
                             <label for="ong_state">{{ __('Estado') }}</label>
 
                             <div class="textfield">
-                                <input id="ong_state" type="text" class="form-control @error('ong_state') is-invalid @enderror" name="ong_state" value="{{ old('ong_state') }}" readonly required autocomplete="ong_state" autofocus>
+                                <input id="ong_state" type="text" class="form-control @error('ong_state') is-invalid @enderror" name="ong_state" value="{{ old('ong_state') }}" readonly autocomplete="ong_state" autofocus>
                             </div>
                         </div>            
                         
@@ -259,7 +279,7 @@
 
             function limpa_formulário_cep() {
                     //Limpa valores do formulário de cep.
-                    document.getElementById('ong_city').value("");
+                    document.getElementById('ong_city').value=("");
                     document.getElementById('ong_state').value=("");
             }
 
@@ -385,3 +405,146 @@
 </body>
 
 </html>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+
+    <script type="text/javascript">
+
+    $(document).ready(function(){
+            $('#ong_cep').mask('00000-000');
+            $('#cnpj').mask('00.000.000/0000-00', {reverse: true});
+
+            });
+
+            jQuery.validator.addMethod("cnpj", function(cnpj, element) {
+            cnpj = cnpj.replace('/','');
+            cnpj = cnpj.replace('.','');
+            cnpj = cnpj.replace('.','');
+            cnpj = cnpj.replace('-','');
+
+            var numeros, digitos, soma, i, resultado, pos, tamanho,
+            digitos_iguais;
+            digitos_iguais = 1;
+
+            if (cnpj.length < 14 && cnpj.length < 15){
+            return false;
+            }
+            for (i = 0; i < cnpj.length - 1; i++){
+            if (cnpj.charAt(i) != cnpj.charAt(i + 1)){
+            digitos_iguais = 0;
+            break;
+            }
+            }
+
+            if (!digitos_iguais){
+            tamanho = cnpj.length - 2
+            numeros = cnpj.substring(0,tamanho);
+            digitos = cnpj.substring(tamanho);
+            soma = 0;
+            pos = tamanho - 7;
+
+            for (i = tamanho; i >= 1; i--){
+                soma += numeros.charAt(tamanho - i) * pos--;
+                if (pos < 2){
+                pos = 9;
+                }
+            }
+            resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+                if (resultado != digitos.charAt(0)){
+                return false;
+            }
+                tamanho = tamanho + 1;
+                numeros = cnpj.substring(0,tamanho);
+                soma = 0;
+            pos = tamanho - 7;
+            for (i = tamanho; i >= 1; i--){
+                soma += numeros.charAt(tamanho - i) * pos--;
+                if (pos < 2){
+                pos = 9;
+                }
+            }
+            resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+                if (resultado != digitos.charAt(1)){
+                return false;
+                }
+                return true;
+                }else{
+                    return false;
+                }
+        }, );
+
+    </script>
+    
+    <script>
+
+    jQuery.validator.addMethod("lettersonly", function(value, element) {
+            return this.optional(element) || /^[a-z\s]+$/i.test(value);
+        }, ); 
+        
+        $(document).ready(function() {
+            $.validator.addMethod("strengthPassword", function(value, element, args) {
+            return /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])/.test(value);
+        }, 
+    );
+});
+
+        $("#singupOngValidation").validate({
+            rules:{
+                ong_name:{
+                    required:true,
+                },
+                ong_email:{
+                    required:true,
+                    email:true,
+                },
+                cnpj:{
+                    required:true,
+                    cnpj:true,
+                },
+                owner:{
+                    required:true,
+                    lettersonly:true,
+                },
+                description:{
+                    required:true,
+                },
+                ong_cep:{
+                    required:true,
+                },
+                password:{
+                    required:true,
+                    minlength:8,
+                    strengthPassword:true,
+
+                },
+            },
+            messages:{
+                ong_name: "Este campo é obrigatório",
+                ong_email:{
+                    required: "Este campo é obrigatório",
+                    email: "Informe um e-mail válido",
+                },
+                cnpj:{
+                    required: "Este campo é obrigatório",
+                    cnpj: "CNPJ Inválido",
+
+                },
+                owner:{
+                    required: "Este campo é obrigatório",
+                    lettersonly:"Informe apenas caracteres alfabéticos",
+                },
+                description: "Este campo é obrigatório",
+                ong_cep: "Este campo é obrigatório",
+                password:{
+                    required: "Este campo é obrigatório",
+                    minlength: "A senha deve conter ao mínimo 8 caracteres",
+                    strengthPassword: "A senha deve conter ao menos 1 letra maiúscula, 1 minúscula, 1 número e 1 caracter especial",
+                },
+
+            },
+        });
+
+    </script>

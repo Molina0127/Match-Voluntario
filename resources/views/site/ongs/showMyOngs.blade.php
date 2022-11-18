@@ -148,16 +148,6 @@
                                             
                         </button>
                     </div>
-                        
-                        <br>
-                
-                    <form action="/ong/leave/{{$ong->id}}">
-                            @csrf
-                            @method("DELETE")
-                         <button type="submit" class="btn btn-danger delete-btn">
-                            <ion-icon name="trash-outline"></ion-icon>Remover participação da Ong
-                        </button>
-                    </form>
             </div>  
                 </a>
                   </div>
