@@ -26,6 +26,13 @@
         padding: .375rem .75rem;
 
     }
+    input.invalid, textarea.invalid{
+	border: 2px solid red;
+    }
+
+    input.valid, textarea.valid{
+        border: 2px solid green;
+    }
 
 </style>
 
@@ -406,6 +413,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+    <script type="text/javascript" src="jquery.min.js">
+
+    $('#cep').on('input', function() {
+        var input=$(this);
+        var is_cep=input.val();
+        if(is_cep){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+    });
+    $('#password').on('input', function() {
+        var input=$(this);
+        var is_password=input.val();
+        if(is_password){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+    });
+
+    </script>
 
     <script type="text/javascript">
 
