@@ -1,3 +1,4 @@
+<?php use Illuminate\Support\Facades\DB; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -84,44 +85,6 @@
         </section>
         <!-- banner section end -->
 
-        <!-- fun facts section start -->
-        <section class="fun-facts-section">
-            <div class="container">
-                <div class="box py-2">
-                    <div class="row text-center">
-                        <div class="col-md-6 col-lg-3">
-                            <div class="fun-facts-item">
-                                <h2 class="style-1">20+</h2>
-                                <p>Números de Voluntários</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-lg-3">
-                            <div class="fun-facts-item">
-                                <h2 class="style-2">20+</h2>
-                                <p>Ongs Cadastradas</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-lg-3">
-                            <div class="fun-facts-item">
-                                <h2 class="style-3">10+</h2>
-                                <p>Categorias</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-lg-3">
-                            <div class="fun-facts-item">
-                                <h2 class="style-4">30+</h2>
-                                <p>Matchs</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- fun facts section end -->
 
         <!-- ongs section start -->
         <section class="courses-section section-padding">
@@ -138,6 +101,7 @@
                 <div class="row">
                     <!-- courses item start -->
                     @foreach($ongs as $ong)
+                    @if(DB::table('ongs')->count() < 10)
                             <div class="col-md-6 col-lg-3">
                                 <div class="courses-item">
                                     <a href="#" class="link">
@@ -158,6 +122,9 @@
                                     </a>
                                 </div>
                             </div>
+                            @else 
+                            
+                            @endif
                             @endforeach
                     <!-- courses item end -->
 

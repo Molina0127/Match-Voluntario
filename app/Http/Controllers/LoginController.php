@@ -102,7 +102,7 @@ class LoginController extends Controller
             
             
         ],[
-            'ong_email.required'=> 'E-mail Ong é obrigatório',
+            'ong_email.required'=> 'E-mail da Ong é obrigatório',
             'password.required'=> 'Senha é obrigatória'
         ]);
         if(Auth::guard('ong')->attempt($credentials)){

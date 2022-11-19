@@ -252,6 +252,13 @@ h3 {
     top: 43px;
     cursor: pointer;
 }
+#eye-ong-edit{
+    position: absolute;
+    right:37px;
+    bottom:4px;
+    top:70px;
+    cursor:pointer;
+}
 
 .form-control {
     height: 48px;

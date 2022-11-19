@@ -4,11 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <title>Login</title>
 </head>
+
+<style>
+
+    .error{
+        color:red;
+        font-weight: 700;
+        display: block;
+        padding: 6px 0;
+        font-size:14px;
+    }
+    .form-control.error{
+        border-color:red;
+        padding: .375rem .75rem;
+
+    }
+    input.invalid, textarea.invalid{
+	border: 2px solid red;
+    }
+
+    input.valid, textarea.valid{
+        border: 2px solid green;
+    }
+
+</style>
+
+
 <body>
 
     <!-- main wrapper start -->
@@ -74,7 +102,7 @@
                 <div class="col-md-7 col-lg-6 col-xl-5">
                     <div class="login-form box">
                         <h2 class="form-title text-center">Login</h2>
-                        <form action="{{route('authUsuario')}}" method="post">
+                        <form id="loginValidation" action="{{route('authUsuario')}}" method="post">
                             
                             @if(Session::get('fail'))
                                 <div class="alert alert-danger">
@@ -204,3 +232,60 @@
 </body>
 
 </html>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+
+    <script type="text/javascript" src="jquery.min.js">
+
+        $('#email').on('input', function() {
+            var input=$(this);
+            var is_email=input.val();
+            if(is_email){input.removeClass("invalid").addClass("valid");}
+            else{input.removeClass("valid").addClass("invalid");}
+        });
+        $('#password').on('input', function() {
+            var input=$(this);
+            var is_password=input.val();
+            if(is_password){input.removeClass("invalid").addClass("valid");}
+            else{input.removeClass("valid").addClass("invalid");}
+        });
+
+    </script>
+
+    <script>
+
+
+$(document).ready(function() {
+            $.validator.addMethod("pwcheck", function(value, element, args) {
+            return /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])/.test(value);
+        }, 
+    );
+});
+
+    $("#loginValidation").validate({
+                rules:{
+                    email:{
+                        required:true,
+                        email:true,
+                    },
+                    password:{
+                        required:true,
+                        pwcheck:true,  
+                    },
+                },
+                messages:{
+                    email:{
+                        required: "Este campo é obrigatório",
+                        email: "Informe um e-mail váido",
+                    },
+                    password:{
+                        required: "Este campo é obrigatório",
+                        minlength: "A senha deve conter ao mínimo 8 caracteres",
+                        pwcheck:"A senha deve conter ao menos 1 letra maiúscula, 1 minúscula, 1 número e 1 caractere especial",
+                    },
+                },
+                
+            });   
+
+    </script>

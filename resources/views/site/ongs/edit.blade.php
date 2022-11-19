@@ -4,11 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     
     @vite(['resources/js/app.js'])
 
     <title>Configurações</title>
 </head>
+
+<style>
+
+    .error{
+        color:red;
+        font-weight: 700;
+        display: block;
+        padding: 6px 0;
+        font-size:14px;
+    }
+    .form-control.error{
+        border-color:red;
+        padding: .375rem .75rem;
+
+    }
+
+</style>
+
+
 <body>
 
 <div class="main-wrapper">
@@ -181,7 +202,7 @@ $('#delModal').on('show.bs.modal', function(event) {
 
             <div class="row">
                 <div class="col-12 mt-3">
-                <form enctype="multipart/form-data" action="{{route('atualizarOng', ['id'=>$ong->id])}}" method="post">
+                <form id="editOngValidation" enctype="multipart/form-data" action="{{route('atualizarOng', ['id'=>$ong->id])}}" method="post">
         @csrf
         @method('PATCH')
 
@@ -204,6 +225,8 @@ $('#delModal').on('show.bs.modal', function(event) {
                         {{session()->get('notfound_ong')}}
                     </p>
         @endif
+
+        <br>
 
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -238,6 +261,8 @@ $('#delModal').on('show.bs.modal', function(event) {
                             </div>
                         </div>
 
+                        <br>
+
                         <div class="textfield">
                             <label for="description">{{ __('Descrição') }}</label>
 
@@ -251,6 +276,8 @@ $('#delModal').on('show.bs.modal', function(event) {
                                 @enderror
                             </div>
                         </div>
+
+                        <br>
 
                         <div class="textfield">
                             <label for="ong_cep">{{ __('CEP') }}</label>
@@ -266,12 +293,14 @@ $('#delModal').on('show.bs.modal', function(event) {
                             </div>
                         </div>
 
+                        <br>
+
 
                         <div class="textfield">
                             <label for="ong_city">{{ __('Cidade') }}</label>
 
                             <div class="textfield">
-                                <input id="ong_city" type="text" class="form-control @error('ong_city') is-invalid @enderror" name="ong_city" readonly value="{{ $ong->ong_city }}" required autocomplete="ong_city">
+                                <input id="ong_city" type="text" class="form-control @error('ong_city') is-invalid @enderror" name="ong_city" readonly value="{{ $ong->ong_city }}" autocomplete="ong_city">
 
                                 @error('ong_city')
                                     <span class="invalid-feedback" role="alert">
@@ -281,11 +310,13 @@ $('#delModal').on('show.bs.modal', function(event) {
                             </div>
                         </div>
 
+                        <br>
+
                         <div class="textfield">
                             <label for="ong_state">{{ __('Estado') }}</label>
 
                             <div class="textfield">
-                                <input id="ong_state" type="text" class="form-control @error('ong_state') is-invalid @enderror" name="ong_state" readonly value="{{ $ong->ong_state }}" required autocomplete="ong_state">
+                                <input id="ong_state" type="text" class="form-control @error('ong_state') is-invalid @enderror" name="ong_state" readonly value="{{ $ong->ong_state }}" autocomplete="ong_state">
 
                                 @error('ong_state')
                                     <span class="invalid-feedback" role="alert">
@@ -295,6 +326,8 @@ $('#delModal').on('show.bs.modal', function(event) {
                             </div>
                         </div>
                         
+                        <br>
+
                         <div class="textfield">
                             <label for="password">{{ __('Nova Senha') }}</label>
 
@@ -309,6 +342,7 @@ $('#delModal').on('show.bs.modal', function(event) {
                             </div>
                         </div>
 
+                        <br>
                         <br>
             
                     <div class="button">
@@ -391,6 +425,75 @@ $('#delModal').on('show.bs.modal', function(event) {
 
 </body>
 </html>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $('#ong_cep').mask('00000-000');
+
+        });
+
+    </script>
+
+    <script>
+
+    jQuery.validator.addMethod("lettersonly", function(value, element) {
+                return this.optional(element) || /^[a-z\s]+$/i.test(value);
+            }, ); 
+
+    function isPasswordPresent() {
+        return $('#password').val().length > 0;
+    }
+
+    $(document).ready(function() {
+            $.validator.addMethod("strengthPassword", function(value, element, args) {
+            return /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/.test(value);
+        }, 
+    );
+});
+
+$("#editOngValidation").validate({
+                rules:{
+                    owner:{
+                    required:true,
+                    lettersonly:true,
+                  },
+                    description:{
+                    required:true,
+                  },
+                  ong_cep:{
+                    required:true,
+                  },
+                    password:{
+                        strengthPassword:{
+                            depends:isPasswordPresent,
+                            param:true,
+                        }
+                        
+                    }
+                },
+                messages:{
+                    owner:{
+                    required: "Este campo é obrigatório",
+                    lettersonly:"Informe apenas caracteres alfabéticos",
+                   },
+                    description: "Este campo é obrigatório",
+                    ong_cep: "Este campo é obrigatório",
+                    password:{
+                        minlength: "A senha deve conter ao mínimo 8 caracteres",
+                        strengthPassword:"A senha deve conter 8 caracteres e ao menos 1 letra maiúscula, 1 minúscula, 1 número e 1 caractere especial",
+                    },
+                },
+                
+            });
+
+
+
+    </script>
 
 <!-- Modal -->
 <form id="deleteform" method="get" action="{{ route('excluirOng', $ong->id) }}">
