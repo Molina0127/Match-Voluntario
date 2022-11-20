@@ -252,11 +252,11 @@ h3 {
     top: 43px;
     cursor: pointer;
 }
-#eye-ong-edit{
+#togglePassword{
     position: absolute;
     right:37px;
     bottom:4px;
-    top:70px;
+    top:19px;
     cursor:pointer;
 }
 

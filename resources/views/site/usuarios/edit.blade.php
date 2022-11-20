@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     
@@ -290,7 +291,7 @@
 
                             <div class="textfield">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
-                                <i class="fa-solid fa-eye" aria-hidden="true" id="eye-user-signup" onclick="toggle()"></i>
+                                <i class="far fa-eye" aria-hidden="true" id="eye-user-signup" onclick="toggle()"></i>
                                     <script>
                                     var state= false;
                                     function toggle(){
@@ -326,9 +327,9 @@
             
             <div class="button">
                 
-                        <button type="submit">Atualizar</button>
-                        <button class="delete" style="position: absolute; right: 0;">
-                            <a href="" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="{{$usuario->id}}">
+                        <button type="submit" class="btn btn-primary">Atualizar</button>
+                        <button class="delete btn btn-danger" style="position: absolute; right: 0;">
+                            <a href="" data-bs-toggle="modal" data-bs-target="#deleteModal" style="color:white" data-id="{{$usuario->id}}">
                                 Excluir Perfil    
                             </a>
                                             
@@ -414,7 +415,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
-    <script type="text/javascript" src="jquery.min.js">
+    <script type="text/javascript">
 
     $('#cep').on('input', function() {
         var input=$(this);
